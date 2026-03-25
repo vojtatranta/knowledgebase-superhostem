@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Base | Superhostem.cz</title>
+  <style>
+    :root {
+      --bg: #f5efe3;
+      --bg-soft: #fbf8f2;
+      --paper: rgba(255, 252, 246, 0.88);
+      --text: #1f2a24;
+      --muted: #5f6d62;
+      --line: rgba(31, 42, 36, 0.12);
+      --accent: #0f766e;
+      --accent-strong: #0b5d57;
+      --accent-soft: rgba(15, 118, 110, 0.12);
+      --warm: #bf6b34;
+      --warm-soft: rgba(191, 107, 52, 0.12);
+      --shadow: 0 22px 55px rgba(56, 47, 30, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1220px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(191, 107, 52, 0.15), transparent 30%),
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.18), transparent 28%),
+        linear-gradient(180deg, #f8f3e8 0%, #f4ecde 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 24px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), #6aa99c);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .topnav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .topnav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.45);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 42px;
+      border-radius: 36px;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 242, 0.96), rgba(247, 242, 232, 0.88)),
+        var(--paper);
+      border: 1px solid rgba(31, 42, 36, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 118, 110, 0.2), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.06;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin-top: 18px;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 28px;
+      margin-top: 20px;
+      align-items: end;
+    }
+
+    .hero-copy p {
+      max-width: 56ch;
+      margin: 18px 0 0;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .search-panel {
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(31, 42, 36, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .search-label {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: var(--bg-soft);
+      border: 1px solid rgba(31, 42, 36, 0.1);
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .quick-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid rgba(31, 42, 36, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      max-width: 58ch;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .situation-grid,
+    .category-grid,
+    .article-grid,
+    .integration-grid,
+    .advantage-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .situation-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(31, 42, 36, 0.08);
+      box-shadow: 0 10px 30px rgba(56, 47, 30, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .tone-start { background: linear-gradient(180deg, rgba(15, 118, 110, 0.12), rgba(255,255,255,0.75)); }
+    .tone-money { background: linear-gradient(180deg, rgba(191, 107, 52, 0.14), rgba(255,255,255,0.75)); }
+    .tone-fix { background: linear-gradient(180deg, rgba(155, 76, 54, 0.14), rgba(255,255,255,0.75)); }
+
+    .category-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .category-card {
+      min-height: 240px;
+    }
+
+    .category-tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(31, 42, 36, 0.08);
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .article-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .article-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 220px;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      border: 1px solid rgba(31, 42, 36, 0.1);
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
+    }
+
+    .article-card strong {
+      font-size: 1.2rem;
+      line-height: 1.35;
+    }
+
+    .article-card footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .comparison .card {
+      min-height: 100%;
+    }
+
+    .comparison h3 {
+      margin-bottom: 16px;
+    }
+
+    .integration-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .integration-card {
+      min-height: 260px;
+    }
+
+    .advantage-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .advantage-grid .card {
+      min-height: 180px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(31, 42, 36, 0.08);
+    }
+
+    .step span {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--warm);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    .cta-banner {
+      margin-top: 34px;
+      padding: 28px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, #17463f, #0f766e 58%, #6aa99c);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-banner p {
+      max-width: 60ch;
+      margin: 12px 0 0;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .button-primary {
+      background: white;
+      color: #12403a;
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    footer.page-footer {
+      margin-top: 32px;
+      padding: 10px 4px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .category-grid,
+      .advantage-grid,
+      .process {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .situation-grid,
+      .article-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(calc(100% - 20px), var(--max));
+        padding-top: 14px;
+      }
+
+      .topbar,
+      .section-head,
+      .comparison,
+      .integration-grid,
+      .hero-grid,
+      .situation-grid,
+      .category-grid,
+      .article-grid,
+      .advantage-grid,
+      .process,
+      .hero-stats {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .topbar {
+        gap: 14px;
+      }
+
+      .topnav {
+        display: none;
+      }
+
+      .hero {
+        padding: 28px 20px;
+        border-radius: 28px;
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div>Superhostem.cz / Knowledge Base</div>
+      </div>
+      <nav class="topnav" aria-label="Hlavní navigace">
+        <a href="#situace">Podle situace</a>
+        <a href="#kategorie">Kategorie</a>
+        <a href="#mvp">MVP obsah</a>
+        <a href="#integrace">Integrace</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="eyebrow">Koncept landing page knowledge base</span>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Návody, které nevisí bokem, ale táhnou celý produkt.</h1>
+            <p>
+              Knowledge base pro Superhostem má fungovat jako kombinace onboardingového průvodce,
+              support centra, SEO vrstvy a důvěryhodného zdroje pro českou legislativu krátkodobých pronájmů.
+              Ne jen jako archiv článků.
+            </p>
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>8</strong>
+                <span>hlavních pilířů informační architektury</span>
+              </div>
+              <div class="stat">
+                <strong>15-20</strong>
+                <span>strategických článků pro silné MVP spuštění</span>
+              </div>
+              <div class="stat">
+                <strong>3</strong>
+                <span>vrstvy hodnoty: web, appka, legislativní důvěra</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="search-panel" aria-label="Vyhledávání nápovědy">
+            <label class="search-label" for="kb-search">Zkuste, jak by mohl fungovat hlavní vstup</label>
+            <div class="search-box" id="kb-search">Hledat: „Jak napojit Airbnb?“</div>
+            <div class="quick-chips">
+              <a class="chip" href="#situace">Začínám</a>
+              <a class="chip" href="#mvp">Napojení Airbnb</a>
+              <a class="chip" href="#mvp">Poplatek z pobytu</a>
+              <a class="chip" href="#integrace">Něco nefunguje</a>
+              <a class="chip" href="#mvp">Email forwarding</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="situace">
+        <div class="section-head">
+          <div>
+            <h2>Rychlé vstupy podle situace</h2>
+            <p>
+              Tohle je jeden z hlavních rozdílů oproti Airbo. Uživatel nemá přemýšlet, do jaké kategorie patří problém.
+              Má si rovnou vybrat situaci, ve které se právě nachází.
+            </p>
+          </div>
+        </div>
+        <div class="situation-grid">
+          <article class="card tone-start">
+            <h3>Začínám</h3>
+            <p>První přihlášení, nastavení účtu, přidání první nemovitosti a připojení prvního zdroje rezervací.</p>
+            <ul>
+              <li>Spustit účet za 20 minut</li>
+              <li>Přidat první apartmán</li>
+              <li>Zkontrolovat první data</li>
+            </ul>
+          </article>
+          <article class="card tone-money">
+            <h3>Řeším finance</h3>
+            <p>Jak fungují tržby, párování emailů, proč částky nesedí a jak číst finanční přehledy.</p>
+            <ul>
+              <li>Email forwarding</li>
+              <li>Párování rezervací a plateb</li>
+              <li>Nesedící částky</li>
+            </ul>
+          </article>
+          <article class="card tone-fix">
+            <h3>Něco nefunguje</h3>
+            <p>Samostatná troubleshooting vrstva pro kalendáře, rezervace, automatizace a chybějící data.</p>
+            <ul>
+              <li>Kalendář se nenačítá</li>
+              <li>Chybí rezervace</li>
+              <li>Automatizace se nespustila</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="kategorie">
+        <div class="section-head">
+          <div>
+            <h2>Hlavní kategorie knowledge base</h2>
+            <p>
+              Místo dvou obecných bloků je struktura rozdělená podle reálného provozu hostitele.
+              Díky tomu je navigace přirozenější a lépe škáluje s dalším obsahem.
+            </p>
+          </div>
+        </div>
+        <div class="category-grid">
+          <article class="card category-card">
+            <span class="category-tag">01</span>
+            <h3>Začínáme</h3>
+            <p>Onboarding nového uživatele, první kroky, první nemovitost a první zdroj rezervací.</p>
+          </article>
+          <article class="card category-card">
+            <span class="category-tag">02</span>
+            <h3>Nemovitosti a kalendáře</h3>
+            <p>iCal, Airbnb, Booking.com, blokace termínů, ruční rezervace a synchronizační problémy.</p>
+          </article>
+          <article class="card category-card">
+            <span class="category-tag">03</span>
+            <h3>Rezervace a provoz</h3>
+            <p>Detail rezervací, údaje o hostech, obsazenost, denní workflow a provozní přehled.</p>
+          </article>
+          <article class="card category-card">
+            <span class="category-tag">04</span>
+            <h3>Tržby a finance</h3>
+            <p>Vysvětlení příjmů, fee položek, párování emailů a důvodů, proč čísla někdy nesedí.</p>
+          </article>
+          <article class="card category-card">
+            <span class="category-tag">05</span>
+            <h3>Automatizace a komunikace</h3>
+            <p>Workflow, trigerry, šablony, kontrola automatizací a oprava chyb ve spuštění.</p>
+          </article>
+          <article class="card category-card">
+            <span class="category-tag">06</span>
+            <h3>Legislativa v ČR</h3>
+            <p>Poplatek z pobytu, Ubytovací kniha, Ubyport, datová schránka, DPH a provozní povinnosti.</p>
+          </article>
+          <article class="card category-card">
+            <span class="category-tag">07</span>
+            <h3>Řešení problémů</h3>
+            <p>Dedikovaná sekce pro support pain: chybějící rezervace, neúplná data nebo rozbité integrace.</p>
+          </article>
+          <article class="card category-card">
+            <span class="category-tag">08</span>
+            <h3>FAQ a slovník</h3>
+            <p>Krátké odpovědi a vysvětlení pojmů, které usnadní první orientaci v produktu i oboru.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="mvp">
+        <div class="section-head">
+          <div>
+            <h2>MVP obsah pro první verzi</h2>
+            <p>
+              První release nemusí obsahovat desítky textů. Důležité je pokrýt nejčastější workflow a support otázky
+              tak, aby knowledge base působila chytře, ne nedodělaně.
+            </p>
+          </div>
+        </div>
+        <div class="article-grid">
+          <article class="card article-card">
+            <div class="article-meta">
+              <span class="pill">Začínáme</span>
+              <span class="pill">MVP</span>
+            </div>
+            <strong>První přihlášení a úvodní nastavení účtu</strong>
+            <p>Článek pro nové uživatele, který otevře celou onboarding cestu a nastaví správná očekávání.</p>
+            <footer><span>5 min čtení</span><span>Další krok: přidat nemovitost</span></footer>
+          </article>
+          <article class="card article-card">
+            <div class="article-meta">
+              <span class="pill">Kalendáře</span>
+              <span class="pill">Airbnb</span>
+            </div>
+            <strong>Jak napojit kalendář z Airbnb</strong>
+            <p>Praktický návod na iCal propojení s navazujícím troubleshootingem pro neúplná nebo chybějící data.</p>
+            <footer><span>7 min čtení</span><span>CTA: otevřít nastavení integrace</span></footer>
+          </article>
+          <article class="card article-card">
+            <div class="article-meta">
+              <span class="pill">Kalendáře</span>
+              <span class="pill">Booking.com</span>
+            </div>
+            <strong>Jak napojit Booking.com</strong>
+            <p>Jasný postup doplněný o kontrolní checklist, aby uživatel hned věděl, zda je napojení funkční.</p>
+            <footer><span>6 min čtení</span><span>Navazuje: kontrola synchronizace</span></footer>
+          </article>
+          <article class="card article-card">
+            <div class="article-meta">
+              <span class="pill">Finance</span>
+              <span class="pill">Data</span>
+            </div>
+            <strong>Jak funguje email forwarding</strong>
+            <p>Vysvětlení klíčové výhody Superhostem: jak se z emailů rekonstruují finanční data bez oficiálních OTA API.</p>
+            <footer><span>8 min čtení</span><span>Navazuje: párování rezervací</span></footer>
+          </article>
+          <article class="card article-card">
+            <div class="article-meta">
+              <span class="pill">Legislativa</span>
+              <span class="pill">ČR</span>
+            </div>
+            <strong>Poplatek z pobytu: co musí hostitel udělat</strong>
+            <p>Praktický přehled s důrazem na důvěryhodnost: datum revize, zdroje a jasné rozlišení mezi fakty a doporučením.</p>
+            <footer><span>9 min čtení</span><span>Naposledy ověřeno: 18. 3. 2026</span></footer>
+          </article>
+          <article class="card article-card">
+            <div class="article-meta">
+              <span class="pill">Troubleshooting</span>
+              <span class="pill">Support</span>
+            </div>
+            <strong>Co dělat, když se rezervace nenačetla</strong>
+            <p>Diagnostický článek místo obyčejného návodu. Uživatel dostane konkrétní scénáře a další doporučený krok.</p>
+            <footer><span>4 min čtení</span><span>CTA: kontaktovat support až jako poslední krok</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div>
+            <h2>Proč to bude lepší než Airbo</h2>
+            <p>
+              Airbo má obsah, ale slabší systém. Superhostem může vyhrát hlavně strukturou, navigací a napojením na produkt.
+            </p>
+          </div>
+        </div>
+        <div class="comparison">
+          <article class="card">
+            <h3>Jak to dnes působí u Airbo</h3>
+            <ul>
+              <li>Dva velké bloky obsahu bez jemnější navigace.</li>
+              <li>Silnější důraz na setup než na troubleshooting.</li>
+              <li>Slabší propojení článků s konkrétní akcí v produktu.</li>
+              <li>Legislativní obsah bez dost silných trust signálů.</li>
+              <li>Nekonzistentní hloubka a standard článků.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Jak to má působit u Superhostem</h3>
+            <ul>
+              <li>Rychlé vstupy podle situace i klasické kategorie vedle sebe.</li>
+              <li>Samostatná sekce řešení problémů od první verze.</li>
+              <li>Každý článek má další krok a CTA do aplikace.</li>
+              <li>Legislativa s datem revize, vlastníkem a zdroji.</li>
+              <li>Jednotná šablona a předvídatelná kvalita napříč obsahem.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="integrace">
+        <div class="section-head">
+          <div>
+            <h2>Jak knowledge base integrovat do webu a produktu</h2>
+            <p>
+              Největší chyba by byla nechat knowledge base jen jako izolovanou stránku. Největší hodnota vzniká ve chvíli,
+              kdy se články zobrazují přesně v momentu potřeby.
+            </p>
+          </div>
+        </div>
+        <div class="integration-grid">
+          <article class="card integration-card">
+            <h3>Na marketing webu</h3>
+            <ul>
+              <li>Centrální landing page s vyhledáváním a rychlými vstupy.</li>
+              <li>FAQ bloky na homepage, pricing a kontaktu.</li>
+              <li>Propojení z feature pages na konkrétní návody.</li>
+              <li>SEO landing pages na problémy a legislativní intent.</li>
+              <li>Silné interní prolinkování mezi blogem a knowledge base.</li>
+            </ul>
+          </article>
+          <article class="card integration-card">
+            <h3>Uvnitř aplikace</h3>
+            <ul>
+              <li>Onboarding checklist navázaný na články.</li>
+              <li>Help odkazy v empty states a error states.</li>
+              <li>Doporučené články podle stavu účtu nebo chybějícího setupu.</li>
+              <li>Globální search/help modal.</li>
+              <li>Deep linky z článků přímo do relevantních obrazovek aplikace.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div>
+            <h2>Hlavní konkurenční výhody</h2>
+            <p>
+              Pokud bude knowledge base postavená tímto způsobem, nevznikne jen sekce s návody, ale skutečná produktová vrstva.
+            </p>
+          </div>
+        </div>
+        <div class="advantage-grid">
+          <article class="card">
+            <h3>Lepší navigace</h3>
+            <p>Uživatel se orientuje podle situace, ne podle interní logiky firmy.</p>
+          </article>
+          <article class="card">
+            <h3>Silnější support</h3>
+            <p>Troubleshooting není doplněk, ale jedna z hlavních kategorií.</p>
+          </article>
+          <article class="card">
+            <h3>Vyšší důvěra</h3>
+            <p>Legislativní obsah bude mít jasnou revizi, zdroje a odpovědnost.</p>
+          </article>
+          <article class="card">
+            <h3>Lepší aktivace</h3>
+            <p>Každý článek bude směřovat uživatele k další akci přímo v produktu.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div>
+            <h2>Navržený postup realizace</h2>
+            <p>
+              Tohle je přirozená roadmapa, jak z konceptu přejít do skutečné obsahové a produktové implementace.
+            </p>
+          </div>
+        </div>
+        <div class="process">
+          <article class="step">
+            <span>Krok 1</span>
+            <strong>Schválit architekturu</strong>
+            <p>Potvrdit kategorie, rychlé vstupy a hlavní směr knowledge base.</p>
+          </article>
+          <article class="step">
+            <span>Krok 2</span>
+            <strong>Sepsat MVP články</strong>
+            <p>Vybrat 15 až 20 prioritních textů pro první ostrou verzi.</p>
+          </article>
+          <article class="step">
+            <span>Krok 3</span>
+            <strong>Vytvořit šablonu článku</strong>
+            <p>Sjednotit strukturu, CTA, troubleshooting a trust signály.</p>
+          </article>
+          <article class="step">
+            <span>Krok 4</span>
+            <strong>Napojit web</strong>
+            <p>Rozprostřít knowledge base do homepage, feature pages a SEO landing pages.</p>
+          </article>
+          <article class="step">
+            <span>Krok 5</span>
+            <strong>Napojit aplikaci</strong>
+            <p>Zobrazovat články v onboarding flow, prázdných stavech a chybách.</p>
+          </article>
+          <article class="step">
+            <span>Krok 6</span>
+            <strong>Měřit dopad</strong>
+            <p>Sledovat návštěvnost, support load, aktivaci a konverzi do produktu.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-banner">
+        <h2>Knowledge base má být součást produktu, ne jen sekce v menu.</h2>
+        <p>
+          Tento HTML koncept ukazuje směr landing page i informační architektury. Další logický krok je převést ho
+          do finálního vizuálu nebo rovnou začít navrhovat jednotlivé článkové šablony a detailní strukturu první verze.
+        </p>
+        <div class="cta-actions">
+          <a class="button button-primary" href="#mvp">Projít MVP obsah</a>
+          <a class="button button-secondary" href="#integrace">Projít integraci</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      Koncept vychází ze strategie knowledge base pro Superhostem.cz a z konkurentní analýzy Airbo.
+    </footer>
+  </div>
+</body>
+</html>

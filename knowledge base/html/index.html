@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centrum pomoci | Superhostem.cz</title>
+  <style>
+    :root {
+      --bg: #f4eddf;
+      --surface: rgba(255, 251, 245, 0.92);
+      --surface-strong: rgba(255, 255, 255, 0.98);
+      --text: #1e2a25;
+      --muted: #607065;
+      --line: rgba(30, 42, 37, 0.1);
+      --accent: #0f766e;
+      --accent-soft: rgba(15, 118, 110, 0.12);
+      --warm: #b96b36;
+      --warm-soft: rgba(185, 107, 54, 0.12);
+      --shadow: 0 24px 60px rgba(67, 50, 28, 0.1);
+      --max: 1240px;
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 26%),
+        radial-gradient(circle at 85% 10%, rgba(185, 107, 54, 0.14), transparent 24%),
+        linear-gradient(180deg, #f8f1e7 0%, #f1e6d5 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    p, li { color: var(--muted); line-height: 1.7; font-size: 1rem; }
+    h1, h2, h3 { margin: 0; line-height: 1.08; letter-spacing: -0.02em; }
+
+    .page {
+      width: min(calc(100% - 24px), var(--max));
+      margin: 0 auto;
+      padding: 24px 0 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), #79b5a8);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 34px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(255, 250, 243, 0.98), rgba(247, 240, 228, 0.92));
+      border: 1px solid rgba(30, 42, 37, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-top: 16px;
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      max-width: 10ch;
+    }
+
+    .hero p {
+      margin: 16px 0 0;
+      max-width: 62ch;
+      font-size: 1.08rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .hero-link {
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    section {
+      margin-top: 24px;
+    }
+
+    .section-intro {
+      margin-bottom: 14px;
+    }
+
+    .section-intro p {
+      margin: 10px 0 0;
+      max-width: 62ch;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      border: 1px solid rgba(30, 42, 37, 0.08);
+      box-shadow: 0 12px 28px rgba(67, 50, 28, 0.06);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+
+    .card ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    .card li + li {
+      margin-top: 4px;
+    }
+
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .card-link {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 0.92rem;
+    }
+
+    .quick-card {
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(255, 255, 255, 0.9));
+    }
+
+    .guide-card {
+      background: linear-gradient(135deg, rgba(185, 107, 54, 0.09), rgba(255, 255, 255, 0.92));
+    }
+
+    .help-card {
+      background: linear-gradient(135deg, rgba(30, 42, 37, 0.05), rgba(255, 255, 255, 0.92));
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--warm-soft);
+      border: 1px solid rgba(185, 107, 54, 0.14);
+    }
+
+    .legacy {
+      margin-top: 26px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div>Superhostem.cz / Centrum pomoci</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <span class="eyebrow">Jedno jasné místo</span>
+      <h1>Centrum pomoci pro zákazníka.</h1>
+      <p>
+        Tohle je hlavní vstup. Není to jen knowledge base. Je to přehledně rozdělené na tři vrstvy:
+        <strong>Quick start</strong>, <strong>Návody krok za krokem</strong> a <strong>Nápověda / reference</strong>.
+        Díky tomu je hned jasné, kam má uživatel kliknout podle situace.
+      </p>
+      <div class="hero-links">
+        <a class="hero-link" href="#quick-start">Quick start</a>
+        <a class="hero-link" href="#guides">Návody krok za krokem</a>
+        <a class="hero-link" href="#help">Nápověda / reference</a>
+      </div>
+    </section>
+
+    <section id="quick-start">
+      <div class="section-intro">
+        <h2>1. Quick start</h2>
+        <p>Sem patří rychlé spuštění účtu. Uživatel nechce číst dlouhé články, chce vědět co má udělat teď hned.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card quick-card">
+          <h3>První přihlášení</h3>
+          <p>Co uvidíte po loginu, kde je onboarding blok a jak se zorientovat v levém menu.</p>
+          <div class="card-links">
+            <a class="card-link" href="./prvni-prihlaseni-a-orientace-v-uctu.html">Otevřít návod</a>
+          </div>
+        </article>
+        <article class="card quick-card">
+          <h3>První nemovitost</h3>
+          <p>Nejrychlejší cesta k prvnímu funkčnímu setupu přes `Přehled` nebo `Nemovitosti`.</p>
+          <div class="card-links">
+            <a class="card-link" href="./jak-pridat-novou-nemovitost.html">Otevřít návod</a>
+            <a class="card-link" href="./jak-funguje-napojeni-pres-ical.html">Jak získat iCal</a>
+          </div>
+        </article>
+        <article class="card quick-card">
+          <h3>Chybí mi údaje</h3>
+          <p>Mini rozcestník pro Ubyport, licenci, poplatky obci a další povinné vstupy před spuštěním.</p>
+          <div class="card-links">
+            <a class="card-link" href="../knowledge-base-site.html#quick-setup">Otevřít quick setup</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="guides">
+      <div class="section-intro">
+        <h2>2. Návody krok za krokem</h2>
+        <p>Sem patří konkrétní praktické tutorialy. Uživatel ví, co chce udělat, a potřebuje přesný postup.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card guide-card">
+          <h3>Začínáme a nastavení účtu</h3>
+          <ul>
+            <li><a href="./prvni-prihlaseni-a-orientace-v-uctu.html">První přihlášení a orientace v účtu</a></li>
+            <li><a href="./jak-upravit-profil-v-nastaveni.html">Jak upravit profil v nastavení</a></li>
+          </ul>
+        </article>
+        <article class="card guide-card">
+          <h3>Nemovitosti a kalendáře</h3>
+          <ul>
+            <li><a href="./jak-pridat-novou-nemovitost.html">Jak přidat novou nemovitost</a></li>
+            <li><a href="./jak-funguje-napojeni-pres-ical.html">Jak funguje napojení přes iCal</a></li>
+          </ul>
+        </article>
+        <article class="card guide-card">
+          <h3>Rezervace a provoz</h3>
+          <ul>
+            <li><a href="./jak-funguje-prehled-rezervaci.html">Jak funguje přehled rezervací</a></li>
+            <li><a href="./co-vsechno-najdu-v-detailu-rezervace.html">Co všechno najdu v detailu rezervace</a></li>
+          </ul>
+        </article>
+        <article class="card guide-card">
+          <h3>Automatizace a komunikace</h3>
+          <ul>
+            <li><a href="./jak-funguji-automatizace-v-superhostem.html">Jak fungují automatizace v Superhostem</a></li>
+            <li><a href="./jak-nastavit-zakladni-komunikacni-workflow.html">Jak nastavit základní komunikační workflow</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="help">
+      <div class="section-intro">
+        <h2>3. Nápověda / reference</h2>
+        <p>Sem patří vysvětlivky, FAQ a legislativní orientace. Nejsou to vždy návody, ale dávají kontext a pomáhají se rozhodnout.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card help-card">
+          <h3>Legislativa a povinnosti</h3>
+          <ul>
+            <li><a href="./zakladni-legislativni-povinnosti-hostitele-v-cr.html">Základní legislativní povinnosti hostitele v ČR</a></li>
+            <li><a href="./jak-funguje-poplatek-z-pobytu.html">Jak funguje poplatek z pobytu</a></li>
+          </ul>
+        </article>
+        <article class="card help-card">
+          <h3>FAQ a pojmy</h3>
+          <ul>
+            <li><a href="./co-je-ical.html">Co je iCal</a></li>
+            <li><a href="./jaky-je-rozdil-mezi-rezervaci-a-blokaci-terminu.html">Jaký je rozdíl mezi rezervací a blokací termínu</a></li>
+          </ul>
+        </article>
+        <article class="card help-card">
+          <h3>Řešení problémů</h3>
+          <ul>
+            <li><a href="./co-delat-kdyz-se-kalendar-nenacita.html">Co dělat, když se kalendář nenačítá</a></li>
+            <li><a href="./co-delat-kdyz-chybi-rezervace.html">Co dělat, když chybí rezervace</a></li>
+          </ul>
+        </article>
+        <article class="card help-card">
+          <h3>Doplňkové články</h3>
+          <ul>
+            <li><a href="./co-je-superhostem-a-co-vam-pomuze-resit.html">Co je Superhostem a co vám pomůže řešit</a></li>
+            <li><a href="./jak-funguje-email-forwarding.html">Jak funguje email forwarding</a></li>
+          </ul>
+        </article>
+      </div>
+      <div class="note">
+        Pravidlo pro tvorbu je teď jednoduché:
+        <strong>Quick start</strong> = co udělat hned,
+        <strong>Návod</strong> = přesný postup,
+        <strong>Nápověda</strong> = vysvětlení, FAQ nebo reference.
+      </div>
+    </section>
+
+    <p class="legacy">
+      Původní experimentální stránka je stále dostupná zde:
+      <a href="../knowledge-base-site.html">legacy knowledge-base-site.html</a>.
+      Pro další tvorbu ale vycházejte z této stránky jako z hlavního vstupu.
+    </p>
+  </div>
+</body>
+</html>

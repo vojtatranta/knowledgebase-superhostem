@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knihovna článků | Superhostem.cz</title>
+  <style>
+    :root {
+      --bg: #f4ede1;
+      --surface: rgba(255, 251, 245, 0.86);
+      --surface-strong: rgba(255, 255, 255, 0.94);
+      --text: #1d2925;
+      --muted: #617166;
+      --line: rgba(29, 41, 37, 0.1);
+      --accent: #0f766e;
+      --accent-soft: rgba(15, 118, 110, 0.12);
+      --warm: #b96b36;
+      --danger: #974b38;
+      --shadow: 0 24px 60px rgba(68, 51, 29, 0.1);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 26%),
+        radial-gradient(circle at 85% 10%, rgba(185, 107, 54, 0.14), transparent 24%),
+        linear-gradient(180deg, #f8f1e7 0%, #f1e7d6 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 24px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 0 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), #79b6a9);
+      box-shadow: var(--shadow);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.5);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .hero {
+      padding: 40px;
+      border-radius: 38px;
+      background: linear-gradient(135deg, rgba(255, 250, 243, 0.96), rgba(247, 240, 228, 0.9));
+      border: 1px solid rgba(29, 41, 37, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 26px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1, h2, h3, h4 { margin: 0; line-height: 1.08; }
+    h1 { margin-top: 18px; font-size: clamp(2.7rem, 5.8vw, 4.8rem); max-width: 11ch; }
+    h2 { font-size: clamp(1.8rem, 2.8vw, 2.7rem); }
+    h3 { font-size: 1.35rem; }
+    h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+
+    p { line-height: 1.68; color: var(--muted); }
+
+    .hero-panel {
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(29, 41, 37, 0.08);
+    }
+
+    .search {
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: white;
+      font-size: 0.9rem;
+    }
+
+    section { margin-top: 34px; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p { max-width: 64ch; margin: 8px 0 0; }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .summary-card,
+    .category-card,
+    .article-card,
+    .cta {
+      background: var(--surface);
+      border: 1px solid rgba(29, 41, 37, 0.08);
+      box-shadow: 0 12px 32px rgba(68, 51, 29, 0.06);
+    }
+
+    .summary-card {
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    .summary-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+      color: var(--text);
+    }
+
+    .library {
+      display: grid;
+      gap: 18px;
+    }
+
+    .category-card {
+      padding: 24px;
+      border-radius: var(--radius-xl);
+    }
+
+    .category-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .number {
+      min-width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), #74aea2);
+    }
+
+    .number.warm { background: linear-gradient(135deg, var(--warm), #d4a07b); }
+    .number.danger { background: linear-gradient(135deg, var(--danger), #c57b69); }
+
+    .category-meta {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .meta-box {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--surface-strong);
+      border: 1px solid rgba(29, 41, 37, 0.08);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .article-card {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .article-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+      color: var(--text);
+    }
+
+    .cta {
+      margin-top: 34px;
+      padding: 28px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #19463f, #0f766e 56%, #7ab5a8);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .cta p { color: rgba(255, 255, 255, 0.86); max-width: 60ch; }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .button {
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      background: white;
+      color: #13423b;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .category-meta,
+      .summary-grid,
+      .article-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(calc(100% - 20px), var(--max)); padding-top: 14px; }
+      .topbar { flex-direction: column; align-items: stretch; }
+      .nav { display: none; }
+      .hero { padding: 28px 20px; border-radius: 28px; }
+      h1 { max-width: 100%; font-size: 2.4rem; }
+      .hero-grid,
+      .summary-grid,
+      .category-meta,
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-head { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div>Superhostem.cz / Knihovna článků</div>
+      </div>
+      <nav class="nav" aria-label="Navigace knihovny">
+        <a href="#prehled">Přehled</a>
+        <a href="#knihovna">Kategorie a články</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">První vlna obsahu</span>
+            <h1>Knowledge base už není jen strategie. Má první články.</h1>
+            <p>
+              Tahle stránka ukazuje první obsahovou knihovnu pro Superhostem. Každá kategorie už má vlastní základ,
+              dva startovací články a jasný pattern, podle kterého lze dál škálovat celý help systém.
+            </p>
+          </div>
+          <aside class="hero-panel">
+            <h4>Co tady vidíte</h4>
+            <div class="search">Hledat: „Jak funguje email forwarding?“</div>
+            <div class="chip-row">
+              <span class="chip">8 kategorií</span>
+              <span class="chip">16 článků</span>
+              <span class="chip">indexy kategorií</span>
+              <span class="chip">škálovatelný pattern</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="prehled">
+        <div class="section-head">
+          <div>
+            <h2>Stav první verze</h2>
+            <p>
+              Založený základ je rozdělený napříč všemi kategoriemi, takže lze dál tvořit obsah bez toho,
+              aby některá část knowledge base zůstala prázdná.
+            </p>
+          </div>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card">
+            <strong>8</strong>
+            <p>hlavních kategorií knowledge base</p>
+          </article>
+          <article class="summary-card">
+            <strong>8</strong>
+            <p>kategoriálních indexů pro navigaci a obsahové plánování</p>
+          </article>
+          <article class="summary-card">
+            <strong>16</strong>
+            <p>prvních článků napříč onboardingem, supportem i legislativou</p>
+          </article>
+          <article class="summary-card">
+            <strong>1</strong>
+            <p>jasný template, podle kterého lze dál rychle rozšiřovat knihovnu</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="knihovna">
+        <div class="section-head">
+          <div>
+            <h2>Kategorie a první články</h2>
+            <p>
+              Níže je přehled celé první knihovny. U každé kategorie je vidět její role, publikum a první dvojice článků,
+              které mohou sloužit jako základ pro další rozšiřování.
+            </p>
+          </div>
+        </div>
+
+        <div class="library">
+          <article class="category-card">
+            <div class="category-head">
+              <div>
+                <h4>Kategorie 01</h4>
+                <h3>Začínáme</h3>
+              </div>
+              <div class="number">01</div>
+            </div>
+            <div class="category-meta">
+              <div class="meta-box">
+                <p>Onboarding vrstva pro nové uživatele, která vysvětluje produkt a vede k prvnímu úspěšnému setupu.</p>
+                <div class="tag-row">
+                  <span class="tag">nový uživatel</span>
+                  <span class="tag">registrace</span>
+                  <span class="tag">první setup</span>
+                </div>
+              </div>
+              <div class="meta-box">
+                <p>První články:</p>
+                <div class="article-grid">
+                  <div class="article-card">
+                    <strong>Co je Superhostem a co vám pomůže řešit</strong>
+                    <p>Vstupní článek, který vysvětluje hodnotu produktu.</p>
+                  </div>
+                  <div class="article-card">
+                    <strong>První přihlášení a orientace v účtu</strong>
+                    <p>Rychlá cesta k prvním důležitým krokům po registraci.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-head">
+              <div>
+                <h4>Kategorie 02</h4>
+                <h3>Nemovitosti a kalendáře</h3>
+              </div>
+              <div class="number">02</div>
+            </div>
+            <div class="category-meta">
+              <div class="meta-box">
+                <p>Obsah pro správu inventáře, připojení iCal zdrojů a pochopení synchronizace rezervací.</p>
+                <div class="tag-row">
+                  <span class="tag">iCal</span>
+                  <span class="tag">Airbnb</span>
+                  <span class="tag">Booking.com</span>
+                </div>
+              </div>
+              <div class="meta-box">
+                <p>První články:</p>
+                <div class="article-grid">
+                  <div class="article-card">
+                    <strong>Jak přidat novou nemovitost</strong>
+                    <p>Základní nastavení inventáře pro další napojení.</p>
+                  </div>
+                  <div class="article-card">
+                    <strong>Jak funguje napojení přes iCal</strong>
+                    <p>Konceptuální článek, který vysvětluje limity i výhody propojení.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-head">
+              <div>
+                <h4>Kategorie 03</h4>
+                <h3>Rezervace a provoz</h3>
+              </div>
+              <div class="number warm">03</div>
+            </div>
+            <div class="category-meta">
+              <div class="meta-box">
+                <p>Provozní vrstva pro každodenní práci s rezervacemi, hosty a přehledem obsazenosti.</p>
+                <div class="tag-row">
+                  <span class="tag">denní provoz</span>
+                  <span class="tag">hosté</span>
+                  <span class="tag">obsazenost</span>
+                </div>
+              </div>
+              <div class="meta-box">
+                <p>První články:</p>
+                <div class="article-grid">
+                  <div class="article-card">
+                    <strong>Jak funguje přehled rezervací</strong>
+                    <p>Úvod do hlavní provozní obrazovky.</p>
+                  </div>
+                  <div class="article-card">
+                    <strong>Co všechno najdu v detailu rezervace</strong>
+                    <p>Praktický článek pro kontrolu konkrétního pobytu.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-head">
+              <div>
+                <h4>Kategorie 04</h4>
+                <h3>Tržby a finance</h3>
+              </div>
+              <div class="number warm">04</div>
+            </div>
+            <div class="category-meta">
+              <div class="meta-box">
+                <p>Silná vysvětlující vrstva pro unikátní hodnotu produktu kolem finančních dat a email forwardingu.</p>
+                <div class="tag-row">
+                  <span class="tag">revenue</span>
+                  <span class="tag">forwarding</span>
+                  <span class="tag">párování dat</span>
+                </div>
+              </div>
+              <div class="meta-box">
+                <p>První články:</p>
+                <div class="article-grid">
+                  <div class="article-card">
+                    <strong>Jak funguje email forwarding</strong>
+                    <p>Praktický základ pro pochopení revenue enrichment vrstvy a finanční logiky produktu.</p>
+                  </div>
+                  <div class="article-card">
+                    <strong>Jak se párují rezervace s finančními údaji</strong>
+                    <p>Další logický článek pro rozšíření finanční sekce.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-head">
+              <div>
+                <h4>Kategorie 05</h4>
+                <h3>Automatizace a komunikace</h3>
+              </div>
+              <div class="number">05</div>
+            </div>
+            <div class="category-meta">
+              <div class="meta-box">
+                <p>Obsah zaměřený na snížení manuální práce pomocí workflow, triggerů a šablon komunikace.</p>
+                <div class="tag-row">
+                  <span class="tag">workflow</span>
+                  <span class="tag">automatizace</span>
+                  <span class="tag">zprávy hostům</span>
+                </div>
+              </div>
+              <div class="meta-box">
+                <p>První články:</p>
+                <div class="article-grid">
+                  <div class="article-card">
+                    <strong>Jak fungují automatizace v Superhostem</strong>
+                    <p>Úvodní vysvětlení principu automatizací.</p>
+                  </div>
+                  <div class="article-card">
+                    <strong>Jak nastavit základní komunikační workflow</strong>
+                    <p>První praktický use case pro automatizované zprávy.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-head">
+              <div>
+                <h4>Kategorie 06</h4>
+                <h3>Legislativa v ČR</h3>
+              </div>
+              <div class="number warm">06</div>
+            </div>
+            <div class="category-meta">
+              <div class="meta-box">
+                <p>Důvěryhodná vrstva pro základní povinnosti hostitelů a administrativní minimum v Česku.</p>
+                <div class="tag-row">
+                  <span class="tag">poplatek z pobytu</span>
+                  <span class="tag">Ubyport</span>
+                  <span class="tag">legislativa</span>
+                </div>
+              </div>
+              <div class="meta-box">
+                <p>První články:</p>
+                <div class="article-grid">
+                  <div class="article-card">
+                    <strong>Základní legislativní povinnosti hostitele v ČR</strong>
+                    <p>První orientační článek pro začínajícího hostitele.</p>
+                  </div>
+                  <div class="article-card">
+                    <strong>Jak funguje poplatek z pobytu</strong>
+                    <p>Základní vysvětlení jedné z nejčastějších lokálních povinností.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-head">
+              <div>
+                <h4>Kategorie 07</h4>
+                <h3>Řešení problémů</h3>
+              </div>
+              <div class="number danger">07</div>
+            </div>
+            <div class="category-meta">
+              <div class="meta-box">
+                <p>Diagnostická vrstva pro situace, kdy se něco nenačítá, chybí nebo se chová jinak, než uživatel čeká.</p>
+                <div class="tag-row">
+                  <span class="tag">support</span>
+                  <span class="tag">chyby</span>
+                  <span class="tag">diagnostika</span>
+                </div>
+              </div>
+              <div class="meta-box">
+                <p>První články:</p>
+                <div class="article-grid">
+                  <div class="article-card">
+                    <strong>Co dělat, když se kalendář nenačítá</strong>
+                    <p>Checklist pro první orientaci při problémech s integrací.</p>
+                  </div>
+                  <div class="article-card">
+                    <strong>Co dělat, když chybí rezervace</strong>
+                    <p>Rychlá diagnostika mezi synchronizací a chybným očekáváním.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-head">
+              <div>
+                <h4>Kategorie 08</h4>
+                <h3>FAQ a slovník</h3>
+              </div>
+              <div class="number">08</div>
+            </div>
+            <div class="category-meta">
+              <div class="meta-box">
+                <p>Rychlé odpovědi a stručné vysvětlení pojmů, které pomáhají novým uživatelům i organické návštěvnosti.</p>
+                <div class="tag-row">
+                  <span class="tag">FAQ</span>
+                  <span class="tag">iCal</span>
+                  <span class="tag">terminologie</span>
+                </div>
+              </div>
+              <div class="meta-box">
+                <p>První články:</p>
+                <div class="article-grid">
+                  <div class="article-card">
+                    <strong>Co je iCal</strong>
+                    <p>Krátké vysvětlení základního integračního pojmu.</p>
+                  </div>
+                  <div class="article-card">
+                    <strong>Jaký je rozdíl mezi rezervací a blokací termínu</strong>
+                    <p>Rychlá odpověď na častý provozní zmatek.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta">
+        <h2>Další krok je rozšířit každou kategorii z 2 článků na plný backlog.</h2>
+        <p>
+          Tahle HTML knihovna už funguje jako první mapa reálné knowledge base. Navazující práce může být buď
+          generování dalších článků po kategoriích, nebo návrh detailní HTML šablony jednoho článku.
+        </p>
+        <div class="cta-actions">
+          <span class="button primary">Pokračovat rozšiřováním článků</span>
+          <span class="button secondary">Navrhnout detail článku</span>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

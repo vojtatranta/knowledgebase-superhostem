@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jak přidat svou nemovitost</title>
+  <style>
+    :root {
+      --bg: #f8f1e7;
+      --surface: rgba(255, 251, 245, 0.94);
+      --surface-strong: rgba(255, 255, 255, 0.98);
+      --text: #1e2a25;
+      --muted: #607065;
+      --line: rgba(30, 42, 37, 0.1);
+      --accent: #0f766e;
+      --accent-soft: rgba(15, 118, 110, 0.1);
+      --warm: #b96b36;
+      --warm-soft: rgba(185, 107, 54, 0.1);
+      --shadow: 0 20px 50px rgba(67, 50, 28, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #f8f1e7 0%, #f1e6d5 100%);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: min(calc(100% - 24px), 1000px);
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .nav a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .hero,
+    .card,
+    .step,
+    .next-card,
+    .route {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 30px;
+      border-radius: 30px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      max-width: 12ch;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 1rem;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      max-width: 62ch;
+      font-size: 1.05rem;
+    }
+
+    .expect {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 20px;
+      background: var(--surface-strong);
+      border: 1px solid rgba(30, 42, 37, 0.08);
+    }
+
+    .expect strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .next-card,
+    .route {
+      padding: 20px;
+      border-radius: 22px;
+    }
+
+    .next-icon {
+      width: 36px;
+      height: 36px;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .next-card h3,
+    .route h3 {
+      margin-bottom: 10px;
+      font-size: 1.22rem;
+      letter-spacing: -0.02em;
+    }
+
+    .next-link {
+      display: inline-flex;
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .section-title {
+      margin-top: 26px;
+      margin-bottom: 12px;
+      font-size: 1.5rem;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: 26px;
+      margin-top: 18px;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .card ul li {
+      margin-top: 8px;
+    }
+
+    .step {
+      padding: 18px;
+      border-radius: 20px;
+    }
+
+    .step strong {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--warm);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--warm-soft);
+      border: 1px solid rgba(185, 107, 54, 0.14);
+    }
+
+    .route {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .route::after {
+      content: "";
+      position: absolute;
+      inset: auto -30px -30px auto;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(15, 118, 110, 0.12) 0%, rgba(15, 118, 110, 0) 70%);
+    }
+
+    .route-badge {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .mini-list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .mini-list li {
+      margin-top: 7px;
+    }
+
+    @media (max-width: 820px) {
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="nav">
+      <a href="./index.html">← Centrum pomoci</a>
+      <a href="./prvni-prihlaseni-a-orientace-v-uctu.html">Předchozí krok</a>
+      <a href="./jak-funguje-napojeni-pres-ical.html">Další krok →</a>
+    </div>
+
+    <section class="hero">
+      <span class="eyebrow">Quick start</span>
+      <h1>Jak přidat svou nemovitost</h1>
+      <p>
+        Po prvním přihlášení je přidání nemovitosti hlavní krok, který odemkne další práci v aplikaci. Jakmile bude
+        první nemovitost založená, můžete na ni navázat import rezervací, formuláře pro hosty a další nastavení.
+      </p>
+      <div class="expect">
+        <strong>Co vás čeká dál</strong>
+        <p>Vyberete si způsob založení nemovitosti a v jejím nastavení pak půjdete ve třech navazujících krocích: poplatky obci, Ubyport údaje a nakonec iCal napojení.</p>
+      </div>
+    </section>
+
+    <h2 class="section-title">Kudy se k tomu dostanete</h2>
+    <div class="grid-2">
+      <article class="route">
+        <div class="route-badge">Cesta 1</div>
+        <h3>Přes sekci Nemovitosti</h3>
+        <p>V levém menu otevřete <strong>Nemovitosti</strong>. Pokud ještě nemáte nic založeno, uvidíte prázdný stav <strong>Zatím nemáte žádné nemovitosti</strong> a tlačítko <strong>Přidat první nemovitost</strong>.</p>
+      </article>
+      <article class="route">
+        <div class="route-badge">Cesta 2</div>
+        <h3>Přes onboarding na Přehledu</h3>
+        <p>Na stránce <strong>Přehled</strong> uvidíte blok pro první nastavení nemovitosti. Tam můžete rovnou vyplnit <strong>Název nemovitosti</strong> a <strong>Airbnb iCal URL</strong>.</p>
+      </article>
+    </div>
+
+    <h2 class="section-title">Co uvidíte v sekci Nemovitosti</h2>
+    <section class="card">
+      <h2>Prázdný stav po prvním vstupu</h2>
+      <ul>
+        <li>tlačítko <strong>Synchronizovat všechny nemovitosti</strong></li>
+        <li>tlačítko <strong>Přidat nemovitost</strong></li>
+        <li>informaci <strong>Zatím nemáte žádné nemovitosti</strong></li>
+        <li>výrazné CTA <strong>Přidat první nemovitost</strong></li>
+        <li>odkaz <strong>Jak nastavit automatické přeposílání</strong></li>
+      </ul>
+      <div class="note">
+        Po založení nemovitosti na vás navazuje její nastavení. Právě tam dává smysl pokračovat rovnou třemi povinnými oblastmi: <strong>poplatky obci</strong>, <strong>Ubyport údaje</strong> a <strong>iCal</strong>.
+      </div>
+    </section>
+
+    <h2 class="section-title">Jak postupovat krok za krokem</h2>
+    <div class="grid-2">
+      <article class="step">
+        <strong>Krok 1</strong>
+        <h3>Otevřete Nemovitosti nebo onboarding</h3>
+        <p>Pokud chcete jít klasickou cestou, klikněte v menu na <strong>Nemovitosti</strong> a použijte tlačítko <strong>Přidat nemovitost</strong> nebo <strong>Přidat první nemovitost</strong>.</p>
+        <p>Pokud už máte připravený iCal z Airbnb, můžete zůstat na stránce <strong>Přehled</strong> a použít onboarding formulář.</p>
+      </article>
+
+      <article class="step">
+        <strong>Krok 2</strong>
+        <h3>Připravte si základní údaje</h3>
+        <p>Než budete pokračovat, připravte si minimálně <strong>název nemovitosti</strong>. Ideálně už si ale nachystejte i tři údaje, které budete v nastavení nemovitosti doplňovat hned poté.</p>
+        <ul class="mini-list">
+          <li><strong>poplatky obci</strong></li>
+          <li><strong>Ubyport ID a heslo</strong></li>
+          <li><strong>Airbnb iCal URL</strong></li>
+        </ul>
+      </article>
+
+      <article class="step">
+        <strong>Krok 3</strong>
+        <h3>Vytvořte nemovitost</h3>
+        <p>V onboardingu po vyplnění polí <strong>Název nemovitosti</strong> a <strong>Airbnb iCal URL</strong> použijete tlačítko <strong>Vytvořit nemovitost a naimportovat rezervace</strong>.</p>
+        <p>Pokud iCal zatím nemáte, nemovitost nejdřív založte přes <strong>Nemovitosti</strong> a hned potom přejděte do jejího nastavení, kde budete pokračovat dalšími třemi kroky.</p>
+      </article>
+
+      <article class="step">
+        <strong>Krok 4</strong>
+        <h3>Vyplňte poplatky obci</h3>
+        <p>První navazující část nastavení je informace k <strong>poplatku obci</strong>. U každé nemovitosti je potřeba mít jasno, jestli už máte registraci hotovou, kam poplatky podáváte a jak je budete odesílat.</p>
+        <p>Tento krok je důležitý i proto, aby se vám pak na konci měsíce správně generovalo hlášení, které se posílá městu.</p>
+        <p>
+          Nemáte tyto údaje?
+          <a class="next-link" href="./jak-funguje-poplatek-z-pobytu.html">Jak na poplatky obci</a>
+        </p>
+        <p>Nevíte si s tím rady? Využijte naše služby a nastavíme to za vás.</p>
+      </article>
+
+      <article class="step">
+        <strong>Krok 5</strong>
+        <h3>Doplňte Ubyport ID a heslo</h3>
+        <p>Jakmile máte vyřešené poplatky obci, pokračujte na <strong>Ubyport údaje</strong>. Ty jsou důležité pro návaznost na hlášení hostů a další administrativní část provozu.</p>
+        <p>Pokud je teď nemáte po ruce, je dobré si je připravit co nejdřív, aby nastavení nemovitosti zůstalo kompletní. Pokud ještě nemáte Ubyport vůbec založený, nejdřív je potřeba projít registrací a teprve potom doplnit získané přihlašovací údaje do Superhostem.</p>
+        <ul class="mini-list">
+          <li><strong>Ubyport ID</strong></li>
+          <li><strong>Ubyport heslo</strong></li>
+        </ul>
+        <p>
+          Nemáte Ubyport účet nebo přihlašovací údaje?
+          <a class="next-link" href="./zakladni-legislativni-povinnosti-hostitele-v-cr.html">Jak na registraci do Ubyportu</a>
+        </p>
+      </article>
+
+      <article class="step">
+        <strong>Krok 6</strong>
+        <h3>Na závěr napojte iCal</h3>
+        <p>Poslední navazující část je <strong>iCal napojení</strong>, které zajistí načtení rezervací a synchronizaci kalendáře. Díky tomu se vám začne plnit přehled rezervací a aplikace začne pracovat s pobyty.</p>
+        <p>Pokud používáte Airbnb nebo jiný OTA zdroj, vložte příslušnou iCal URL právě v této části nastavení nemovitosti.</p>
+        <p>
+          Nemáte tyto údaje?
+          <a class="next-link" href="./co-je-ical.html">Jak získat iCal</a>
+        </p>
+        <a class="next-link" href="./jak-funguje-napojeni-pres-ical.html">Pokračovat na iCal a další nastavení</a>
+      </article>
+    </div>
+
+    <h2 class="section-title">Na co navázat po založení nemovitosti</h2>
+    <div class="grid-3">
+      <article class="next-card">
+        <div class="next-icon">1</div>
+        <h3>Poplatky obci</h3>
+        <p>Začněte místními povinnostmi, aby nemovitost měla správně připravený legislativní základ.</p>
+        <a class="next-link" href="./jak-funguje-poplatek-z-pobytu.html">Otevřít poplatky</a>
+      </article>
+      <article class="next-card">
+        <div class="next-icon">2</div>
+        <h3>Ubyport údaje</h3>
+        <p>Pokračujte doplněním údajů pro hlášení hostů, aby na ně mohla navazovat provozní administrativa.</p>
+        <a class="next-link" href="./zakladni-legislativni-povinnosti-hostitele-v-cr.html">Zjistit víc</a>
+      </article>
+      <article class="next-card">
+        <div class="next-icon">3</div>
+        <h3>Napojit iCal</h3>
+        <p>Na závěr propojte kalendář, aby se začaly načítat rezervace a nemovitost byla připravená k běžnému provozu.</p>
+        <a class="next-link" href="./jak-funguje-napojeni-pres-ical.html">Otevřít iCal</a>
+      </article>
+    </div>
+
+    <section class="card">
+      <h2>Co si připravit předem</h2>
+      <ul class="mini-list">
+        <li>název nemovitosti, pod kterým ji chcete mít v Superhostem</li>
+        <li>základní informace k <strong>poplatku obci</strong>, hlavně jestli už máte vyřešenou registraci a způsob podání</li>
+        <li><strong>Ubyport ID a heslo</strong></li>
+        <li><strong>Airbnb iCal URL</strong>, pokud chcete rovnou naimportovat rezervace</li>
+        <li>rozhodnutí, jestli začnete přes onboarding na Přehledu nebo přes sekci Nemovitosti</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

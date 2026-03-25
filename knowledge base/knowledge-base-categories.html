@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kategorie Knowledge Base | Superhostem.cz</title>
+  <style>
+    :root {
+      --bg: #f3ecdf;
+      --bg-soft: #faf6ef;
+      --surface: rgba(255, 251, 245, 0.82);
+      --surface-strong: rgba(255, 255, 255, 0.9);
+      --text: #1e2b26;
+      --muted: #617167;
+      --line: rgba(30, 43, 38, 0.1);
+      --accent: #0f766e;
+      --accent-soft: rgba(15, 118, 110, 0.12);
+      --gold: #bb6d38;
+      --gold-soft: rgba(187, 109, 56, 0.12);
+      --danger: #9c4d39;
+      --danger-soft: rgba(156, 77, 57, 0.12);
+      --shadow: 0 24px 60px rgba(64, 49, 29, 0.1);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 26%),
+        radial-gradient(circle at 85% 10%, rgba(187, 109, 56, 0.16), transparent 22%),
+        linear-gradient(180deg, #f8f1e7 0%, #f1e8d8 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 24px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), #77b1a4);
+      color: white;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.48);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .hero {
+      padding: 40px;
+      border-radius: 38px;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 243, 0.96), rgba(247, 240, 229, 0.88));
+      border: 1px solid rgba(30, 43, 38, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 26px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.84rem;
+    }
+
+    h1, h2, h3, h4 { margin: 0; line-height: 1.08; }
+    h1 { margin-top: 18px; font-size: clamp(2.7rem, 5.8vw, 4.8rem); max-width: 11ch; }
+    h2 { font-size: clamp(1.9rem, 2.8vw, 2.8rem); }
+    h3 { font-size: 1.4rem; }
+    h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+
+    .hero p,
+    .section-head p,
+    .meta p,
+    .card p,
+    .mini-card p,
+    .list-card p {
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    .hero p {
+      max-width: 58ch;
+      font-size: 1.06rem;
+      margin: 18px 0 0;
+    }
+
+    .hero-panel {
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(30, 43, 38, 0.08);
+    }
+
+    .panel-title {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: white;
+      font-size: 0.92rem;
+    }
+
+    .panel-note {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    section { margin-top: 34px; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      max-width: 64ch;
+      margin: 8px 0 0;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini-card,
+    .card,
+    .list-card,
+    .step {
+      background: var(--surface);
+      border: 1px solid rgba(30, 43, 38, 0.08);
+      box-shadow: 0 12px 32px rgba(64, 49, 29, 0.06);
+    }
+
+    .mini-card {
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+
+    .category-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      padding: 26px;
+      border-radius: var(--radius-xl);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+
+    .index {
+      min-width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), #6fa79c);
+    }
+
+    .index.gold { background: linear-gradient(135deg, var(--gold), #d29b72); }
+    .index.danger { background: linear-gradient(135deg, var(--danger), #c57a68); }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+    }
+
+    .list-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--surface-strong);
+    }
+
+    .list-card ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      line-height: 1.72;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--muted);
+    }
+
+    .articles {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .article-item {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(30, 43, 38, 0.08);
+      line-height: 1.55;
+    }
+
+    .ux-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--accent-soft);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .launch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .step {
+      padding: 18px;
+      border-radius: 20px;
+    }
+
+    .step span {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .footer-banner {
+      margin-top: 34px;
+      padding: 28px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #19463f, #0f766e 56%, #7cb5a9);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .footer-banner p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      max-width: 62ch;
+    }
+
+    @media (max-width: 1120px) {
+      .overview-grid,
+      .launch-grid,
+      .articles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .meta,
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(calc(100% - 20px), var(--max)); padding-top: 14px; }
+      .topbar { flex-direction: column; align-items: stretch; }
+      .nav { display: none; }
+      .hero { padding: 28px 20px; border-radius: 28px; }
+      h1 { max-width: 100%; font-size: 2.4rem; }
+      .overview-grid,
+      .articles,
+      .launch-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div>Superhostem.cz / Kategorie Knowledge Base</div>
+      </div>
+      <nav class="nav" aria-label="Navigace kategorií">
+        <a href="#prehled">Přehled</a>
+        <a href="#kategorie">Kategorie</a>
+        <a href="#spusteni">Pořadí spuštění</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Obsahová architektura</span>
+            <h1>Kategorie, ze kterých půjde stavět skutečná knowledge base.</h1>
+            <p>
+              Tento koncept převádí strategii do konkrétní struktury kategorií. Každá sekce ukazuje svůj účel,
+              cílového uživatele, návrh podkategorií, první články i poznámku k UX, aby bylo jasné, jak ji
+              integrovat do webu a aplikace.
+            </p>
+          </div>
+          <aside class="hero-panel">
+            <div class="panel-title">Co tahle verze ukazuje</div>
+            <div class="chip-list">
+              <div class="chip">8 hlavních kategorií</div>
+              <div class="chip">podkategorie</div>
+              <div class="chip">návrh článků</div>
+              <div class="chip">UX poznámky</div>
+            </div>
+            <div class="panel-note">
+              Smyslem není jen “mít obsah”, ale rozdělit ho tak, aby uživatel rychle našel správnou pomoc
+              a systém šel dobře rozšiřovat.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="prehled">
+        <div class="section-head">
+          <div>
+            <h2>Rychlý přehled kategorií</h2>
+            <p>
+              Přehled pomáhá vidět celou strukturu naráz. Z hlediska byznysu jsou nejdůležitější první čtyři oblasti,
+              protože mají největší dopad na onboarding, aktivaci a support.
+            </p>
+          </div>
+        </div>
+        <div class="overview-grid">
+          <article class="mini-card">
+            <strong>01</strong>
+            <p>Začínáme</p>
+          </article>
+          <article class="mini-card">
+            <strong>02</strong>
+            <p>Nemovitosti a kalendáře</p>
+          </article>
+          <article class="mini-card">
+            <strong>03</strong>
+            <p>Rezervace a provoz</p>
+          </article>
+          <article class="mini-card">
+            <strong>04</strong>
+            <p>Tržby a finance</p>
+          </article>
+          <article class="mini-card">
+            <strong>05</strong>
+            <p>Automatizace a komunikace</p>
+          </article>
+          <article class="mini-card">
+            <strong>06</strong>
+            <p>Legislativa v ČR</p>
+          </article>
+          <article class="mini-card">
+            <strong>07</strong>
+            <p>Řešení problémů</p>
+          </article>
+          <article class="mini-card">
+            <strong>08</strong>
+            <p>FAQ a slovník</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="kategorie">
+        <div class="section-head">
+          <div>
+            <h2>Rozpracované kategorie</h2>
+            <p>
+              Každá karta níže představuje jednu hlavní kategorii a ukazuje, jak by mohla fungovat jako samostatná
+              obsahová větev uvnitř knowledge base.
+            </p>
+          </div>
+        </div>
+
+        <div class="category-stack">
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h4>Kategorie 01</h4>
+                <h3>Začínáme</h3>
+              </div>
+              <div class="index">01</div>
+            </div>
+            <div class="meta">
+              <div class="list-card">
+                <h4>Účel a publikum</h4>
+                <p>Pomoci novému uživateli co nejrychleji pochopit produkt a úspěšně dokončit první setup.</p>
+                <div class="tag-row">
+                  <span class="tag">nový uživatel</span>
+                  <span class="tag">první registrace</span>
+                  <span class="tag">první nemovitost</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Podkategorie</h4>
+                <ul>
+                  <li>první kroky</li>
+                  <li>nastavení účtu</li>
+                  <li>první nemovitost</li>
+                  <li>první zdroj dat</li>
+                </ul>
+              </div>
+            </div>
+            <div class="articles">
+              <div class="article-item">Co je Superhostem a co vám pomůže řešit</div>
+              <div class="article-item">První přihlášení a orientace v účtu</div>
+              <div class="article-item">Jak nastavit účet krok za krokem</div>
+              <div class="article-item">Jak přidat první nemovitost</div>
+              <div class="article-item">Jak připojit první zdroj rezervací</div>
+              <div class="article-item">Jak zkontrolovat, že je vše správně nastavené</div>
+            </div>
+            <div class="ux-note">UX poznámka: tato kategorie má být silně propojená s onboarding checklistem v aplikaci.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h4>Kategorie 02</h4>
+                <h3>Nemovitosti a kalendáře</h3>
+              </div>
+              <div class="index">02</div>
+            </div>
+            <div class="meta">
+              <div class="list-card">
+                <h4>Účel a publikum</h4>
+                <p>Pomoci hostitelům správně nastavit inventář a napojit zdroje rezervací tak, aby data byla spolehlivá.</p>
+                <div class="tag-row">
+                  <span class="tag">Airbnb</span>
+                  <span class="tag">Booking.com</span>
+                  <span class="tag">iCal</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Podkategorie</h4>
+                <ul>
+                  <li>správa nemovitostí</li>
+                  <li>napojení kalendářů</li>
+                  <li>synchronizace</li>
+                  <li>ruční rezervace</li>
+                  <li>chyby a konflikty</li>
+                </ul>
+              </div>
+            </div>
+            <div class="articles">
+              <div class="article-item">Jak přidat novou nemovitost</div>
+              <div class="article-item">Jak funguje napojení přes iCal</div>
+              <div class="article-item">Jak napojit Airbnb kalendář</div>
+              <div class="article-item">Jak napojit Booking.com kalendář</div>
+              <div class="article-item">Jak vložit ruční rezervaci</div>
+              <div class="article-item">Co dělat, když se kalendář nesynchronizuje</div>
+            </div>
+            <div class="ux-note">UX poznámka: každý integrační článek by měl mít checklist „jak poznám, že to funguje správně“.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h4>Kategorie 03</h4>
+                <h3>Rezervace a provoz</h3>
+              </div>
+              <div class="index gold">03</div>
+            </div>
+            <div class="meta">
+              <div class="list-card">
+                <h4>Účel a publikum</h4>
+                <p>Pomoci s každodenním provozem kolem rezervací, hostů, obsazenosti a provozních informací.</p>
+                <div class="tag-row">
+                  <span class="tag">aktivní hostitel</span>
+                  <span class="tag">property manager</span>
+                  <span class="tag">denní provoz</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Podkategorie</h4>
+                <ul>
+                  <li>přehled rezervací</li>
+                  <li>detail rezervace</li>
+                  <li>hosté a údaje</li>
+                  <li>provozní workflow</li>
+                  <li>obsazenost</li>
+                </ul>
+              </div>
+            </div>
+            <div class="articles">
+              <div class="article-item">Jak funguje přehled rezervací</div>
+              <div class="article-item">Co všechno najdu v detailu rezervace</div>
+              <div class="article-item">Jak pracovat s údaji o hostovi</div>
+              <div class="article-item">Jak číst přehled obsazenosti</div>
+              <div class="article-item">Jak řešit chybějící rezervaci</div>
+              <div class="article-item">Co dělat, když se rezervace zobrazí neúplně</div>
+            </div>
+            <div class="ux-note">UX poznámka: tato kategorie má být napojená na konkrétní obrazovky v aplikaci přes kontextovou nápovědu.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h4>Kategorie 04</h4>
+                <h3>Tržby a finance</h3>
+              </div>
+              <div class="index gold">04</div>
+            </div>
+            <div class="meta">
+              <div class="list-card">
+                <h4>Účel a publikum</h4>
+                <p>Vysvětlit, odkud se berou finanční data, jak se párují a proč někdy nemusí odpovídat očekávání.</p>
+                <div class="tag-row">
+                  <span class="tag">revenue</span>
+                  <span class="tag">email forwarding</span>
+                  <span class="tag">nesrovnalosti</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Podkategorie</h4>
+                <ul>
+                  <li>zdroje finančních dat</li>
+                  <li>email forwarding</li>
+                  <li>párování dat</li>
+                  <li>poplatky a fee</li>
+                  <li>troubleshooting financí</li>
+                </ul>
+              </div>
+            </div>
+            <div class="articles">
+              <div class="article-item">Jak funguje email forwarding</div>
+              <div class="article-item">Jak se párují rezervace s finančními údaji</div>
+              <div class="article-item">Jak se párují rezervace s finančními údaji</div>
+              <div class="article-item">Co znamenají jednotlivé fee položky</div>
+              <div class="article-item">Proč nesedí částka u rezervace</div>
+              <div class="article-item">Co dělat, když chybí finanční data</div>
+            </div>
+            <div class="ux-note">UX poznámka: jedna z nejsilnějších kategorií pro Superhostem, protože vysvětluje unikátní hodnotu produktu.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h4>Kategorie 05</h4>
+                <h3>Automatizace a komunikace</h3>
+              </div>
+              <div class="index">05</div>
+            </div>
+            <div class="meta">
+              <div class="list-card">
+                <h4>Účel a publikum</h4>
+                <p>Ukázat, jak si uživatel zjednoduší provoz pomocí automatizací a správně nastaví komunikaci s hosty.</p>
+                <div class="tag-row">
+                  <span class="tag">workflow</span>
+                  <span class="tag">triggery</span>
+                  <span class="tag">šablony</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Podkategorie</h4>
+                <ul>
+                  <li>základy automatizace</li>
+                  <li>workflow a trigerry</li>
+                  <li>šablony komunikace</li>
+                  <li>kontrola funkčnosti</li>
+                  <li>troubleshooting automatizace</li>
+                </ul>
+              </div>
+            </div>
+            <div class="articles">
+              <div class="article-item">Jak fungují automatizace v Superhostem</div>
+              <div class="article-item">Jak nastavit základní komunikační workflow</div>
+              <div class="article-item">Jak fungují trigerry a podmínky</div>
+              <div class="article-item">Jak připravit šablony zpráv</div>
+              <div class="article-item">Jak poznat, že je automatizace správně nastavená</div>
+              <div class="article-item">Co dělat, když se automatizace nespustí</div>
+            </div>
+            <div class="ux-note">UX poznámka: vhodné propojit s diagnostickými hláškami a stavovými indikátory v aplikaci.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h4>Kategorie 06</h4>
+                <h3>Legislativa v ČR</h3>
+              </div>
+              <div class="index gold">06</div>
+            </div>
+            <div class="meta">
+              <div class="list-card">
+                <h4>Účel a publikum</h4>
+                <p>Poskytnout důvěryhodné a praktické informace k povinnostem hostitelů v České republice.</p>
+                <div class="tag-row">
+                  <span class="tag">poplatek z pobytu</span>
+                  <span class="tag">Ubyport</span>
+                  <span class="tag">DPH</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Podkategorie</h4>
+                <ul>
+                  <li>základní povinnosti hostitele</li>
+                  <li>evidence hostů</li>
+                  <li>cizinecká policie a Ubyport</li>
+                  <li>datová schránka</li>
+                  <li>daňové minimum</li>
+                </ul>
+              </div>
+            </div>
+            <div class="articles">
+              <div class="article-item">Základní legislativní povinnosti hostitele v ČR</div>
+              <div class="article-item">Jak funguje poplatek z pobytu</div>
+              <div class="article-item">Jak vést Ubytovací knihu</div>
+              <div class="article-item">Jak funguje Ubyport a hlášení cizinců</div>
+              <div class="article-item">Kdy řešit datovou schránku</div>
+              <div class="article-item">Co je identifikovaná osoba a kdy se vás týká</div>
+            </div>
+            <div class="ux-note">UX poznámka: každý článek má mít datum poslední revize, vlastníka obsahu, oficiální zdroj a krátký disclaimer.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h4>Kategorie 07</h4>
+                <h3>Řešení problémů</h3>
+              </div>
+              <div class="index danger">07</div>
+            </div>
+            <div class="meta">
+              <div class="list-card">
+                <h4>Účel a publikum</h4>
+                <p>Poskytnout rychlou pomoc ve chvíli, kdy uživatel narazí na problém a potřebuje diagnostiku nebo řešení.</p>
+                <div class="tag-row">
+                  <span class="tag">support</span>
+                  <span class="tag">diagnostika</span>
+                  <span class="tag">rychlé řešení</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Podkategorie</h4>
+                <ul>
+                  <li>problémy s kalendáři</li>
+                  <li>problémy s rezervacemi</li>
+                  <li>problémy s financemi</li>
+                  <li>problémy s automatizací</li>
+                  <li>problémy s účtem</li>
+                </ul>
+              </div>
+            </div>
+            <div class="articles">
+              <div class="article-item">Co dělat, když se kalendář nenačítá</div>
+              <div class="article-item">Co dělat, když chybí rezervace</div>
+              <div class="article-item">Co dělat, když nesedí částka</div>
+              <div class="article-item">Co dělat, když se email nespároval</div>
+              <div class="article-item">Co dělat, když chybí část dat</div>
+              <div class="article-item">Co dělat, když se automatizace nespustila</div>
+            </div>
+            <div class="ux-note">UX poznámka: články mají mít jiný styl než běžné návody: rychlá diagnostika, checklist, možné příčiny a moment, kdy kontaktovat support.</div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h4>Kategorie 08</h4>
+                <h3>FAQ a slovník</h3>
+              </div>
+              <div class="index">08</div>
+            </div>
+            <div class="meta">
+              <div class="list-card">
+                <h4>Účel a publikum</h4>
+                <p>Snížit tření pomocí rychlých odpovědí a vysvětlení základních produktových i oborových pojmů.</p>
+                <div class="tag-row">
+                  <span class="tag">FAQ</span>
+                  <span class="tag">terminologie</span>
+                  <span class="tag">rychlé odpovědi</span>
+                </div>
+              </div>
+              <div class="list-card">
+                <h4>Podkategorie</h4>
+                <ul>
+                  <li>nejčastější otázky</li>
+                  <li>pojmy v produktu</li>
+                  <li>pojmy z oboru</li>
+                  <li>krátké vysvětlivky</li>
+                </ul>
+              </div>
+            </div>
+            <div class="articles">
+              <div class="article-item">Nejčastější otázky k Superhostem</div>
+              <div class="article-item">Co je iCal</div>
+              <div class="article-item">Co je Ubytovací kniha</div>
+              <div class="article-item">Co znamená identifikovaná osoba</div>
+              <div class="article-item">Jaký je rozdíl mezi rezervací a blokací termínu</div>
+              <div class="article-item">Jaký je rozdíl mezi tržbou a vyplacenou částkou</div>
+            </div>
+            <div class="ux-note">UX poznámka: tahle vrstva se dobře hodí i do menších FAQ bloků na homepage, pricing page a kontaktní stránce.</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="spusteni">
+        <div class="section-head">
+          <div>
+            <h2>Doporučené pořadí spuštění</h2>
+            <p>
+              Pokud se knowledge base bude zavádět postupně, dává smysl začít kategoriemi s největším dopadem na aktivaci,
+              support a důvěru v data.
+            </p>
+          </div>
+        </div>
+        <div class="launch-grid">
+          <article class="step">
+            <span>Fáze 1</span>
+            <strong>Začínáme</strong>
+            <p>Největší dopad na onboarding a první úspěch po registraci.</p>
+          </article>
+          <article class="step">
+            <span>Fáze 2</span>
+            <strong>Nemovitosti a kalendáře</strong>
+            <p>Kritická vrstva pro napojení dat a základní důvěru v systém.</p>
+          </article>
+          <article class="step">
+            <span>Fáze 3</span>
+            <strong>Tržby a finance</strong>
+            <p>Obsah, který vysvětluje unikátní hodnotu produktu a snižuje pochybnosti.</p>
+          </article>
+          <article class="step">
+            <span>Fáze 4</span>
+            <strong>Řešení problémů</strong>
+            <p>Silný support multiplikátor a rychlá pomoc ve chvíli frustrace.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="footer-banner">
+        <h2>Další logický krok je přejít z kategorií na finální seznam článků.</h2>
+        <p>
+          Tahle stránka už ukazuje kostru celé knowledge base. Navazující krok může být buď rozpad každé kategorie
+          na kompletní backlog článků, nebo návrh detailu jedné článkové šablony ve stejném vizuálním směru.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
