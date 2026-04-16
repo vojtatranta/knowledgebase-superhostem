@@ -437,9 +437,13 @@ li a:hover {
 .inline-cta.btn-outline,
 .next-link.btn-outline {
   background: transparent;
-  color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
   border-width: 1px;
-  border-color: color-mix(in srgb, hsl(var(--primary)) 25%, white 75%);
+  border-color: color-mix(
+    in srgb,
+    hsl(var(--primary)) 15%,
+    hsl(var(--border)) 85%
+  );
 }
 
 .btn-outline:hover,
@@ -447,8 +451,8 @@ li a:hover {
 .card-link.btn-outline:hover,
 .inline-cta.btn-outline:hover,
 .next-link.btn-outline:hover {
-  background: color-mix(in srgb, hsl(var(--primary)) 10%, transparent);
-  color: hsl(var(--primary));
+  background: color-mix(in srgb, hsl(var(--primary)) 12%, transparent);
+  color: hsl(var(--primary-foreground));
   transform: translateY(-0.5px);
 }
 
