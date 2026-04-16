@@ -513,26 +513,37 @@ section {
   margin-top: 16px;
 }
 .card-link {
-  padding: 12px 18px;
-  border-radius: 10px;
-  background: hsl(var(--primary));
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
   border: none;
-  color: hsl(var(--primary-foreground));
-  font-size: 0.92rem;
-  font-weight: 500;
+  color: hsl(var(--primary));
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: color-mix(
+    in srgb,
+    hsl(var(--primary)) 70%,
+    transparent
+  );
+  text-underline-offset: 4px;
   transition:
-    background-color 150ms ease,
-    box-shadow 150ms ease,
-    transform 80ms ease;
+    color 150ms ease,
+    text-decoration-color 150ms ease;
+}
+.card-link::after {
+  content: "→";
+  font-size: 1rem;
 }
 .card-link:hover {
-  filter: brightness(1.06);
-  box-shadow:
-    0 0 0 1px color-mix(in lab, hsl(var(--primary)) 60%, transparent),
-    0 4px 10px rgba(0, 0, 0, 0.15);
-}
-.card-link:active {
-  transform: translateY(1px);
+  color: color-mix(in srgb, hsl(var(--primary)) 90%, white 10%);
+  text-decoration-color: color-mix(
+    in srgb,
+    hsl(var(--primary)) 90%,
+    transparent
+  );
 }
 
 /* Inline call-to-action links (used within article text) */
