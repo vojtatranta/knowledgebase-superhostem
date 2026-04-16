@@ -270,13 +270,11 @@ li a:hover {
   color: hsl(var(--muted-foreground));
 }
 .nav a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.25px;
+  text-decoration: none;
+  transition: color 150ms ease;
 }
 .nav a:hover {
   color: hsl(var(--primary));
-  text-decoration-thickness: 2px;
 }
 
 /* Header utility for consistent top spacing */
