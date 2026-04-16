@@ -520,16 +520,8 @@ section {
     color 150ms ease,
     transform 120ms ease;
 }
-.card-link::after {
-  content: "→";
-  font-size: 1rem;
-}
 .card-link:hover {
   color: color-mix(in srgb, hsl(var(--primary)) 90%, white 10%);
-  transform: translateX(2px);
-}
-.card-link:active {
-  transform: translateX(0);
 }
 
 /* Inline call-to-action links (used within article text) */
