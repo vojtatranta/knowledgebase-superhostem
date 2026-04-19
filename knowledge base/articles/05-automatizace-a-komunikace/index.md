@@ -12,8 +12,10 @@ Kategorie `Automatizace a komunikace` pomáhá uživateli pochopit, jak lze sní
 
 ## Prioritní články
 
-- Jak fungují automatizace v Superhostem
-- Jak nastavit základní komunikační workflow
+- Jak automatizovat komunikace s hosty
+- Jak funguje email forwarding
+- Jak vést evidenci hostů a pobytů v Superhostem
+- Jak měsíčně zpracovat poplatky obci v Superhostem
 - Jak fungují trigerry a podmínky
 - Jak připravit šablony zpráv
 - Jak poznat, že je automatizace správně nastavená
@@ -21,4 +23,4 @@ Kategorie `Automatizace a komunikace` pomáhá uživateli pochopit, jak lze sní
 
 ## Poznámka k produktu
 
-Články v této kategorii by měly být propojené s diagnostickými hláškami a stavy automatizací přímo v aplikaci.
+Hlavní praktický obsah je aktuálně sjednocený do jednoho návodu `Jak automatizovat komunikace s hosty`.

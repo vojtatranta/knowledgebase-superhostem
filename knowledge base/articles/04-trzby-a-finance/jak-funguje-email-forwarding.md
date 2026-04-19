@@ -2,30 +2,18 @@
 
 ## Co tento článek řeší
 
-Popisuje skutečný onboarding flow `Automatické přeposílání emailů` v Superhostem a ukazuje, jak adresu pro přeposílání najdete a použijete.
+Email forwarding vám pomůže dostat do Superhostem údaje z potvrzovacích emailů k rezervacím. Díky tomu se mohou správně doplnit rezervace, částky i další informace o pobytu.
 
 ## Pro koho je článek určen
 
 - pro hostitele, kteří chtějí vidět finanční data
 - pro uživatele řešící neúplné nebo chybějící částky u rezervací
 
-## Kde email forwarding v aplikaci najdete
+## Kde forwarding najdete
 
-V aktuální preview verzi se email forwarding zobrazuje přímo na stránce `Přehled` v onboarding bloku.
+Přihlaste se do Superhostem a otevřete stránku `Přehled`.
 
-Na dashboardu najdete sekci:
-
-- `Automatické přeposílání emailů`
-
-Pod ní je zobrazená unikátní emailová adresa pro váš účet.
-
-## Co tento onboarding blok říká
-
-V rozhraní je přímo uvedeno:
-
-- přeposílejte emaily `Potvrzení rezervace` z Airbnb do systému
-- Superhostem z nich automaticky vytvoří nemovitosti a rezervace
-- můžete si nastavit automatické přeposílání, abyste nepřišli o žádnou rezervaci
+V úvodní části najdete blok `Automatické přeposílání emailů` s unikátní adresou pro váš účet.
 
 ## Jaká data může forwarding pomoci získat
 
@@ -44,29 +32,24 @@ Typicky jde například o:
 4. zkopírujte zobrazenou přeposílací adresu
 5. otevřete svůj email, kde dostáváte Airbnb potvrzení rezervací
 6. nastavte automatické přeposílání emailů z Airbnb na tuto adresu
-7. případně si nejdřív pošlete jeden email ručně jako test
+7. pošlete si jeden potvrzovací email jako test a ověřte, že se data v Superhostem doplnila správně
 
-## Jaké návody jsou v aplikaci přímo k dispozici
+## Návody přímo v aplikaci
 
-V onboarding bloku jsou přímo odkazy:
+V bloku pro forwarding najdete i rychlé návody pro nejběžnější emailové schránky:
 
 - `Nastavení automatického přeposílání v Gmailu`
 - `Nastavení automatického přeposílání v Seznam.cz`
 
 ## Co je dobré si pohlídat
 
-- aby emaily chodily opravdu z Airbnb
-- aby se přeposílaly potvrzovací emaily k rezervacím
-- aby byla použitá přesně ta přeposílací adresa, kterou vidíte v účtu
-- abyste po nastavení otestovali alespoň jeden email
+- aby se přeposílaly opravdu potvrzovací emaily k rezervacím z Airbnb
+- aby byla použitá přesně ta přeposílací adresa, kterou vidíte ve svém účtu
+- abyste po nastavení provedli alespoň jeden test
 
-## Co se stane, když ještě nemáte žádnou nemovitost
+## Pokud máte na jednom Airbnb účtu více bytů
 
-Na stránce `Nemovitosti` se v prázdném stavu zobrazuje i nápověda:
-
-- `Nebo jen přepošlete e-mail s Airbnb rezervací na tuto adresu a nemovitost vytvoříme automaticky`
-
-To znamená, že forwarding neslouží jen jako doplněk, ale může být i vstupní cesta pro automatické vytvoření první nemovitosti.
+Pokud máte pod jedním Airbnb účtem více bytů, nové byty se mohou do Superhostem přidat automaticky ve chvíli, kdy dorazí nová rezervace a její potvrzovací email se přepošle na vaši forwarding adresu.
 
 ## Doporučený další krok
 

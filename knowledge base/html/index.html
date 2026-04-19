@@ -7,24 +7,23 @@
 
     <link rel="stylesheet" href="../assets/superhostem.css" />
   </head>
-  <body>
+  <body id="page-top">
     <div class="page">
       <header class="topbar">
-        <div class="brand">
+        <a class="brand" href="./index.html">
           <div class="brand-mark">S</div>
           <div>Superhostem.cz / Centrum pomoci</div>
-        </div>
+        </a>
+        <a class="inline-cta btn-outline" href="https://superhostem.cz/">Na hlavní web</a>
       </header>
 
       <section class="hero">
         <span class="eyebrow">Jedno jasné místo</span>
         <h1>Centrum pomoci pro zákazníka.</h1>
         <p>
-          Tohle je hlavní vstup. Není to jen knowledge base. Je to přehledně
-          rozdělené na tři vrstvy:
-          <strong>Quick start</strong>, <strong>Návody krok za krokem</strong> a
-          <strong>Nápověda / reference</strong>. Díky tomu je hned jasné, kam má
-          uživatel kliknout podle situace.
+          V centru pomoci najdete rychlé začátky, podrobné návody i vysvětlení
+          nejčastějších pojmů a pravidel. Vyberte si sekci podle toho, co právě
+          potřebujete vyřešit.
         </p>
         <div class="hero-links">
           <a class="hero-link btn-outline" href="#quick-start">Quick start</a>
@@ -37,71 +36,99 @@
         <div class="section-intro">
           <h2>1. Quick start</h2>
           <p>
-            Sem patří rychlé spuštění účtu. Uživatel nechce číst dlouhé články,
-            chce vědět co má udělat teď hned a co je klíčové pro skutečné
-            zprovoznění účtu.
+            Začněte tady, pokud účet teprve nastavujete a chcete udělat první
+            důležité kroky co nejrychleji.
           </p>
         </div>
-        <div class="grid-3">
-          <article class="card quick-card">
-            <h3>První přihlášení</h3>
+        <div class="quick-start-grid">
+          <article class="card quick-card quick-card-featured">
+            <div class="quick-step">Start</div>
+            <h3>První přihlášení a první nemovitost</h3>
             <p>
-              Co uvidíte po loginu, kde je onboarding blok a jak se zorientovat
-              v levém menu.
+              Nejrychlejší cesta k funkčnímu účtu je jednoduchá: po přihlášení
+              se zorientujte na <strong>Přehledu</strong>, založte první
+              nemovitost a rovnou připravte napojení prvního zdroje rezervací.
             </p>
+            <div class="quick-highlights">
+              <span>zjistit, kde začít po přihlášení</span>
+              <span>přidat první nemovitost</span>
+              <span>připravit iCal nebo další zdroj dat</span>
+            </div>
             <div class="card-links">
               <a
                 class="card-link"
                 href="./prvni-prihlaseni-a-orientace-v-uctu.html"
-                >Otevřít návod</a
+                >Otevřít první kroky</a
+              >
+              <a class="card-link" href="./jak-pridat-novou-nemovitost.html"
+                >Přidat první nemovitost</a
               >
             </div>
           </article>
-          <article class="card quick-card">
-            <h3>První nemovitost</h3>
+
+          <article class="card quick-card quick-card-secondary">
+            <div class="quick-step">Krok 2</div>
+            <h3>Napojení kalendáře</h3>
             <p>
-              Nejrychlejší cesta k prvnímu funkčnímu setupu přes
-              <strong>Přehled</strong> nebo <strong>Nemovitosti</strong>.
+              Jakmile máte první nemovitost, dává smysl navázat iCal nebo jiný
+              zdroj rezervací, aby se začala propisovat data do systému.
             </p>
             <div class="card-links">
-              <a class="card-link" href="./jak-pridat-novou-nemovitost.html"
-                >Otevřít návod</a
-              >
               <a class="card-link" href="./jak-funguje-napojeni-pres-ical.html"
                 >Jak získat iCal</a
               >
             </div>
           </article>
-          <article class="card quick-card">
+
+          <article class="card quick-card quick-card-secondary">
+            <div class="quick-step">Krok 3</div>
             <h3>Automatizace a komunikace</h3>
             <p>
-              Klíčová část spuštění. Právě tady nastavíte návaznost na
-              komunikaci s hosty a workflow, které vám ušetří ruční práci.
+              Po základním setupu přichází na řadu komunikace s hosty a
+              automatizace, které vám ušetří ruční práci.
             </p>
             <div class="card-links">
               <a
                 class="card-link"
                 href="./jak-funguji-automatizace-v-superhostem.html"
-                >Jak fungují automatizace</a
+                >Automatizace pro hosty</a
               >
               <a
                 class="card-link"
-                href="./jak-nastavit-zakladni-komunikacni-workflow.html"
-                >Nastavit workflow</a
+                href="./jak-funguje-email-forwarding.html"
+                >Email forwarding</a
               >
             </div>
           </article>
-          <article class="card quick-card">
-            <h3>Chybí mi údaje</h3>
+
+          <article class="card quick-card quick-card-secondary">
+            <div class="quick-step">Krok 4</div>
+            <h3>Pravidelná měsíční agenda</h3>
             <p>
-              Pokud ještě nemáte Ubyport nebo vám chybí přístupové údaje pro
-              hlášení hostů, začněte tímto návodem.
+              Jakmile máte provoz rozběhnutý, přichází pravidelná práce jako
+              kontrola poplatků obci, měsíční hlášení a odeslání úhrady.
+            </p>
+            <div class="card-links">
+              <a
+                class="card-link"
+                href="./jak-mesicne-zpracovat-poplatky-obci-v-superhostem.html"
+                >Měsíční práce s poplatky obci</a
+              >
+            </div>
+          </article>
+
+          <article class="card quick-card quick-card-secondary">
+            <div class="quick-step">Kontrola</div>
+            <h3>Chybí vám nějaké údaje?</h3>
+            <p>
+              Pokud vám ještě chybí přístupové údaje nebo si potřebujete
+              ujasnit povinnosti kolem provozu, začněte těmito návody.
             </p>
             <div class="card-links">
               <a
                 class="card-link"
                 href="./jak-se-zaregistrovat-do-ubyportu.html"
-                >Jak se zaregistrovat do Ubyportu</a
+                >Registrace do Ubyportu</a
               >
               <a class="card-link" href="./jak-funguje-poplatek-z-pobytu.html"
                 >Poplatky obci</a
@@ -115,8 +142,8 @@
         <div class="section-intro">
           <h2>2. Návody krok za krokem</h2>
           <p>
-            Sem patří konkrétní praktické tutorialy. Uživatel ví, co chce
-            udělat, a potřebuje přesný postup.
+            Tady najdete přesné postupy pro konkrétní úkoly v Superhostem, od
+            nastavení až po běžnou práci v aplikaci.
           </p>
         </div>
         <div class="grid-2">
@@ -148,6 +175,11 @@
                   >Jak funguje napojení přes iCal</a
                 >
               </li>
+              <li>
+                <a href="./kalendar-airbnb-v-telefonu.html"
+                  >Kalendář Airbnb v telefonu</a
+                >
+              </li>
             </ul>
           </article>
           <article class="card guide-card">
@@ -163,6 +195,11 @@
                   >Co všechno najdu v detailu rezervace</a
                 >
               </li>
+              <li>
+                <a href="./proc-vest-evidenci-hostu-a-pobytu.html"
+                  >Proč vést evidenci hostů a pobytů</a
+                >
+              </li>
             </ul>
           </article>
           <article class="card guide-card">
@@ -170,12 +207,22 @@
             <ul>
               <li>
                 <a href="./jak-funguji-automatizace-v-superhostem.html"
-                  >Jak fungují automatizace v Superhostem</a
+                  >Jak automatizovat komunikace s hosty</a
                 >
               </li>
               <li>
-                <a href="./jak-nastavit-zakladni-komunikacni-workflow.html"
-                  >Jak nastavit základní komunikační workflow</a
+                <a href="./jak-funguje-email-forwarding.html"
+                  >Jak funguje email forwarding</a
+                >
+              </li>
+              <li>
+                <a href="./jak-vest-evidenci-hostu-a-pobytu-v-superhostem.html"
+                  >Jak vést evidenci hostů a pobytů v Superhostem</a
+                >
+              </li>
+              <li>
+                <a href="./jak-mesicne-zpracovat-poplatky-obci-v-superhostem.html"
+                  >Jak měsíčně zpracovat poplatky obci v Superhostem</a
                 >
               </li>
             </ul>
@@ -187,8 +234,8 @@
         <div class="section-intro">
           <h2>3. Nápověda / reference</h2>
           <p>
-            Sem patří vysvětlivky, FAQ a legislativní orientace. Nejsou to vždy
-            návody, ale dávají kontext a pomáhají se rozhodnout.
+            Tady najdete vysvětlení pojmů, legislativní orientaci a odpovědi na
+            časté otázky, když si potřebujete něco ujasnit.
           </p>
         </div>
         <div class="grid-2">
@@ -246,21 +293,15 @@
                   >Co je Superhostem a co vám pomůže řešit</a
                 >
               </li>
-              <li>
-                <a href="./jak-funguje-email-forwarding.html"
-                  >Jak funguje email forwarding</a
-                >
-              </li>
             </ul>
           </article>
         </div>
         <div class="note">
-          Pravidlo pro tvorbu je teď jednoduché:
-          <strong>Quick start</strong> = co udělat hned,
-          <strong>Návod</strong> = přesný postup, <strong>Nápověda</strong> =
-          vysvětlení, FAQ nebo reference.
+          Články jsou rozdělené podle toho, jestli potřebujete rychle začít,
+          projít konkrétní postup nebo si něco ověřit.
         </div>
       </section>
     </div>
-  </body>
+    <a class="back-to-top" href="#page-top" aria-label="Zpět nahoru" title="Nahoru">↑</a>
+</body>
 </html>

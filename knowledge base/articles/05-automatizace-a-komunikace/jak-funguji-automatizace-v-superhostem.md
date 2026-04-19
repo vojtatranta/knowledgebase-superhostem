@@ -1,44 +1,84 @@
-# Jak fungují automatizace v Superhostem
+# Jak automatizovat komunikace s hosty
 
 ## Co tento článek řeší
 
-Vysvětluje základní princip automatizací a pomáhá uživateli pochopit, co může systém dělat automaticky a kde je potřeba kontrola.
+Ukazuje, jak v aktuálním Superhostem připravit odkaz pro hosty a napojit ho na automatické zprávy v Airbnb nebo Booking.com tak, aby host dostal správný formulář ve správný čas.
 
 ## Pro koho je článek určen
 
-- pro uživatele, kteří chtějí šetřit čas
-- pro hostitele nastavující první workflow
+- pro hostitele, kteří chtějí omezit ruční posílání formulářů a zpráv
+- pro uživatele nastavující první automatizaci pro konkrétní nemovitost
 
-## Co jsou automatizace
+## Co si připravit předem
 
-Automatizace jsou předem definované akce nebo procesy, které systém spouští podle určité události nebo podmínky.
+Než začnete, připravte si:
 
-Mohou pomoci například s komunikací, připomínkami nebo jinými provozními kroky.
+- konkrétní nemovitost založenou v Superhostem
+- odkaz pro hosty nebo permalink, který se má ve zprávě posílat
+- jasno, jestli budete šablonu nastavovat v `Airbnb`, nebo v `Booking.com`
 
-## Jak automatizace obvykle fungují
+## Kde v Superhostem začít
 
-V základu se skládají ze tří částí:
+V detailu konkrétní nemovitosti otevřete část `Automatizace`.
 
-1. spouštěč nebo trigger
-2. podmínka, za které má automatizace proběhnout
-3. samotná akce
+Právě tam najdete:
 
-## Jaká je hlavní výhoda
+- odkaz pro hosty
+- nastavení, kolik dní dopředu má být rezervace přes tento odkaz hostům dostupná
 
-Správně nastavené automatizace snižují ruční práci, zmenšují riziko zapomenutých kroků a pomáhají udržet konzistentní provoz.
+Je důležité to uložit ještě předtím, než budete vytvářet automatickou zprávu v OTA platformě.
 
 ## Co je potřeba hlídat
 
-- zda jsou správně zadané podmínky
-- zda má automatizace správný spouštěč
-- zda navazuje na správná data nebo rezervace
+Čas odeslání v OTA musí sedět s tím, kolik dní dopředu máte nastaveno v Superhostem.
 
-## Nejčastější chyba
+Pokud nastavíte jiný počet dní v aplikaci a jiný počet dní v OTA, host po kliknutí nemusí vidět správnou rezervaci.
 
-Uživatel očekává, že automatizace bude fungovat bez kontroly hned po zapnutí.
+## Nastavení v Airbnb
 
-Ve skutečnosti je vhodné první spuštění ověřit a zkontrolovat, že podmínky odpovídají realitě.
+1. v Airbnb otevřete `Zprávy`
+2. přes ozubené kolečko přejděte do `Nastavení zpráv`
+3. otevřete `Správa rychlých odpovědí`
+4. vytvořte novou šablonu nebo automatickou zprávu
+5. vložte text zprávy a odkaz z části `Automatizace` v Superhostem
+6. zkontrolujte, že šablona je přiřazená jen k jedné správné nabídce
+7. nastavte správný čas odeslání, například `3 dny před příjezdem`
+
+## Nastavení v Booking.com
+
+1. v Extranetu otevřete `Ubytovací zařízení`
+2. přejděte do `Nastavení zpráv`
+3. v části `Šablony zpráv` vytvořte novou šablonu
+4. vložte odkaz z Superhostem
+5. pojmenujte šablonu a zvolte vhodné téma zprávy
+6. naplánujte odeslání šablony
+7. slaďte počet dní před příjezdem s nastavením v části `Automatizace` v Superhostem
+
+## Jak poznáte, že je automatizace nastavená správně
+
+- ve zprávě je správný odkaz pro konkrétní nemovitost
+- šablona je navázaná na správnou nabídku nebo jednotku
+- čas odeslání v OTA odpovídá počtu dní nastavených v Superhostem
+- host po kliknutí na odkaz vidí svou rezervaci
+
+## Doporučené základní workflow
+
+Na začátku dává smysl držet jednoduchou posloupnost:
+
+1. zpráva po rezervaci
+2. zpráva před příjezdem s formulářem nebo guestbookem
+3. instrukce k pobytu
+4. zpráva po odjezdu
+
+## Nejčastější chyby
+
+- do zprávy je vložený špatný nebo starý odkaz
+- jedna šablona je omylem přiřazená k více nabídkám
+- počet dní v OTA nesedí s nastavením v Superhostem
+- u Booking.com je použitý odkaz pro jinou jednotku než pro konkrétní rezervaci
 
 ## Doporučený další krok
 
-Pokračujte článkem `Jak nastavit základní komunikační workflow`.
+Pokud chcete držet celý postup na jednom místě, berte tento článek jako hlavní návod pro automatizaci i základní komunikační workflow.
+
+Na měsíční provoz v aplikaci pak navazuje článek `Jak měsíčně zpracovat poplatky obci v Superhostem`.

@@ -2,49 +2,42 @@
 
 ## Co tento článek řeší
 
-Vysvětluje, proč je detail rezervace důležitý a jaké informace v něm uživatel typicky najde.
+Ukazuje detail rezervace z pohledu hostitele: co v něm uvidíte, kdy ho otevřít a jak rychle poznat, jestli je vše v pořádku.
 
 ## Pro koho je článek určen
 
-- pro uživatele, kteří kontrolují konkrétní rezervace
-- pro hostitele, kteří řeší nejasnosti kolem jednoho pobytu
+- pro hostitele, kteří řeší jeden konkrétní pobyt
+- pro uživatele, kteří potřebují rychle ověřit data rezervace
 
-## K čemu detail rezervace slouží
+## Co v detailu uvidíte z pohledu hostitele
 
-Detail rezervace je místo, kde se spojují všechny důležité informace k jednomu pobytu.
+Detail rezervace je místo, kam jdete ve chvíli, kdy potřebujete rychle pochopit jeden konkrétní pobyt bez dohledávání v dalších částech aplikace.
 
-Typicky může obsahovat:
-
-- termín rezervace
-- přiřazenou nemovitost
-- zdroj rezervace
-- informace o hostovi
-- finanční údaje, pokud jsou dostupné
-- navazující provozní poznámky
+- termín pobytu a délku rezervace
+- ke které nemovitosti rezervace patří
+- odkud rezervace přišla (např. Airbnb, Booking nebo ručně)
+- údaje o hostovi, které máte k dispozici
+- částky a další finanční informace, pokud jsou doplněné
 
 ## Kdy detail rezervace otevřít
 
-Detail rezervace dává smysl otevřít hlavně tehdy, když:
+- když v přehledu něco nesedí a potřebujete ověřit konkrétní případ
+- když řešíte komunikaci s hostem před příjezdem nebo během pobytu
+- když kontrolujete, proč chybí cena nebo některá data
+- když porovnáváte rezervaci s tím, co přišlo z iCalu nebo email forwardingu
 
-- něco nesedí v přehledu
-- potřebujete ověřit konkrétní pobyt
-- kontrolujete hosta nebo finance
-- chybí část informací
+## Jak postupovat při rychlé kontrole
 
-## Na co se dívat jako první
+1. ověřte datum příjezdu a odjezdu
+2. zkontrolujte správnou nemovitost
+3. podívejte se na zdroj rezervace
+4. ověřte, které údaje o hostovi jsou vyplněné
+5. zkontrolujte částky a případné nesrovnalosti
 
-Nejčastěji je dobré zkontrolovat:
+## Co dělat, když něco chybí
 
-1. datum a délku pobytu
-2. přiřazenou nemovitost
-3. zdroj a identitu rezervace
-4. úplnost host dat
-5. finanční část, pokud je relevantní
-
-## Nejčastější chyba
-
-Uživatelé někdy posuzují rezervaci jen podle přehledu a neotevřou detail, i když tam chybí klíčový kontext.
+Pokud v detailu chybí informace, nejčastěji pomůže zkontrolovat napojení iCal a email forwarding. Právě tyhle dvě části obvykle rozhodují o tom, jak úplná rezervace v detailu bude.
 
 ## Doporučený další krok
 
-Pokračujte článkem `Jak pracovat s údaji o hostovi`.
+Pokračujte článkem `Jak funguje email forwarding`.

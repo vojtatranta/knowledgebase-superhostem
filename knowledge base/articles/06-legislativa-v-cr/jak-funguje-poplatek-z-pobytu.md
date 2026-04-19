@@ -38,6 +38,14 @@ Proto má smysl, aby byl tento článek propojený s evidencí rezervací a host
 - jaké termíny a forma podání platí
 - jaké výjimky mohou existovat
 
+## Jak vám s tím pomůže Superhostem
+
+Jakmile máte registraci i údaje od úřadu správně nastavené, můžete v Superhostem připravit úhradu přes `QR kód` a odeslat hlášení přes `datovou schránku` jedním klikem.
+
+Superhostem za vás zprávu předpřipraví k odeslání na úřad, takže už neřešíte celé hlášení ručně od začátku.
+
+Pokud chcete praktický postup přímo pro měsíční práci v aplikaci, navazuje na tento článek návod `Jak měsíčně zpracovat poplatky obci v Superhostem`.
+
 ## Doporučený další krok
 
 Pokračujte článkem `Jak vést Ubytovací knihu`.

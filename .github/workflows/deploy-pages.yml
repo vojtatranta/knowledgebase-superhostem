@@ -29,6 +29,14 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Check knowledge base publish safety
+        shell: bash
+        run: ./scripts/check-kb-publish-safety.sh
+
+      - name: Check knowledge base index consistency
+        shell: bash
+        run: ./scripts/check-kb-index-consistency.sh
+
       - name: Build static site
         shell: bash
         run: |

@@ -12,7 +12,6 @@ Kategorie `Tržby a finance` vysvětluje, odkud pocházejí finanční data v Su
 
 ## Prioritní články
 
-- Jak funguje email forwarding
 - Jak se párují rezervace s finančními údaji
 - Co znamenají jednotlivé fee položky
 - Proč nesedí částka u rezervace
