@@ -72,7 +72,7 @@
 <p>Bạn cần một liên kết cố định hoặc liên kết công khai để gửi cho khách trong tin nhắn.</p>
       <h3>Nền tảng đã chọn</h3>
 <p>Quyết định xem nên thiết lập tin nhắn tự động trên Airbnb hay Booking.com.</p>
-    
+
 <h2>Bắt đầu từ đâu trong Superhost</h2>
 <p>
         Trong chi tiết của một thuộc tính cụ thể, hãy mở phần <strong>Tự động hóa</strong>. Đó là nơi bạn sẽ tìm thấy liên kết của khách
@@ -119,7 +119,7 @@
 <p>Ví dụ: cài đặt được đề xuất là <strong>3 ngày trước khi đến</strong>. Điều quan trọng là số ngày tương tự cũng được đặt trong cài đặt liên kết trong Superhost.</p>
       <h3>Kiểm tra mẫu cuối cùng</h3>
 <p>Trước khi lưu, hãy kiểm tra ba điều: liên kết chính xác, ưu đãi được chọn chính xác và thời gian gửi chính xác.</p>
-    
+
 <h2>Cài đặt trong Booking.com</h2>
 
       <h3>Mở cài đặt tin nhắn</h3>
@@ -134,7 +134,7 @@
 <p>Đối với mẫu mới tạo, chọn <strong>Lên lịch gửi mẫu</strong> và đặt số ngày trước khi đến.</p>
       <h3>Khớp thời gian với cài đặt trong Superhost</h3>
 <p>Đặt cùng số ngày trước khi đến phần <strong>Tự động hóa</strong> trong Siêu máy chủ. Nếu không, khách có thể không thấy đặt phòng chính xác sau khi mở liên kết.</p>
-    
+
 <h2>Làm thế nào để bạn biết tự động hóa được thiết lập chính xác?</h2>
 <ul>
         <li>trong nội dung tin nhắn có một liên kết chính xác cho một thuộc tính cụ thể</li>
@@ -152,7 +152,7 @@
 <p>Tùy thuộc vào loại hoạt động, bạn có thể theo dõi bằng một tin nhắn riêng với thông tin về việc nhận phòng, vào tòa nhà hoặc thông tin thiết thực về thời gian lưu trú của bạn.</p>
       <h3>Lời nhắn sau khi khởi hành</h3>
 <p>Khi kết thúc thời gian lưu trú, bạn có thể kết thúc quá trình tự động hóa bằng lời cảm ơn, lời kêu gọi đánh giá hoặc danh sách kiểm tra nội bộ để dọn dẹp và các nhiệm vụ tiếp theo khác.</p>
-    
+
 <h2>Cách bắt đầu đơn giản</h2>
 <p>
         Không cần phải tự động hóa mọi thứ ngay từ đầu. Đầu tiên, điều hợp lý nhất là thiết lập và chạy một thông báo hoạt động tốt
@@ -226,85 +226,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

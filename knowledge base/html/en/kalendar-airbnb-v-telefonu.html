@@ -28,7 +28,7 @@
         </a>
 
         <nav class="kb-help-nav" aria-label="Main navigation">
-          <a href="./index.html">Signpost</a>
+          <a href="./index.html">Overview</a>
           <a href="./index.html#knihovna">Library</a>
           <a href="#kb-article-related">Related</a>
         </nav>
@@ -37,8 +37,8 @@
 <nav class="kb-language-switcher" aria-label="Language"><a href="../kalendar-airbnb-v-telefonu.html">CZ</a><a href="./kalendar-airbnb-v-telefonu.html" class="is-active" aria-current="page">EN</a><a href="../vn/kalendar-airbnb-v-telefonu.html">VN</a></nav>
 
           <div class="kb-theme-toggle" role="group" aria-label="Switch color mode">
-            <button type="button" data-theme-option="light" aria-label="Bright mode" title="Bright mode"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button>
-            <button type="button" data-theme-option="system" aria-label="According to the system" title="According to the system"><svg aria-hidden="true" viewbox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg></button>
+            <button type="button" data-theme-option="light" aria-label="Light mode" title="Light mode"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button>
+            <button type="button" data-theme-option="system" aria-label="System mode" title="System mode"><svg aria-hidden="true" viewbox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg></button>
             <button type="button" data-theme-option="dark" aria-label="Dark mode" title="Dark mode"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button>
           </div>
           <a class="kb-help-site-link" href="https://www.superhostem.cz/">To the main website <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
@@ -100,7 +100,7 @@
             Practical especially when you are viewing one calendar
             multiple objects at once.
           </p>
-      
+
 <h2>Your iCal URL</h2>
 <p>
           You copy and paste this address into Google Calendar, Apple Calendar
@@ -127,7 +127,7 @@
           </p>
         <h3>Go to Calendar</h3>
 <p>
-            In the list of settings, open the section <strong>Calendar</strong> a
+            In the list of settings, open the <strong>Calendar</strong> section and
             continue to account management.
           </p>
         <h3>Add an account</h3>
@@ -141,7 +141,7 @@
             on <strong>Save</strong>. The calendar will start automatically
             synchronize.
           </p>
-      
+
 <h2>Preview in iPhone Calendar</h2>
 <div class="kb-article-media-grid">
         <figure class="kb-article-figure kb-article-figure-phone">
@@ -208,7 +208,7 @@
             will also appear in the Google Calendar app on Android if you are
             login with the same account.
           </p>
-      
+
 <h2>Desktop guide for Android users</h2>
 <p>
           The procedure is the same as for adding an external calendar to Google normally
@@ -241,7 +241,7 @@
             Paste the URL and click on <strong>Add a calendar</strong>. Reservation
             will then appear automatically.
           </p>
-      
+
 <div class="kb-article-media-grid">
         <figure class="kb-article-figure">
           <img src="../../assets/screens/google-calendar-from-url-settings.png" alt="Google Calendar on the computer in the Add calendar section and the From URL option">
@@ -298,9 +298,8 @@
         </ul>
 <aside class="kb-article-callout kb-article-callout-muted">
           <p>
-            <strong>Updated:</strong> 18/04/2026. Google in official
-            the help says that adding a new calendar needs to be done in
-            computer browser and not directly in the Google Calendar pro application
+            <strong>Updated:</strong> 18/04/2026. Google's official help says that adding a new calendar needs to be done in a
+            desktop browser, not directly in the Google Calendar app for
             Android, iPhone or iPad.
           </p>
         </aside>
@@ -345,85 +344,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Back to top" title="Up">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

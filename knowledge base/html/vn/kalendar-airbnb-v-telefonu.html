@@ -100,7 +100,7 @@
             Thực tế đặc biệt khi bạn đang xem một lịch
             nhiều đối tượng cùng một lúc.
           </p>
-      
+
 <h2>URL iCal của bạn</h2>
 <p>
           Bạn sao chép và dán địa chỉ này vào Lịch Google, Lịch Apple
@@ -110,7 +110,7 @@
 <aside class="kb-article-callout">
           Ví dụ xuất khẩu:
           <strong>
-            https://www.superhostem.cz/api/ical/?...showGuestName=1&amp;hiển thịGiá=1&amp;showGuestCount=1&amp;showPropertyName=1
+            https://www.superhostem.cz/api/ical/?...showGuestName=1&amp;showPrice=1&amp;showGuestCount=1&amp;showPropertyName=1
           </strong>
         </aside>
 <h2>Cách thêm Lịch vào iPhone</h2>
@@ -141,7 +141,7 @@
             trên <strong>Lưu</strong>. Lịch sẽ tự động bắt đầu
             đồng bộ hóa.
           </p>
-      
+
 <h2>Xem trước trong Lịch iPhone</h2>
 <div class="kb-article-media-grid">
         <figure class="kb-article-figure kb-article-figure-phone">
@@ -208,7 +208,7 @@
             cũng sẽ xuất hiện trong ứng dụng Lịch Google trên Android nếu bạn
             đăng nhập bằng cùng một tài khoản.
           </p>
-      
+
 <h2>Hướng dẫn dành cho máy tính để bàn dành cho người dùng Android</h2>
 <p>
           Quy trình cũng giống như cách thêm lịch ngoài vào Google thông thường
@@ -241,7 +241,7 @@
             Dán URL và nhấp vào <strong>Thêm lịch</strong>. Đặt chỗ
             sau đó sẽ tự động xuất hiện.
           </p>
-      
+
 <div class="kb-article-media-grid">
         <figure class="kb-article-figure">
           <img src="../../assets/screens/google-calendar-from-url-settings.png" alt="Lịch Google trên máy tính trong phần Thêm lịch và tùy chọn From URL">
@@ -300,7 +300,7 @@
           <p>
             <strong>Đã cập nhật:</strong> 18/04/2026. Google chính thức
             trợ giúp nói rằng việc thêm lịch mới cần phải được thực hiện trong
-            trình duyệt trên máy tính chứ không phải trực tiếp trong ứng dụng Google Calendar pro
+            trình duyệt trên máy tính chứ không phải trực tiếp trong ứng dụng Google Calendar dành cho
             Android, iPhone hoặc iPad.
           </p>
         </aside>
@@ -345,85 +345,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

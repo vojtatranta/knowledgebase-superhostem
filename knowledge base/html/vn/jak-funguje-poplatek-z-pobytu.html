@@ -64,8 +64,8 @@
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
-            
-        
+
+
         <h2>Bạn đã đăng ký chưa?</h2>
         <p>
           Bài viết này chủ yếu giải thích <strong>nghĩa vụ và đăng ký</strong>
@@ -73,7 +73,7 @@
           trong Superhost, tiếp tục tại đây:
         </p>
         <ul class="kb-article-link-list"><li><a href="./jak-mesicne-zpracovat-poplatky-obci-v-superhostem.html">Cách xử lý phí hàng tháng cho đô thị trong Superhost</a></li></ul>
-      
+
 <h2>Tóm tắt: những gì bạn cần làm</h2>
 
       <h3>Đăng ký</h3>
@@ -82,7 +82,7 @@
 <p>Sau khi đăng ký, hãy lưu ký hiệu biến, cũng có thể là ký hiệu hằng và các quy tắc mà bạn sẽ báo cáo và thanh toán theo đó.</p>
       <h3>Nhập chúng vào Superhost</h3>
 <p>Nếu không có dữ liệu này, ứng dụng không thể theo dõi chúng một cách chính xác trong quá trình báo cáo hàng tháng cho thành phố.</p>
-    
+
 <h2>Cần chuẩn bị gì trước</h2>
 <ul>
         <li>giấy phép thương mại hợp lệ cho thương mại tự do tương ứng</li>
@@ -131,7 +131,7 @@
 <p>Chỉ đăng ký là không đủ. Sau mỗi khoảng thời gian do chính quyền thành phố hoặc quận của bạn xác định, bạn phải kiểm tra báo cáo và nộp phí theo quy định của họ.</p>
 <p>Trong Superhost, bạn có thể chuẩn bị thanh toán qua <strong>mã QR</strong> và gửi báo cáo qua <strong>hộp dữ liệu</strong> chỉ với một cú nhấp chuột. Superhost sẽ chuẩn bị tin nhắn để bạn gửi đến văn phòng.</p>
 <p>Luôn kiểm tra xem đô thị của bạn có hoạt động với các trường hợp ngoại lệ, tần suất nộp hồ sơ khác hoặc biểu mẫu tùy chỉnh hay không.</p>
-    
+
 <h2>Những sai lầm phổ biến nhất</h2>
 <ul>
         <li>chủ nhà chỉ xử lý tỷ lệ mà quên mất việc đăng ký</li>
@@ -205,85 +205,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

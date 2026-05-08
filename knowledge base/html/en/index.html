@@ -153,7 +153,7 @@
               <h3>Legislation and duties</h3>
               <p>Czech host duties and monthly agenda.</p>
               <a href="./zakladni-legislativni-povinnosti-hostitele-v-cr.html">Host duties</a>
-              <a href="./jak-se-zaregistrovat-do-Ubyport.html">Ubyport registration</a>
+              <a href="./jak-se-zaregistrovat-do-ubyportu.html">Ubyport registration</a>
               <a href="./jak-resit-dph-u-airbnb-a-booking.html">VAT for Airbnb and Booking.com</a>
               <a href="./co-je-superhostem-a-co-vam-pomuze-resit.html">What Superhostem is</a>
             </article>
@@ -222,42 +222,7 @@
       </div>
     </footer>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        const setPreference = (preference) => {
-          localStorage.setItem(storageKey, preference);
-          applyTheme(preference);
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => setPreference(button.dataset.themeOption));
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

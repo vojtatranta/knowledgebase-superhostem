@@ -49,7 +49,7 @@
     <main class="kb-article-shell">
       <div class="kb-article-container">
         <article class="kb-article-main">
-          <p class="kb-article-kicker">Quick start</p>
+          <p class="kb-article-kicker">Začínáme</p>
           <h1 class="kb-article-title">Co je Superhostem a co vám pomůže řešit</h1>
           <p class="kb-article-lead">Zjistíte, k čemu Superhostem slouží, pro koho je určený a s čím vám pomůže při správě krátkodobých pronájmů.</p>
           <div class="kb-article-jump">
@@ -57,7 +57,7 @@
             <a href="./index.html#knihovna">Knihovna témat</a>
             <a href="./prvni-prihlaseni-a-orientace-v-uctu.html">Další článek →</a>
           </div>
-          
+
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
             <h2>Pro koho je článek určen</h2>
@@ -125,85 +125,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Zpět nahoru" title="Nahoru">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../assets/kb-navigation.js"></script>
   </body>
 </html>

@@ -72,7 +72,7 @@
 <p>Nếu bạn không phải là người nộp thuế VAT và nhận được dịch vụ như vậy, bạn sẽ thường phải đăng ký làm người được xác định.</p>
       <h3>Người nộp thuế VAT có thể giải quyết việc khấu trừ</h3>
 <p>Nếu bạn đã là người nộp thuế VAT, bạn cũng khai thuế VAT đối với dịch vụ nhận được, nhưng bạn có thể yêu cầu khấu trừ nếu đáp ứng các điều kiện pháp lý.</p>
-    
+
 <h2>Những gì cần làm rõ ngay từ đầu</h2>
 <ul>
         <li>nếu bạn cung cấp <strong>dịch vụ lưu trú</strong>, hoặc bạn đang phải đối mặt với một chế độ thu nhập khác</li>
@@ -114,7 +114,7 @@
       <h3>Hồ sơ phí từ các nền tảng phải được cập nhật</h3>
 <p>Để xử lý VAT một cách chính xác, bạn cần có quyền kiểm soát các khoản phí và hoa hồng mà nền tảng tính cho bạn. Nếu không có nó, bạn sẽ không có cơ sở phù hợp để đưa ra giải pháp về thuế.</p>
 <p>Đây cũng là lý do tại sao chúng tôi nên theo dõi iCal bằng tính năng tự động hóa và làm việc với email cũng như đặt chỗ.</p>
-    
+
 <h2>Tình huống chủ nhà phổ biến nhất</h2>
 <div>
           <h3>Người không nộp thuế VAT</h3>
@@ -214,85 +214,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

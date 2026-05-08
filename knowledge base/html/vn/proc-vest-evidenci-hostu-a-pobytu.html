@@ -54,7 +54,7 @@
           <p class="kb-article-lead">domovní kniha phục vụ như một bản ghi liên tục về khách và thời gian lưu trú của họ. Nó giúp bạn có dữ liệu mà bạn có thể cần khi đăng ký, khi báo cáo khách hoặc khi tìm kiếm một kỳ lưu trú cụ thể.</p>
           <div class="kb-article-jump">
             <a href="./index.html">Trung tâm trợ giúp</a>
-            <a href="./jak-se-zaregistrovat-do-Ubyport.html">Bài viết trước</a>
+            <a href="./jak-se-zaregistrovat-do-ubyportu.html">Bài viết trước</a>
             <a href="./jak-vest-evidenci-hostu-a-pobytu-v-superhostem.html">Bài tiếp theo →</a>
           </div>
           <div class="kb-article-intro-note">
@@ -67,15 +67,15 @@
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
-            
-        
+
+
         <h2>Bạn có quản lý việc đăng ký khách và lưu trú trực tiếp tại Superhostem không?</h2>
         <p>
           Trong Superhost, domovní kniha không dựa vào việc viết lại thủ công thành một tài liệu riêng.
           Theo dõi các đặt phòng, sổ lưu bút và dữ liệu mà khách điền vào như một phần của quy trình làm việc thông thường.
         </p>
         <ul class="kb-article-link-list"><li><a href="./jak-vest-evidenci-hostu-a-pobytu-v-superhostem.html">Cách lưu trữ hồ sơ khách và lưu trú tại Superhostem</a></li></ul>
-      
+
 <h2>domovní kniha dùng để làm gì?</h2>
 
       <h3>Hồ sơ lưu trú</h3>
@@ -84,7 +84,7 @@
 <p>Nếu cần chứng minh điều gì đó, bạn không cần xem lại dữ liệu trong email và tin nhắn.</p>
       <h3>Tiếp tục thực hiện các nhiệm vụ khác</h3>
 <p>Đăng ký khách chính xác cũng giúp báo cáo khách và quản lý hoạt động khác.</p>
-    
+
 <h2>Bạn nên ghi lại những gì?</h2>
 <p>
         Phạm vi cụ thể của dữ liệu có thể khác nhau tùy thuộc vào nhiệm vụ bạn đang thực hiện,
@@ -110,7 +110,7 @@
 
       <h3>Kết nối các bản ghi với các hoạt động bình thường</h3>
 <p>domovní kniha không nên là một bảng đi ngang biệt lập. Nó có ý nghĩa khi kết nối với việc đặt chỗ, liên lạc với khách và các hoạt động quản lý khác.</p>
-    
+
 <h2>Những sai lầm phổ biến nhất</h2>
 <ul>
         <li>chủ nhà sẽ chỉ bắt đầu giải sổ nhà sau vài tháng</li>
@@ -127,7 +127,7 @@
   <strong>Trung tâm trợ giúp</strong>
 </a>
 
-<a class="kb-article-related-card" href="./jak-se-zaregistrovat-do-Ubyport.html">
+<a class="kb-article-related-card" href="./jak-se-zaregistrovat-do-ubyportu.html">
   <span>trước đó</span>
   <strong>Cách đăng ký Ubyport</strong>
 </a>
@@ -159,85 +159,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

@@ -70,7 +70,7 @@
 <p>Bạn không có IDUB và bạn chưa bao giờ đăng ký cơ sở lưu trú tại Ubyport.</p>
       <h3>Tôi đã đăng ký nhưng tôi thiếu dữ liệu cho các dịch vụ web</h3>
 <p>Bạn đã đăng ký trong Ubyport nhưng bạn cần dữ liệu để nhập dữ liệu tự động để kết nối với Superhost.</p>
-    
+
 <h2>Khi nào nên sử dụng hướng dẫn này</h2>
 <p>
         Bài viết này có ý nghĩa khi bạn đang thiết lập thuộc tính đầu tiên của mình và bạn đang thiếu dữ liệu cho phần này <strong>Ubyport</strong>.
@@ -120,7 +120,7 @@
 <p>Nếu bạn có hộp dữ liệu có thể truy cập được với tư cách là thể nhân, thể nhân kinh doanh hoặc pháp nhân, nhật ký có thể đến với bạn ngay tại đó.</p>
       <h3>Lưu dữ liệu vào Superhost</h3>
 <p>Khi bạn nhận được chúng, hãy thêm chúng vào cài đặt thuộc tính cụ thể. Để tự động hóa, bạn chủ yếu cần dữ liệu cho các dịch vụ web.</p>
-    
+
 <h2>Khi bạn đã có đăng ký</h2>
 
       <h3>Kiểm tra xem bạn có dữ liệu cho các dịch vụ web hay không</h3>
@@ -131,7 +131,7 @@
 <p>Chỉ cần viết bình thường vào nội dung tin nhắn dữ liệu. Liệt kê của bạn <strong>IDUB</strong> và yêu cầu tạo tài khoản gửi dữ liệu robot cho <strong>superhostem.cz</strong>.</p>
       <h3>Chờ phản hồi và lưu quyền truy cập vào hệ thống</h3>
 <p>Khi có dữ liệu mới, hãy đưa dữ liệu đó vào cài đặt chỗ nghỉ của bạn trong Superhost để tự động theo dõi các báo cáo của khách.</p>
-    
+
 <h2>Cần chú ý điều gì</h2>
 <ul>
         <li>đăng nhập bình thường vào Ubyport là không đủ nếu bạn muốn kết nối với hệ thống</li>
@@ -200,85 +200,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

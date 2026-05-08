@@ -80,7 +80,7 @@
 <p>Bạn phải sắp xếp dữ liệu lưu trú, đặt phòng và khách của mình theo thứ tự, không chỉ khi nhận phòng.</p>
       <h3>Thuế GTGT và nghĩa vụ thuế</h3>
 <p>Với Airbnb và Booking, bạn thường phải giải quyết VAT từ hoa hồng và đăng ký với tư cách là cá nhân được xác định.</p>
-    
+
 <h2>Thứ tự các bước được đề xuất</h2>
 
       <h3>Giải quyết việc kinh doanh, thành lập</h3>
@@ -100,7 +100,7 @@
 
       <h3>Kiểm tra nghĩa vụ thuế của bạn</h3>
 <p>Ngoài nhiệm vụ địa phương, bạn còn thường xuyên giải quyết các vấn đề liên quan đến thuế khi hợp tác với các nền tảng như Airbnb và Booking.com. Thông thường đây là chế độ <strong>người được xác định</strong> hoặc một câu hỏi <strong>VAT</strong>.</p>
-    
+
 <h2>Những gì người mới làm chủ nhà thường quên nhất</h2>
 <ul>
         <li>họ đang đàm phán với Airbnb và định giá, nhưng họ vẫn chưa quyết định địa điểm kinh doanh</li>
@@ -115,7 +115,7 @@
 <h2>Hướng dẫn thực tế</h2>
 <ul class="kb-article-link-list">
 <li><a href="./jak-funguje-poplatek-z-pobytu.html">Phí lưu trú hoạt động như thế nào</a></li>
-<li><a href="./jak-se-zaregistrovat-do-Ubyport.html">Cách đăng ký Ubyport</a></li>
+<li><a href="./jak-se-zaregistrovat-do-ubyportu.html">Cách đăng ký Ubyport</a></li>
 <li><a href="./proc-vest-evidenci-hostu-a-pobytu.html">Tại sao phải lưu giữ hồ sơ khách và lưu trú</a></li>
 <li><a href="./jak-resit-dph-u-airbnb-a-booking.html">Cách giải quyết thuế VAT với Airbnb và Booking</a></li>
 <li><a href="./jak-pridat-novou-nemovitost.html">Cách thêm thuộc tính mới</a></li>
@@ -170,85 +170,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

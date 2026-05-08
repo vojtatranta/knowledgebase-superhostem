@@ -74,7 +74,7 @@
         <h3>iCal thường chuyển những gì</h3>
 <ul>
             <li>ngày đến và đi</li>
-            <li>cuộc hẹn bận hoặc bị chặn</li>
+            <li>đặt chỗ bận hoặc bị chặn</li>
             <li>nhận dạng sự kiện cơ bản</li>
           </ul>
         <h3>Những gì iCal thường không chuyển</h3>
@@ -83,7 +83,7 @@
             <li>số tiền hoa hồng và phí</li>
             <li>thông tin khách đầy đủ</li>
           </ul>
-      
+
 <h2>Khi nào nên sử dụng iCal</h2>
 <p>
           iCal có ý nghĩa nhất trong thời gian đầu khi bạn muốn kết nối nhanh chóng
@@ -137,7 +137,7 @@
             mặt khác, để nhập, nó phải là một URL kết thúc bằng
             <strong>.ics</strong>.
           </p>
-      
+
             </section>
             <section class="kb-article-topic-block">
 <h2>Cách nhận iCal từ Booking.com</h2>
@@ -173,7 +173,7 @@
             Một extranet thường hiển thị trạng thái kết nối, ví dụ
             <strong>Kích hoạt</strong> hoặc <strong>được rồi</strong>.
           </p>
-      
+
             </section>
             <section class="kb-article-topic-block">
 <h2>Bạn có thể lấy đi những gì từ nó một cách thực tế?</h2>
@@ -209,7 +209,7 @@
             Sau khi lưu, hãy xác minh rằng việc đặt trước hoặc chặn đã được ghi vào
             lịch tài sản.
           </p>
-      
+
             </section>
             <section class="kb-article-topic-block">
 <h2>Cần chú ý điều gì</h2>
@@ -352,85 +352,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>

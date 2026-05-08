@@ -28,7 +28,7 @@
         </a>
 
         <nav class="kb-help-nav" aria-label="Main navigation">
-          <a href="./index.html">Signpost</a>
+          <a href="./index.html">Overview</a>
           <a href="./index.html#knihovna">Library</a>
           <a href="#kb-article-related">Related</a>
         </nav>
@@ -37,8 +37,8 @@
 <nav class="kb-language-switcher" aria-label="Language"><a href="../jak-funguje-poplatek-z-pobytu.html">CZ</a><a href="./jak-funguje-poplatek-z-pobytu.html" class="is-active" aria-current="page">EN</a><a href="../vn/jak-funguje-poplatek-z-pobytu.html">VN</a></nav>
 
           <div class="kb-theme-toggle" role="group" aria-label="Switch color mode">
-            <button type="button" data-theme-option="light" aria-label="Bright mode" title="Bright mode"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button>
-            <button type="button" data-theme-option="system" aria-label="According to the system" title="According to the system"><svg aria-hidden="true" viewbox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg></button>
+            <button type="button" data-theme-option="light" aria-label="Light mode" title="Light mode"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button>
+            <button type="button" data-theme-option="system" aria-label="System mode" title="System mode"><svg aria-hidden="true" viewbox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg></button>
             <button type="button" data-theme-option="dark" aria-label="Dark mode" title="Dark mode"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button>
           </div>
           <a class="kb-help-site-link" href="https://www.superhostem.cz/">To the main website <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
@@ -64,8 +64,8 @@
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
-            
-        
+
+
         <h2>Have you already registered?</h2>
         <p>
           This article mainly explains <strong>obligation and registration</strong>
@@ -73,7 +73,7 @@
           in Superhost, continue here:
         </p>
         <ul class="kb-article-link-list"><li><a href="./jak-mesicne-zpracovat-poplatky-obci-v-superhostem.html">How to process monthly fees for the municipality in Superhost</a></li></ul>
-      
+
 <h2>Briefly: what you need to do</h2>
 
       <h3>Sign up</h3>
@@ -82,7 +82,7 @@
 <p>After registration, save the variable symbol, possibly also the constant symbol, and the rules according to which you will report and pay.</p>
       <h3>Enter them into Superhost</h3>
 <p>Without this data, the application cannot properly follow up on them during the monthly reporting for the city.</p>
-    
+
 <h2>What to prepare in advance</h2>
 <ul>
         <li>valid trade license for the corresponding free trade</li>
@@ -131,7 +131,7 @@
 <p>Registration alone is not enough. After each period determined by your municipality or district, you must check the report and submit the fee according to their rules.</p>
 <p>In Superhost you can then prepare a payment via <strong>QR code</strong> and send the report via <strong>data box</strong> with one click. Superhost will prepare the message for you to be sent to the office.</p>
 <p>Always check whether your municipality works with exceptions, a different filing frequency or a custom form.</p>
-    
+
 <h2>The most common mistakes</h2>
 <ul>
         <li>the host only deals with the rate, but forgets about the registration itself</li>
@@ -205,85 +205,7 @@
 
     <a class="back-to-top" href="#page-top" aria-label="Back to top" title="Up">↑</a>
 
-    <script>
-      (() => {
-        const storageKey = "superhostem-kb-theme";
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const buttons = document.querySelectorAll("[data-theme-option]");
 
-        const applyTheme = (preference) => {
-          const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
-          document.documentElement.classList.toggle("dark", resolved === "dark");
-          document.documentElement.style.colorScheme = resolved === "dark" ? "dark" : "light";
-          buttons.forEach((button) => {
-            const active = button.dataset.themeOption === preference;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", String(active));
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            localStorage.setItem(storageKey, button.dataset.themeOption);
-            applyTheme(button.dataset.themeOption);
-          });
-        });
-
-        media.addEventListener("change", () => {
-          if ((localStorage.getItem(storageKey) || "system") === "system") {
-            applyTheme("system");
-          }
-        });
-
-        applyTheme(localStorage.getItem(storageKey) || "system");
-
-        const slugify = (value) =>
-          value
-            .toLocaleLowerCase("cs-CZ")
-            .normalize("NFD")
-            .replace(/[̀-ͯ]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "sekce";
-
-        const toc = document.querySelector("#kb-article-toc");
-        const sidebar = document.querySelector("#kb-article-sidebar");
-        const headings = [...document.querySelectorAll("#kb-article-content h2")];
-        const usedIds = new Set();
-
-        headings.forEach((heading) => {
-          let base = heading.id ? slugify(heading.id) : slugify(heading.textContent || "sekce");
-          let id = base;
-          let i = 2;
-          while (usedIds.has(id) || document.getElementById(id) !== heading && document.getElementById(id)) {
-            id = `${base}-${i}`;
-            i += 1;
-          }
-          heading.id = id;
-          usedIds.add(id);
-        });
-
-        if (headings.length < 2) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        toc.innerHTML = headings
-          .map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`)
-          .join("");
-
-        const tocLinks = [...toc.querySelectorAll("a")];
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-            if (!active) return;
-            tocLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`));
-          },
-          { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-        );
-
-        headings.forEach((heading) => observer.observe(heading));
-      })();
-    </script>
       <script src="../../assets/kb-navigation.js"></script>
   </body>
 </html>
