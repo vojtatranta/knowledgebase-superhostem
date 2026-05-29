@@ -14,7 +14,7 @@
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
       })();
     </script>
-    <link rel="stylesheet" href="../../assets/superhostem.css">
+    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus">
   </head>
   <body id="page-top" class="kb-help">
     <header class="kb-help-header">
@@ -34,12 +34,45 @@
         </nav>
 
         <div class="kb-help-actions">
-<nav class="kb-language-switcher" aria-label="Ngôn ngữ"><a href="../index.html">CZ</a><a href="../en/index.html">EN</a><a href="./index.html" class="is-active" aria-current="page">VN</a></nav>
+<nav class="kb-language-switcher" aria-label="Ngôn ngữ">
+            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Ngôn ngữ">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>VN</span>
+      </button>
+            <div class="kb-language-switcher-menu">
+              <a href="../index.html">CZ</a>
+              <a href="../en/index.html">EN</a>
+              <a href="./index.html" class="is-active" aria-current="page">VN</a>
+            </div>
+          </nav>
 
           <div class="kb-theme-toggle" role="group" aria-label="Đổi chế độ màu">
-            <button type="button" data-theme-option="light" aria-label="Chế độ sáng" title="Chế độ sáng"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button>
-            <button type="button" data-theme-option="system" aria-label="Theo hệ thống" title="Theo hệ thống"><svg aria-hidden="true" viewbox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg></button>
-            <button type="button" data-theme-option="dark" aria-label="Chế độ tối" title="Chế độ tối"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button>
+            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
+              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+              <span class="sr-only">Theme</span>
+            </button>
+            <div class="kb-theme-toggle-menu">
+              <button type="button" data-theme-option="light" aria-label="Chế độ sáng" title="Chế độ sáng">Chế độ sáng</button>
+              <button type="button" data-theme-option="system" aria-label="Theo hệ thống" title="Theo hệ thống">Theo hệ thống</button>
+              <button type="button" data-theme-option="dark" aria-label="Chế độ tối" title="Chế độ tối">Chế độ tối</button>
+            </div>
           </div>
           <a class="kb-help-site-link" href="https://www.superhostem.cz/">Trang web chính <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
         </div>
@@ -74,7 +107,8 @@
       </section>
 
       <div class="kb-help-container kb-help-main">
-        <section id="zacatek" class="kb-help-section">
+        <span id="zacatek" class="kb-anchor-target" aria-hidden="true"></span>
+        <section class="kb-help-section">
           <div class="kb-help-section-head">
             <div>
               <span>1.</span>
@@ -107,7 +141,8 @@
           </div>
         </section>
 
-        <section id="knihovna" class="kb-help-section">
+        <span id="knihovna" class="kb-anchor-target" aria-hidden="true"></span>
+        <section class="kb-help-section">
           <div class="kb-help-section-head kb-help-section-head-compact">
             <div>
               <span>2.</span>
@@ -172,7 +207,8 @@
           </div>
         </section>
 
-        <section id="nejctenejsi" class="kb-help-section kb-help-split">
+        <span id="nejctenejsi" class="kb-anchor-target" aria-hidden="true"></span>
+        <section class="kb-help-section kb-help-split">
           <div class="kb-help-section-head">
             <div>
               <span>3.</span>
@@ -225,6 +261,6 @@
     </footer>
 
 
-      <script src="../../assets/kb-navigation.js"></script>
+      <script src="../../assets/kb-navigation.js?v=header-menus"></script>
   </body>
 </html>

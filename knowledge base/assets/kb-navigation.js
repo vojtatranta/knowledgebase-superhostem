@@ -33,6 +33,83 @@
     });
   };
 
+  const bindThemeDropdown = () => {
+    document.querySelectorAll(".kb-theme-toggle").forEach((toggle) => {
+      if (toggle.dataset.kbThemeDropdownBound === "true") return;
+      toggle.dataset.kbThemeDropdownBound = "true";
+
+      const options = [...toggle.querySelectorAll("[data-theme-option]")];
+      if (options.length === 0) return;
+
+      let menu = toggle.querySelector(".kb-theme-toggle-menu");
+      let button = toggle.querySelector(".kb-theme-toggle-trigger");
+
+      if (!menu) {
+        menu = document.createElement("div");
+        menu.className = "kb-theme-toggle-menu";
+        options.forEach((option) => menu.appendChild(option));
+      }
+
+      options.forEach((option) => {
+        option.setAttribute("role", "menuitemradio");
+      });
+
+      if (!button) {
+        button = document.createElement("button");
+        button.type = "button";
+        button.className = "kb-theme-toggle-trigger";
+        button.innerHTML = `
+          <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="sr-only">Theme</span>
+        `;
+      }
+
+      button.setAttribute("aria-haspopup", "menu");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", toggle.getAttribute("aria-label") || "Theme");
+      toggle.append(button, menu);
+
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const open = toggle.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(open));
+      });
+
+      options.forEach((option) => {
+        option.addEventListener("click", () => {
+          toggle.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (toggle.contains(event.target)) return;
+        toggle.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+      });
+
+      toggle.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        toggle.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+        button.focus();
+      });
+    });
+  };
+
   const slugify = (value, locale) =>
     value
       .toLocaleLowerCase(locale || document.documentElement.lang || "en")
@@ -98,14 +175,87 @@
   const bindSearch = () => {
     const searchInput = document.querySelector("#kb-search-input");
     if (!searchInput) return;
+    const searchBox = searchInput.closest(".kb-help-search");
     const searchableCards = [...document.querySelectorAll("[data-search-text]")];
     const emptyState = document.querySelector(".kb-empty-state");
     const searchableSections = [...document.querySelectorAll(".kb-help-section")];
     const loadingState = { active: false };
+    const labelsByLanguage = {
+      cs: {
+        count: (count) => `${count} ${count === 1 ? "výsledek" : count > 1 && count < 5 ? "výsledky" : "výsledků"}`,
+        noResults: "Nic se nenašlo. Zkuste iCal, poplatek nebo rezervace.",
+        open: "Otevřít"
+      },
+      en: {
+        count: (count) => `${count} ${count === 1 ? "result" : "results"}`,
+        noResults: "No results. Try iCal, fee, or reservation.",
+        open: "Open"
+      },
+      vi: {
+        count: (count) => `${count} kết quả`,
+        noResults: "Không tìm thấy. Hãy thử iCal, phí hoặc đặt phòng.",
+        open: "Mở"
+      }
+    };
+    const language = document.documentElement.lang || "en";
+    const labels = labelsByLanguage[language] || labelsByLanguage.en;
+    let activeSuggestionIndex = 0;
+    let suggestions = [];
+    let resultsPanel = document.querySelector("#kb-search-results");
+
+    if (searchBox && !resultsPanel) {
+      resultsPanel = document.createElement("div");
+      resultsPanel.id = "kb-search-results";
+      resultsPanel.className = "kb-search-results";
+      resultsPanel.hidden = true;
+      resultsPanel.setAttribute("role", "listbox");
+      resultsPanel.setAttribute("aria-label", searchInput.getAttribute("aria-label") || "Search results");
+      searchBox.insertAdjacentElement("afterend", resultsPanel);
+    }
+
+    if (resultsPanel) {
+      searchInput.setAttribute("aria-controls", resultsPanel.id);
+      searchInput.setAttribute("aria-expanded", "false");
+      searchInput.setAttribute("role", "combobox");
+      searchInput.setAttribute("aria-autocomplete", "list");
+    }
 
     const getCardLinks = (card) =>
       [...card.querySelectorAll("a[href$='.html']")]
         .map((link) => new URL(link.getAttribute("href"), window.location.href).href);
+
+    const getSuggestionItems = () => {
+      const seen = new Set();
+      const items = [];
+
+      searchableCards.forEach((card) => {
+        const sectionTitle = card.closest(".kb-help-section")?.querySelector("h2")?.textContent?.trim() || "";
+        const cardTitle = card.querySelector("h3, strong")?.textContent?.trim() || "";
+
+        [...card.querySelectorAll("a[href$='.html']")].forEach((link) => {
+          const url = new URL(link.getAttribute("href"), window.location.href).href;
+          if (seen.has(url)) return;
+          seen.add(url);
+          const title = link.textContent.trim() || cardTitle || url;
+          const titleText = normalize(title);
+          const contextText = normalize(`${cardTitle} ${sectionTitle}`);
+          const text = normalize(`${title} ${cardTitle} ${sectionTitle} ${card.dataset.searchText || ""}`);
+
+          items.push({
+            url,
+            title,
+            context: [cardTitle, sectionTitle].filter(Boolean).join(" · "),
+            titleText,
+            contextText,
+            text
+          });
+        });
+      });
+
+      return items;
+    };
+
+    const suggestionItems = getSuggestionItems();
 
     const fetchArticleText = async (url) => {
       if (articleTextCache.has(url)) return articleTextCache.get(url);
@@ -128,6 +278,72 @@
       return promise;
     };
 
+    const renderSuggestions = (query) => {
+      if (!resultsPanel) return;
+
+      if (!query) {
+        suggestions = [];
+        activeSuggestionIndex = 0;
+        resultsPanel.hidden = true;
+        resultsPanel.innerHTML = "";
+        searchInput.setAttribute("aria-expanded", "false");
+        searchInput.removeAttribute("aria-activedescendant");
+        return;
+      }
+
+      suggestions = suggestionItems
+        .map((item) => {
+          const titleMatch = item.titleText.includes(query);
+          const contextMatch = item.contextText.includes(query);
+          const broadMatch = item.text.includes(query);
+          return {
+            ...item,
+            score: titleMatch ? 4 : contextMatch ? 3 : broadMatch ? 1 : 0
+          };
+        })
+        .filter((item) => item.score > 0)
+        .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, language))
+        .slice(0, 6);
+
+      activeSuggestionIndex = Math.min(activeSuggestionIndex, Math.max(suggestions.length - 1, 0));
+
+      if (suggestions.length === 0) {
+        resultsPanel.hidden = false;
+        resultsPanel.innerHTML = `<p class="kb-search-results-empty">${labels.noResults}</p>`;
+        searchInput.setAttribute("aria-expanded", "true");
+        searchInput.removeAttribute("aria-activedescendant");
+        return;
+      }
+
+      resultsPanel.hidden = false;
+      resultsPanel.innerHTML = `
+        <div class="kb-search-results-head">${labels.count(suggestions.length)}</div>
+        <div class="kb-search-results-list">
+          ${suggestions
+            .map(
+              (item, index) => `
+                <a
+                  id="kb-search-result-${index}"
+                  class="kb-search-result${index === activeSuggestionIndex ? " is-active" : ""}"
+                  href="${item.url}"
+                  role="option"
+                  aria-selected="${index === activeSuggestionIndex ? "true" : "false"}"
+                >
+                  <span>
+                    <strong>${item.title}</strong>
+                    ${item.context ? `<small>${item.context}</small>` : ""}
+                  </span>
+                  <em>${labels.open}</em>
+                </a>
+              `
+            )
+            .join("")}
+        </div>
+      `;
+      searchInput.setAttribute("aria-expanded", "true");
+      searchInput.setAttribute("aria-activedescendant", `kb-search-result-${activeSuggestionIndex}`);
+    };
+
     const enrichCardsWithArticleText = async () => {
       const cardsToLoad = searchableCards.filter((card) => card.dataset.kbIndexed !== "true");
       await Promise.all(
@@ -143,6 +359,14 @@
           card.dataset.kbIndexed = "true";
         })
       );
+
+      suggestionItems.forEach((item) => {
+        const cached = articleTextCache.get(item.url);
+        if (!cached || typeof cached.then !== "function") return;
+        cached.then((articleText) => {
+          item.text = normalize(`${item.text} ${articleText}`);
+        });
+      });
     };
 
     const applySearch = () => {
@@ -166,13 +390,15 @@
       if (emptyState) {
         emptyState.hidden = visibleCount > 0;
       }
+
+      renderSuggestions(query);
     };
 
     if (searchInput.dataset.kbSearchBound !== "true") {
       searchInput.dataset.kbSearchBound = "true";
       searchInput.addEventListener("input", async () => {
         const hasQuery = Boolean(searchInput.value.trim());
-        searchInput.closest(".kb-help-search")?.classList.toggle("has-value", hasQuery);
+        searchBox?.classList.toggle("has-value", hasQuery);
         applySearch();
 
         if (hasQuery && !loadingState.active) {
@@ -180,6 +406,36 @@
           await enrichCardsWithArticleText();
           loadingState.active = false;
           applySearch();
+        }
+      });
+
+      searchInput.addEventListener("keydown", (event) => {
+        if (!suggestions.length && event.key !== "Enter") return;
+
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          activeSuggestionIndex = (activeSuggestionIndex + 1) % suggestions.length;
+          renderSuggestions(normalize(searchInput.value.trim()));
+          return;
+        }
+
+        if (event.key === "ArrowUp") {
+          event.preventDefault();
+          activeSuggestionIndex = (activeSuggestionIndex - 1 + suggestions.length) % suggestions.length;
+          renderSuggestions(normalize(searchInput.value.trim()));
+          return;
+        }
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+          const target = suggestions[activeSuggestionIndex];
+          if (target) window.location.href = target.url;
+          return;
+        }
+
+        if (event.key === "Escape") {
+          resultsPanel.hidden = true;
+          searchInput.setAttribute("aria-expanded", "false");
         }
       });
     }
@@ -199,13 +455,22 @@
 
   const syncLanguageSwitcher = () => {
     const currentPath = new URL(window.location.href).pathname;
-    document.querySelectorAll(".kb-language-switcher a").forEach((link) => {
-      const active = new URL(link.href, window.location.href).pathname === currentPath;
-      link.classList.toggle("is-active", active);
-      if (active) {
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
+    document.querySelectorAll(".kb-language-switcher").forEach((switcher) => {
+      let activeLabel = "";
+      switcher.querySelectorAll("a").forEach((link) => {
+        const active = new URL(link.href, window.location.href).pathname === currentPath;
+        link.classList.toggle("is-active", active);
+        if (active) {
+          link.setAttribute("aria-current", "page");
+          activeLabel = link.textContent.trim();
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      const triggerLabel = switcher.querySelector(".kb-language-switcher-toggle span");
+      if (triggerLabel && activeLabel) {
+        triggerLabel.textContent = activeLabel;
       }
     });
   };
@@ -314,12 +579,88 @@
     });
   };
 
+  const bindLanguageDropdown = () => {
+    document.querySelectorAll(".kb-language-switcher").forEach((switcher) => {
+      if (switcher.dataset.kbLanguageDropdownBound === "true") return;
+      switcher.dataset.kbLanguageDropdownBound = "true";
+
+      const links = [...switcher.querySelectorAll("a")];
+      const activeLink = links.find((link) => link.classList.contains("is-active")) || links[0];
+      let menu = switcher.querySelector(".kb-language-switcher-menu");
+      let button = switcher.querySelector(".kb-language-switcher-toggle");
+
+      if (!menu) {
+        menu = document.createElement("div");
+        menu.className = "kb-language-switcher-menu";
+        links.forEach((link) => menu.appendChild(link));
+      }
+
+      if (!button) {
+        button = document.createElement("button");
+        button.type = "button";
+        button.className = "kb-language-switcher-toggle";
+        button.innerHTML = `
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+          </svg>
+          <span>${activeLink?.textContent?.trim() || "CZ"}</span>
+        `;
+      }
+
+      button.setAttribute("aria-haspopup", "menu");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", switcher.getAttribute("aria-label") || "Change language");
+      switcher.append(button, menu);
+
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const open = switcher.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(open));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (switcher.contains(event.target)) return;
+        switcher.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+      });
+
+      switcher.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        switcher.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+        button.focus();
+      });
+    });
+  };
+
+  const bindHomeNavAnchors = () => {
+    document.querySelectorAll(".kb-help-nav a[href^='#']").forEach((link) => {
+      if (link.dataset.kbHomeAnchorBound === "true") return;
+      link.dataset.kbHomeAnchorBound = "true";
+      link.addEventListener("click", (event) => {
+        const hash = link.getAttribute("href");
+        const anchor = hash ? document.querySelector(hash) : null;
+        const target = anchor?.classList.contains("kb-anchor-target") ? anchor.nextElementSibling : anchor;
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({ block: "start", behavior: "smooth" });
+        history.replaceState(null, "", hash);
+      });
+    });
+  };
+
   const initPage = () => {
     applyTheme(localStorage.getItem(storageKey) || "system");
     bindThemeToggle();
+    bindThemeDropdown();
     bindArticleToc();
     bindSearch();
     bindLanguageSwitcher();
+    bindLanguageDropdown();
+    bindHomeNavAnchors();
     syncLanguageSwitcher();
   };
 
