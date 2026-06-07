@@ -4076,6 +4076,71 @@ section {
   margin-bottom: 0;
 }
 
+.kb-article-tip {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin: 1.2rem 0 1.6rem;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, hsl(var(--primary)) 18%, hsl(var(--border)));
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, hsl(var(--primary)) 9%, transparent), transparent 60%),
+    color-mix(in srgb, hsl(var(--card)) 94%, hsl(var(--background)) 6%);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.07);
+}
+
+.kb-article-tip-icon {
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, hsl(var(--primary)) 14%, hsl(var(--card)));
+  color: hsl(var(--primary));
+}
+
+.kb-article-tip-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kb-article-tip span:not(.kb-article-tip-icon) {
+  color: hsl(var(--foreground));
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.kb-article-tip a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.kb-article-tip a:hover {
+  color: hsl(var(--primary-foreground));
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px color-mix(in srgb, hsl(var(--primary)) 28%, transparent);
+}
+
 .kb-article-link-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4423,6 +4488,15 @@ section {
 
   .kb-article-link-list {
     grid-template-columns: 1fr;
+  }
+
+  .kb-article-tip {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .kb-article-tip a {
+    grid-column: 1 / -1;
+    justify-self: start;
   }
 
   .kb-article-next-cta {
