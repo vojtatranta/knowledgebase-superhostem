@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to do when email forwarding does not work</title>
+    <script>
+      (() => {
+        const preference = localStorage.getItem("superhostem-kb-theme") || "system";
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = preference === "dark" || (preference === "system" && systemDark);
+        document.documentElement.classList.toggle("dark", isDark);
+        document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+      })();
+    </script>
+    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus">
+  </head>
+  <body id="page-top" class="kb-article-page">
+    <header class="kb-help-header">
+      <div class="kb-help-header-inner">
+        <a class="kb-help-brand" href="./index.html" aria-label="Superhostem.cz Help Center">
+          <span class="kb-help-brand-mark" aria-hidden="true">S</span>
+          <span>
+            <strong>Superhostem.cz</strong>
+            <small>Help Center</small>
+          </span>
+        </a>
+
+        <nav class="kb-help-nav" aria-label="Main navigation">
+          <a href="./index.html">Overview</a>
+          <a href="./index.html#knihovna">Library</a>
+          <a href="#kb-article-related">Related</a>
+        </nav>
+
+        <div class="kb-help-actions">
+<nav class="kb-language-switcher" aria-label="Language">
+            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Language">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>EN</span>
+      </button>
+            <div class="kb-language-switcher-menu">
+              <a href="../co-delat-kdyz-nefunguje-email-forwarding.html">CZ</a>
+              <a href="./co-delat-kdyz-nefunguje-email-forwarding.html" class="is-active" aria-current="page">EN</a>
+              <a href="../vn/co-delat-kdyz-nefunguje-email-forwarding.html">VN</a>
+            </div>
+          </nav>
+
+          <div class="kb-theme-toggle" role="group" aria-label="Switch color mode">
+            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
+              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+              <span class="sr-only">Theme</span>
+            </button>
+            <div class="kb-theme-toggle-menu">
+              <button type="button" data-theme-option="light" aria-label="Light mode" title="Light mode">Light mode</button>
+              <button type="button" data-theme-option="system" aria-label="System mode" title="System mode">System mode</button>
+              <button type="button" data-theme-option="dark" aria-label="Dark mode" title="Dark mode">Dark mode</button>
+            </div>
+          </div>
+          <a class="kb-help-site-link" href="https://www.superhostem.cz/">To the main website <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="kb-article-shell">
+      <div class="kb-article-container">
+        <article class="kb-article-main">
+          <p class="kb-article-kicker">FAQ and troubleshooting</p>
+          <h1 class="kb-article-title">What to do when email forwarding does not work</h1>
+          <p class="kb-article-lead">Email forwarding starts working only after you copy the assigned address correctly, confirm it in Gmail, and create the forwarding rule.</p>
+          <div class="kb-article-jump">
+            <a href="./index.html">Help Center</a>
+            <a href="./jak-funguje-email-forwarding.html">Email forwarding</a>
+            <a href="./co-delat-kdyz-chybi-rezervace.html">Next article →</a>
+          </div>
+
+          <div class="kb-article-divider"></div>
+          <div class="kb-article-prose" id="kb-article-content">
+            <section class="kb-article-topic-block"><h2>Quick check</h2><p>If reservation emails are not reaching Superhostem, the issue is usually in one of three steps: the copied address, Gmail confirmation, or the forwarding rule.</p><ol><li>Check that Gmail contains the exact address assigned by Superhostem.</li><li>Confirm the forwarding address in the verification email sent by Gmail.</li><li>Only after that, create the filter or rule that actually forwards reservation emails.</li></ol></section>
+            <section class="kb-article-topic-block"><h2>1. The assigned address was copied incorrectly</h2><p>Gmail must forward messages to the exact address from Superhostem. If one character is missing, a space is added, or an old address is used, emails will not reach Superhostem.</p><ul><li>copy the address again directly from Superhostem</li><li>check both the start and end of the address</li><li>do not type the address manually, copy it instead</li></ul></section>
+            <section class="kb-article-topic-block"><h2>2. The forwarding address is not confirmed in Gmail</h2><p>After adding a new forwarding address, Gmail sends a verification email. Until it is confirmed, Gmail does not forward anything to that address.</p><aside class="kb-article-callout">If you use multiple Gmail accounts on one computer, first make sure you are switched to the account where you are setting up forwarding.</aside><ul><li>open the correct Gmail account</li><li>find the verification email from Gmail</li><li>confirm the forwarding address</li></ul></section>
+            <section class="kb-article-topic-block"><h2>3. The forwarding filter or rule is missing</h2><p>Confirming the address is not enough. After confirmation, create a condition that selects reservation emails and forwards them to Superhostem.</p><ul><li>create the filter only after confirming the forwarding address</li><li>check that the filter matches emails from Airbnb, Booking.com, or another source</li><li>the filter must use the action to forward to the Superhostem address</li></ul></section>
+            <section class="kb-article-topic-block kb-article-topic-block-muted"><h2>If it still does not work</h2><p>Send a test reservation email or wait for the next real reservation email. If it does not appear in Superhostem, check the Gmail filter history and the correct Gmail account where forwarding is configured.</p></section>
+          </div>
+          <section class="kb-article-related" id="kb-article-related">
+            <h2>Related links</h2>
+            <div class="kb-article-related-grid">
+              <a class="kb-article-related-card" href="./jak-funguje-email-forwarding.html">
+  <span>Setup</span>
+  <strong>How email forwarding works</strong>
+</a>
+
+<a class="kb-article-related-card" href="./co-delat-kdyz-chybi-rezervace.html">
+  <span>Troubleshooting</span>
+  <strong>When a reservation is missing</strong>
+</a>
+
+<a class="kb-article-related-card" href="./index.html">
+  <span>Overview</span>
+  <strong>Help Center</strong>
+</a>
+
+            </div>
+          </section>
+        </article>
+
+        <aside class="kb-article-sidebar" id="kb-article-sidebar">
+          <div class="kb-article-sidebar-card">
+            <h2>On this page</h2>
+            <nav class="kb-article-toc" id="kb-article-toc"></nav>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="kb-article-footer">
+      <div class="kb-help-container">
+        <span>© Superhost.cz</span>
+        <a href="./index.html">Help Center</a>
+      </div>
+    </footer>
+
+    <a class="back-to-top" href="#page-top" aria-label="Back to top" title="Up">↑</a>
+
+
+      <script src="../../assets/kb-navigation.js?v=header-menus"></script>
+  </body>
+</html>

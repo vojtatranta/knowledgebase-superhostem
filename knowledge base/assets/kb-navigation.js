@@ -11,6 +11,13 @@
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "");
 
+  const getThemePreference = () => {
+    const saved = localStorage.getItem(storageKey);
+    if (saved === "light" || saved === "dark" || saved === "system") return saved;
+    localStorage.setItem(storageKey, "system");
+    return "system";
+  };
+
   const applyTheme = (preference) => {
     const resolved = preference === "system" ? (media.matches ? "dark" : "light") : preference;
     document.documentElement.classList.toggle("dark", resolved === "dark");
@@ -34,6 +41,26 @@
   };
 
   const bindThemeDropdown = () => {
+    const themeLabelsByLanguage = {
+      cs: {
+        light: "Světlý",
+        system: "Auto",
+        dark: "Tmavý"
+      },
+      en: {
+        light: "Light",
+        system: "Auto",
+        dark: "Dark"
+      },
+      vi: {
+        light: "Sáng",
+        system: "Auto",
+        dark: "Tối"
+      }
+    };
+    const language = document.documentElement.lang || "en";
+    const themeLabels = themeLabelsByLanguage[language] || themeLabelsByLanguage.en;
+
     document.querySelectorAll(".kb-theme-toggle").forEach((toggle) => {
       if (toggle.dataset.kbThemeDropdownBound === "true") return;
       toggle.dataset.kbThemeDropdownBound = "true";
@@ -52,6 +79,11 @@
 
       options.forEach((option) => {
         option.setAttribute("role", "menuitemradio");
+        const themeOption = option.dataset.themeOption;
+        if (themeLabels[themeOption]) {
+          option.textContent = themeLabels[themeOption];
+        }
+        option.dataset.themeIcon = themeOption;
       });
 
       if (!button) {
@@ -653,7 +685,7 @@
   };
 
   const initPage = () => {
-    applyTheme(localStorage.getItem(storageKey) || "system");
+    applyTheme(getThemePreference());
     bindThemeToggle();
     bindThemeDropdown();
     bindArticleToc();
@@ -665,7 +697,7 @@
   };
 
   media.addEventListener("change", () => {
-    if ((localStorage.getItem(storageKey) || "system") === "system") {
+    if (getThemePreference() === "system") {
       applyTheme("system");
     }
   });

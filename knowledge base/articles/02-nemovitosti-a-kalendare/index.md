@@ -14,7 +14,8 @@ Kategorie `Nemovitosti a kalendáře` řeší nastavení inventáře, napojení 
 
 - Jak přidat svou nemovitost
 - Jak získat a napojit iCal z Airbnb a Bookingu
-- Kalendář Airbnb v telefonu
+- Jak sdílet webový kalendář odkazem
+- Do kalendářové aplikace
 - Jak napojit Airbnb kalendář
 - Jak napojit Booking.com kalendář
 - Jak vložit ruční rezervaci

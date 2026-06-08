@@ -14,6 +14,7 @@ Kategorie `Řešení problémů` slouží jako rychlá diagnostická vrstva pro 
 
 - Co dělat, když se kalendář nenačítá
 - Co dělat, když chybí rezervace
+- Co dělat, když nefunguje email forwarding
 - Co dělat, když nesedí částka
 - Co dělat, když se email nespároval
 - Co dělat, když chybí část dat

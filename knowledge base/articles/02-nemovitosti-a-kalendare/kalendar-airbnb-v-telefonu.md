@@ -1,25 +1,25 @@
-# Kalendář Airbnb v telefonu
+# Do kalendářové aplikace
 
-## Co tento článek řeší
+## Kdy použít kalendář v telefonu
 
-Ukazuje, jak použít iCal export v Superhostem a přidat si rezervace do telefonu nebo počítače přes Google Calendar, Apple Calendar a další aplikace podporující iCal.
+Použijte ho, když chcete mít rezervace ze Superhostem ve své běžné kalendářové aplikaci. Hodí se pro osobní přehled, týmový kalendář nebo rychlou kontrolu termínů bez otevírání Superhostem.
 
-## Co v iCal exportu uvidíte
+- rezervace vidíte vedle svého osobního kalendáře
+- můžete použít Apple Calendar, Google Calendar, Outlook nebo jinou aplikaci s podporou iCal
+- není potřeba instalovat žádnou další speciální aplikaci
+- v aplikaci si můžete nastavit vlastní upozornění a notifikace
 
-Po přidání kalendáře z URL se v externím kalendáři zobrazují rezervace z vašeho účtu. Podle nastavení exportu může název události obsahovat:
+Pokud chcete větší kontrolu nad tím, komu kalendář sdílíte a jak dlouho má přístup fungovat, použijte raději webový kalendář přes odkaz.
 
-- jméno hosta
-- počet hostů
-- cenu rezervace
-- název nemovitosti
+## Co potřebujete
 
-## Co je důležité vědět
+V Superhostem zkopírujete iCal URL a vložíte ji do kalendářové aplikace. Aplikace pak rezervace načítá sama. Po změně nastavení exportu je potřeba zkopírovat novou URL.
 
-iCal export slouží hlavně pro přehled a sdílení rezervací do jiných kalendářových aplikací.
+Kalendářové aplikace si data obnovují podle vlastního intervalu. Změna se proto nemusí propsat okamžitě.
 
-- změna nastavení vytvoří novou URL exportu
-- po úpravě obsahu kalendáře je potřeba zkopírovat novou adresu
-- kalendář se synchronizuje automaticky, ale ne vždy okamžitě
+Pokud v kalendáři nevidíte jméno hosta, počet hostů, cenu nebo jiné detaily, Superhostem je zatím nemá odkud načíst. Pro rychlejší doplňování těchto údajů zapněte e-mailové přeposílání rezervací. Bez něj je potřeba údaje doplnit ručně: buď hostem, nebo vámi v administraci.
+
+CTA: `Jak funguje email forwarding`
 
 ## Jak přidat kalendář do iPhone
 
@@ -31,6 +31,7 @@ iCal export slouží hlavně pro přehled a sdílení rezervací do jiných kale
 6. vyberte `Jiný`
 7. klikněte na `Přidat odebíraný kalendář`
 8. vložte URL a potvrďte přes `Další` a `Uložit`
+9. v aplikaci Kalendář si případně nastavte upozornění pro události
 
 ## Jak přidat kalendář do Google Calendar
 
@@ -64,7 +65,7 @@ Přímý odkaz: `https://calendar.google.com/calendar/u/0/r/settings/addbyurl`
 
 - když chcete mít rezervace po ruce v telefonu
 - když si potřebujete zobrazit pobyty vedle osobního kalendáře
-- když chcete sdílet přehled rezervací do další aplikace podporující iCal
+- když chcete používat vlastní notifikace v kalendářové aplikaci
 
 ## Na co si dát pozor
 
@@ -72,6 +73,7 @@ Přímý odkaz: `https://calendar.google.com/calendar/u/0/r/settings/addbyurl`
 - některé kalendářové aplikace obnovují data se zpožděním
 - iCal export je určený pro zobrazení v externím kalendáři, ne pro kompletní správu rezervace
 - v Google Calendar se nový kalendář z URL přidává přes počítač, ne přímo v Android aplikaci
+- pokud sdílíte kalendář někomu jinému, zvažte raději webový odkaz s možností zrušit přístup
 
 ## Doporučený další krok
 
