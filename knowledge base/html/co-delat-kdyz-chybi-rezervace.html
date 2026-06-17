@@ -1,25 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Postup řešení situace, kdy vám v Superhostem chybí rezervace z Airbnb nebo Booking.com. Návod na synchronizaci kalendářů."
+    />
+    <meta property="og:title" content="Co dělat, když chybí rezervace" />
+    <meta
+      property="og:description"
+      content="Postup řešení situace, kdy vám v Superhostem chybí rezervace z Airbnb nebo Booking.com."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://knowledgebase.superhostem.cz/html/co-delat-kdyz-chybi-rezervace.html"
+    />
+    <meta property="og:site_name" content="Superhostem.cz - Centrum nápovědy" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Co dělat, když chybí rezervace" />
+    <meta
+      name="twitter:description"
+      content="Postup řešení situace, kdy vám v Superhostem chybí rezervace z Airbnb nebo Booking.com."
+    />
     <title>Co dělat, když chybí rezervace</title>
     <script>
       (() => {
-        const preference = localStorage.getItem("superhostem-kb-theme") || "system";
-        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const isDark = preference === "dark" || (preference === "system" && systemDark);
+        const preference =
+          localStorage.getItem("superhostem-kb-theme") || "system";
+        const systemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const isDark =
+          preference === "dark" || (preference === "system" && systemDark);
         document.documentElement.classList.toggle("dark", isDark);
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/superhostem.css?v=header-menus">
+    <link rel="stylesheet" href="../assets/superhostem.css?v=header-menus" />
   </head>
   <body id="page-top" class="kb-article-page">
     <header class="kb-help-header">
       <div class="kb-help-header-inner">
-        <a class="kb-help-brand" href="./index.html" aria-label="Superhostem.cz Centrum nápovědy">
+        <a
+          class="kb-help-brand"
+          href="./index.html"
+          aria-label="Superhostem.cz Centrum nápovědy"
+        >
           <span class="kb-help-brand-mark" aria-hidden="true">S</span>
           <span>
             <strong>Superhostem.cz</strong>
@@ -34,25 +63,51 @@
         </nav>
 
         <div class="kb-help-actions">
-<nav class="kb-language-switcher" aria-label="Jazyk">
-            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk">
-        <svg aria-hidden="true" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-          <path d="M2 12h20"></path>
-        </svg>
-        <span>CZ</span>
-      </button>
+          <nav class="kb-language-switcher" aria-label="Jazyk">
+            <button
+              type="button"
+              class="kb-language-switcher-toggle"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-label="Jazyk"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path
+                  d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
+                ></path>
+                <path d="M2 12h20"></path>
+              </svg>
+              <span>CZ</span>
+            </button>
             <div class="kb-language-switcher-menu">
-              <a href="./co-delat-kdyz-chybi-rezervace.html" class="is-active" aria-current="page">CZ</a>
+              <a
+                href="./co-delat-kdyz-chybi-rezervace.html"
+                class="is-active"
+                aria-current="page"
+                >CZ</a
+              >
               <a href="./en/co-delat-kdyz-chybi-rezervace.html">EN</a>
               <a href="./vn/co-delat-kdyz-chybi-rezervace.html">VN</a>
             </div>
           </nav>
 
-          <div class="kb-theme-toggle" role="group" aria-label="Přepnout barevný režim">
-            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
-              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+          <div
+            class="kb-theme-toggle"
+            role="group"
+            aria-label="Přepnout barevný režim"
+          >
+            <button
+              type="button"
+              class="kb-theme-toggle-trigger"
+              aria-haspopup="menu"
+              aria-expanded="false"
+            >
+              <svg
+                class="kb-theme-icon-sun"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+              >
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M12 2v2"></path>
                 <path d="M12 20v2"></path>
@@ -63,18 +118,48 @@
                 <path d="m6.34 17.66-1.41 1.41"></path>
                 <path d="m19.07 4.93-1.41 1.41"></path>
               </svg>
-              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+              <svg
+                class="kb-theme-icon-moon"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+              >
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
               <span class="sr-only">Theme</span>
             </button>
             <div class="kb-theme-toggle-menu">
-              <button type="button" data-theme-option="light" aria-label="Světlý režim" title="Světlý režim">Světlý režim</button>
-              <button type="button" data-theme-option="system" aria-label="Podle systému" title="Podle systému">Podle systému</button>
-              <button type="button" data-theme-option="dark" aria-label="Tmavý režim" title="Tmavý režim">Tmavý režim</button>
+              <button
+                type="button"
+                data-theme-option="light"
+                aria-label="Světlý režim"
+                title="Světlý režim"
+              >
+                Světlý režim
+              </button>
+              <button
+                type="button"
+                data-theme-option="system"
+                aria-label="Podle systému"
+                title="Podle systému"
+              >
+                Podle systému
+              </button>
+              <button
+                type="button"
+                data-theme-option="dark"
+                aria-label="Tmavý režim"
+                title="Tmavý režim"
+              >
+                Tmavý režim
+              </button>
             </div>
           </div>
-          <a class="kb-help-site-link" href="https://www.superhostem.cz/">Na hlavní web <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <a class="kb-help-site-link" href="https://www.superhostem.cz/"
+            >Na hlavní web
+            <svg aria-hidden="true" viewbox="0 0 24 24">
+              <path d="M7 7h10v10"></path>
+              <path d="M7 17 17 7"></path></svg
+          ></a>
         </div>
       </div>
     </header>
@@ -84,7 +169,10 @@
         <article class="kb-article-main">
           <p class="kb-article-kicker">FAQ a řešení problémů</p>
           <h1 class="kb-article-title">Co dělat, když chybí rezervace</h1>
-          <p class="kb-article-lead">Podle tohoto přehledu rychle ověříte, jestli jde o problém synchronizace, chybějící zdroj dat nebo jen jiný typ záznamu.</p>
+          <p class="kb-article-lead">
+            Podle tohoto přehledu rychle ověříte, jestli jde o problém
+            synchronizace, chybějící zdroj dat nebo jen jiný typ záznamu.
+          </p>
           <div class="kb-article-jump">
             <a href="./index.html">Centrum pomoci</a>
             <a href="./index.html#knihovna">Knihovna témat</a>
@@ -95,43 +183,45 @@
           <div class="kb-article-prose" id="kb-article-content">
             <h2>Rychlá diagnostika</h2>
 
-<ol>
-<li>je rezervace skutečně ve zdrojovém systému?</li>
-<li>jde o rezervaci z připojeného zdroje?</li>
-<li>proběhla už synchronizace?</li>
-<li>nejde o blokaci termínu?</li>
-</ol>
+            <ol>
+              <li>je rezervace skutečně ve zdrojovém systému?</li>
+              <li>jde o rezervaci z připojeného zdroje?</li>
+              <li>proběhla už synchronizace?</li>
+              <li>nejde o blokaci termínu?</li>
+            </ol>
 
-<h2>Nejčastější důvody</h2>
+            <h2>Nejčastější důvody</h2>
 
-<ul>
-<li>rezervace ještě nebyla načtená</li>
-<li>zdroj není správně připojený</li>
-<li>jde o jiný typ záznamu, než uživatel čeká</li>
-</ul>
+            <ul>
+              <li>rezervace ještě nebyla načtená</li>
+              <li>zdroj není správně připojený</li>
+              <li>jde o jiný typ záznamu, než uživatel čeká</li>
+            </ul>
 
-<h2>Co zkontrolovat v detailu</h2>
+            <h2>Co zkontrolovat v detailu</h2>
 
-<p>Název nemovitosti, správný zdroj rezervací, stav synchronizace a případné filtry v přehledu rezervací.</p>
+            <p>
+              Název nemovitosti, správný zdroj rezervací, stav synchronizace a
+              případné filtry v přehledu rezervací.
+            </p>
           </div>
           <section class="kb-article-related" id="kb-article-related">
             <h2>Související odkazy</h2>
             <div class="kb-article-related-grid">
               <a class="kb-article-related-card" href="./index.html">
-  <span>Přehled</span>
-  <strong>Centrum pomoci</strong>
-</a>
+                <span>Přehled</span>
+                <strong>Centrum pomoci</strong>
+              </a>
 
-<a class="kb-article-related-card" href="./index.html#knihovna">
-  <span>Knihovna</span>
-  <strong>Knihovna témat</strong>
-</a>
+              <a class="kb-article-related-card" href="./index.html#knihovna">
+                <span>Knihovna</span>
+                <strong>Knihovna témat</strong>
+              </a>
 
-<a class="kb-article-related-card" href="./co-je-ical.html">
-  <span>Další</span>
-  <strong>Co je iCal</strong>
-</a>
-
+              <a class="kb-article-related-card" href="./co-je-ical.html">
+                <span>Další</span>
+                <strong>Co je iCal</strong>
+              </a>
             </div>
           </section>
         </article>
@@ -152,9 +242,14 @@
       </div>
     </footer>
 
-    <a class="back-to-top" href="#page-top" aria-label="Zpět nahoru" title="Nahoru">↑</a>
+    <a
+      class="back-to-top"
+      href="#page-top"
+      aria-label="Zpět nahoru"
+      title="Nahoru"
+      >↑</a
+    >
 
-
-      <script src="../assets/kb-navigation.js?v=header-menus"></script>
+    <script src="../assets/kb-navigation.js?v=header-menus"></script>
   </body>
 </html>
