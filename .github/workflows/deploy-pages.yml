@@ -45,8 +45,9 @@ jobs:
           mkdir -p _site/knowledge-base/articles
 
           cp "knowledge base/knowledge-base-site.html" _site/knowledge-base/knowledge-base-site.html
-          # Keep language subdirectories (en/ and vn/) in the published site.
-          cp -R "knowledge base/html/." _site/knowledge-base/html/
+          cp "knowledge base/html/"*.html _site/knowledge-base/html/
+          cp -R "knowledge base/html/en" _site/knowledge-base/html/en
+          cp -R "knowledge base/html/vn" _site/knowledge-base/html/vn
           cp "knowledge base/articles/knowledge-base-library.html" _site/knowledge-base/articles/
           cp -R "knowledge base/assets" _site/knowledge-base/
 
@@ -108,6 +109,47 @@ jobs:
           </body>
           </html>
           EOF
+
+          # robots.txt
+          cat > _site/robots.txt <<'EOF'
+          User-agent: *
+          Allow: /
+          Sitemap: https://knowledgebase.superhostem.cz/sitemap.xml
+          EOF
+
+          # sitemap.xml — generated from all HTML pages
+          SITE="https://knowledgebase.superhostem.cz"
+          TODAY=$(date -u +"%Y-%m-%d")
+          {
+            echo '<?xml version="1.0" encoding="UTF-8"?>'
+            echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'
+            echo '        xmlns:xhtml="http://www.w3.org/1999/xhtml">'
+            for f in "knowledge base/html/"*.html; do
+              name="$(basename "$f")"
+              echo "  <url>"
+              echo "    <loc>${SITE}/knowledge-base/html/${name}</loc>"
+              echo "    <lastmod>${TODAY}</lastmod>"
+              echo "    <changefreq>weekly</changefreq>"
+              echo "  </url>"
+            done
+            for f in "knowledge base/html/en/"*.html; do
+              name="$(basename "$f")"
+              echo "  <url>"
+              echo "    <loc>${SITE}/knowledge-base/html/en/${name}</loc>"
+              echo "    <lastmod>${TODAY}</lastmod>"
+              echo "    <changefreq>weekly</changefreq>"
+              echo "  </url>"
+            done
+            for f in "knowledge base/html/vn/"*.html; do
+              name="$(basename "$f")"
+              echo "  <url>"
+              echo "    <loc>${SITE}/knowledge-base/html/vn/${name}</loc>"
+              echo "    <lastmod>${TODAY}</lastmod>"
+              echo "    <changefreq>weekly</changefreq>"
+              echo "  </url>"
+            done
+            echo '</urlset>'
+          } > _site/sitemap.xml
 
           # 404.html: catch-all redirect for any URL missing /knowledge-base prefix
           cat > _site/404.html <<'EOF'
