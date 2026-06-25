@@ -113,10 +113,10 @@ jobs:
           EOF
 
           # robots.txt
-          cat > _site/robots.txt <<'EOF'
+          cat > _site/knowledge-base/robots.txt <<'EOF'
           User-agent: *
           Allow: /
-          Sitemap: https://knowledgebase.superhostem.cz/sitemap.xml
+          Sitemap: https://knowledgebase.superhostem.cz/knowledge-base/sitemap.xml
           EOF
 
           # sitemap.xml — generated from all HTML pages
@@ -151,7 +151,7 @@ jobs:
               echo "  </url>"
             done
             echo '</urlset>'
-          } > _site/sitemap.xml
+          } > _site/knowledge-base/sitemap.xml
 
           # 404.html: catch-all redirect for any URL missing /knowledge-base prefix
           cat > _site/404.html <<'EOF'
