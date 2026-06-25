@@ -44,6 +44,8 @@ jobs:
           mkdir -p _site/knowledge-base/html
           mkdir -p _site/knowledge-base/articles
 
+          cp CNAME _site/CNAME
+
           cp "knowledge base/knowledge-base-site.html" _site/knowledge-base/knowledge-base-site.html
           cp "knowledge base/html/"*.html _site/knowledge-base/html/
           cp -R "knowledge base/html/en" _site/knowledge-base/html/en
