@@ -1,63 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Hướng dẫn tổng quan đặt phòng trong Superhostem. Xem lịch, bộ lọc, quản lý đặt phòng từ nhiều nền tảng."
-    />
-    <meta
-      property="og:title"
-      content="Cách thức hoạt động của tổng quan đặt phòng"
-    />
-    <meta
-      property="og:description"
-      content="Hướng dẫn tổng quan đặt phòng trong Superhostem."
-    />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cách thức hoạt động của tổng quan đặt phòng – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
+    <meta property="og:title" content="Cách thức hoạt động của tổng quan đặt phòng" />
+    <meta property="og:description" content="Cách thức hoạt động của tổng quan đặt phòng – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:url"
-      content="https://knowledgebase.superhostem.cz/knowledge-base/html/vn/jak-funguje-prehled-rezervaci.html"
-    />
-    <meta
-      property="og:site_name"
-      content="Superhostem.cz - Trung tâm trợ giúp"
-    />
+    <meta property="og:url" content="https://knowledgebase.superhostem.cz/knowledge-base/html/vn/jak-funguje-prehled-rezervaci.html" />
+    <meta property="og:site_name" content="Superhostem.cz - Trung tâm trợ giúp" />
     <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Cách thức hoạt động của tổng quan đặt phòng"
-    />
-    <meta
-      name="twitter:description"
-      content="Hướng dẫn tổng quan đặt phòng trong Superhostem."
-    />
+    <meta name="twitter:title" content="Cách thức hoạt động của tổng quan đặt phòng" />
+    <meta name="twitter:description" content="Cách thức hoạt động của tổng quan đặt phòng – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
     <title>Cách thức hoạt động của tổng quan đặt phòng</title>
     <script>
       (() => {
-        const preference =
-          localStorage.getItem("superhostem-kb-theme") || "system";
-        const systemDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        const isDark =
-          preference === "dark" || (preference === "system" && systemDark);
+        const preference = localStorage.getItem("superhostem-kb-theme") || "system";
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = preference === "dark" || (preference === "system" && systemDark);
         document.documentElement.classList.toggle("dark", isDark);
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
       })();
     </script>
-    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus" />
+    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus">
   </head>
   <body id="page-top" class="kb-article-page">
     <header class="kb-help-header">
       <div class="kb-help-header-inner">
-        <a
-          class="kb-help-brand"
-          href="./index.html"
-          aria-label="Trung tâm trợ giúp Superhostem.cz"
-        >
+        <a class="kb-help-brand" href="./index.html" aria-label="Trung tâm trợ giúp Superhostem.cz">
           <span class="kb-help-brand-mark" aria-hidden="true">S</span>
           <span>
             <strong>Superhostem.cz</strong>
@@ -72,51 +43,25 @@
         </nav>
 
         <div class="kb-help-actions">
-          <nav class="kb-language-switcher" aria-label="Ngôn ngữ">
-            <button
-              type="button"
-              class="kb-language-switcher-toggle"
-              aria-haspopup="menu"
-              aria-expanded="false"
-              aria-label="Ngôn ngữ"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path
-                  d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-                ></path>
-                <path d="M2 12h20"></path>
-              </svg>
-              <span>VN</span>
-            </button>
+<nav class="kb-language-switcher" aria-label="Ngôn ngữ">
+            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Ngôn ngữ">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>VN</span>
+      </button>
             <div class="kb-language-switcher-menu">
               <a href="../jak-funguje-prehled-rezervaci.html">CZ</a>
               <a href="../en/jak-funguje-prehled-rezervaci.html">EN</a>
-              <a
-                href="./jak-funguje-prehled-rezervaci.html"
-                class="is-active"
-                aria-current="page"
-                >VN</a
-              >
+              <a href="./jak-funguje-prehled-rezervaci.html" class="is-active" aria-current="page">VN</a>
             </div>
           </nav>
 
-          <div
-            class="kb-theme-toggle"
-            role="group"
-            aria-label="Chuyển chế độ màu"
-          >
-            <button
-              type="button"
-              class="kb-theme-toggle-trigger"
-              aria-haspopup="menu"
-              aria-expanded="false"
-            >
-              <svg
-                class="kb-theme-icon-sun"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+          <div class="kb-theme-toggle" role="group" aria-label="Chuyển chế độ màu">
+            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
+              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M12 2v2"></path>
                 <path d="M12 20v2"></path>
@@ -127,48 +72,18 @@
                 <path d="m6.34 17.66-1.41 1.41"></path>
                 <path d="m19.07 4.93-1.41 1.41"></path>
               </svg>
-              <svg
-                class="kb-theme-icon-moon"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
               <span class="sr-only">Theme</span>
             </button>
             <div class="kb-theme-toggle-menu">
-              <button
-                type="button"
-                data-theme-option="light"
-                aria-label="Chế độ sáng"
-                title="Chế độ sáng"
-              >
-                Chế độ sáng
-              </button>
-              <button
-                type="button"
-                data-theme-option="system"
-                aria-label="Theo hệ thống"
-                title="Theo hệ thống"
-              >
-                Theo hệ thống
-              </button>
-              <button
-                type="button"
-                data-theme-option="dark"
-                aria-label="Chế độ tối"
-                title="Chế độ tối"
-              >
-                Chế độ tối
-              </button>
+              <button type="button" data-theme-option="light" aria-label="Chế độ sáng" title="Chế độ sáng">Chế độ sáng</button>
+              <button type="button" data-theme-option="system" aria-label="Theo hệ thống" title="Theo hệ thống">Theo hệ thống</button>
+              <button type="button" data-theme-option="dark" aria-label="Chế độ tối" title="Chế độ tối">Chế độ tối</button>
             </div>
           </div>
-          <a class="kb-help-site-link" href="https://www.superhostem.cz/"
-            >Đến trang web chính
-            <svg aria-hidden="true" viewbox="0 0 24 24">
-              <path d="M7 7h10v10"></path>
-              <path d="M7 17 17 7"></path></svg
-          ></a>
+          <a class="kb-help-site-link" href="https://www.superhostem.cz/">Đến trang web chính <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
         </div>
       </div>
     </header>
@@ -177,88 +92,67 @@
       <div class="kb-article-container">
         <article class="kb-article-main">
           <p class="kb-article-kicker">Quản lý đặt chỗ và lịch</p>
-          <h1 class="kb-article-title">
-            Cách thức hoạt động của tổng quan đặt phòng
-          </h1>
-          <p class="kb-article-lead">
-            Trên trang Đặt chỗ, bạn sẽ thấy tất cả các đặt phòng ở cùng một nơi
-            và có thể lọc chúng theo ngày, trạng thái hoặc cơ sở kinh doanh.
-          </p>
+          <h1 class="kb-article-title">Cách thức hoạt động của tổng quan đặt phòng</h1>
+          <p class="kb-article-lead">Trên trang Đặt chỗ, bạn sẽ thấy tất cả các đặt phòng ở cùng một nơi và có thể lọc chúng theo ngày, trạng thái hoặc cơ sở kinh doanh.</p>
           <div class="kb-article-jump">
             <a href="./index.html">Trung tâm trợ giúp</a>
             <a href="./index.html#knihovna">Thư viện chủ đề</a>
-            <a href="./co-vsechno-najdu-v-detailu-rezervace.html"
-              >Bài tiếp theo →</a
-            >
+            <a href="./co-vsechno-najdu-v-detailu-rezervace.html">Bài tiếp theo →</a>
           </div>
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
             <h2>Nơi bạn có thể tìm thấy thông tin tổng quan về đặt chỗ</h2>
 
-            <p>
-              Trong menu bên trái, nhấp vào <strong>Đặt chỗ</strong>. Một trang
-              có phụ đề sẽ mở ra
-              <strong
-                >Tổng quan về tất cả các đặt phòng từ Airbnb, Booking.com và
-                hướng dẫn sử dụng</strong
-              >.
-            </p>
+<p>Trong menu bên trái, nhấp vào <strong>Đặt chỗ</strong>. Một trang có phụ đề sẽ mở ra <strong>Tổng quan về tất cả các đặt phòng từ Airbnb, Booking.com và hướng dẫn sử dụng</strong>.</p>
 
-            <h2>Những gì có sẵn trên trang web</h2>
+<h2>Những gì có sẵn trên trang web</h2>
 
-            <ul>
-              <li>Đồng bộ hóa mọi thứ</li>
-              <li>Đặt chỗ mới</li>
-              <li>Danh sách</li>
-              <li>Lịch</li>
-              <li>Xem: Sắp tới / Quá khứ</li>
-              <li>Tình trạng: Tất cả</li>
-              <li>Tài sản: Tất cả</li>
-              <li>Từ ngày</li>
-              <li>Theo ngày</li>
-            </ul>
+<ul>
+<li>Đồng bộ hóa mọi thứ</li>
+<li>Đặt chỗ mới</li>
+<li>Danh sách</li>
+<li>Lịch</li>
+<li>Xem: Sắp tới / Quá khứ</li>
+<li>Tình trạng: Tất cả</li>
+<li>Tài sản: Tất cả</li>
+<li>Từ ngày</li>
+<li>Theo ngày</li>
+</ul>
 
-            <h2>Những gì bạn sẽ thấy ở trạng thái trống</h2>
+<h2>Những gì bạn sẽ thấy ở trạng thái trống</h2>
 
-            <p>
-              Nếu bạn chưa có dữ liệu nào, trang sẽ hiển thị văn bản
-              <strong>Bạn chưa có đặt chỗ nào</strong> và các đề xuất để kết nối
-              lịch từ Airbnb và Booking.com hoặc thêm đặt chỗ theo cách thủ
-              công.
-            </p>
+<p>Nếu bạn chưa có dữ liệu nào, trang sẽ hiển thị văn bản <strong>Bạn chưa có đặt chỗ nào</strong> và các đề xuất để kết nối lịch từ Airbnb và Booking.com hoặc thêm đặt chỗ theo cách thủ công.</p>
 
-            <h2>Phải làm gì nếu phần tổng quan trống</h2>
+<h2>Phải làm gì nếu phần tổng quan trống</h2>
 
-            <ol>
-              <li>xác minh rằng bạn đã tạo ít nhất một thuộc tính</li>
-              <li>kết nối nguồn đặt chỗ</li>
-              <li>sử dụng nếu có <strong>Đặt chỗ mới</strong></li>
-              <li>bấm vào <strong>Đồng bộ hóa mọi thứ</strong></li>
-            </ol>
+<ol>
+<li>xác minh rằng bạn đã tạo ít nhất một thuộc tính</li>
+<li>kết nối nguồn đặt chỗ</li>
+<li>sử dụng nếu có <strong>Đặt chỗ mới</strong>
+</li>
+<li>bấm vào <strong>Đồng bộ hóa mọi thứ</strong>
+</li>
+</ol>
           </div>
           <section class="kb-article-related" id="kb-article-related">
             <h2>Liên kết liên quan</h2>
             <div class="kb-article-related-grid">
               <a class="kb-article-related-card" href="./index.html">
-                <span>Tổng quan</span>
-                <strong>Trung tâm trợ giúp</strong>
-              </a>
+  <span>Tổng quan</span>
+  <strong>Trung tâm trợ giúp</strong>
+</a>
 
-              <a class="kb-article-related-card" href="./index.html#knihovna">
-                <span>Thư viện</span>
-                <strong>Thư viện chủ đề</strong>
-              </a>
+<a class="kb-article-related-card" href="./index.html#knihovna">
+  <span>Thư viện</span>
+  <strong>Thư viện chủ đề</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./co-vsechno-najdu-v-detailu-rezervace.html"
-              >
-                <span>Một cái khác</span>
-                <strong
-                  >Tôi có thể tìm thấy gì trong chi tiết đặt phòng?</strong
-                >
-              </a>
+<a class="kb-article-related-card" href="./co-vsechno-najdu-v-detailu-rezervace.html">
+  <span>Một cái khác</span>
+  <strong>Tôi có thể tìm thấy gì trong chi tiết đặt phòng?</strong>
+</a>
+
             </div>
           </section>
         </article>
@@ -279,14 +173,9 @@
       </div>
     </footer>
 
-    <a
-      class="back-to-top"
-      href="#page-top"
-      aria-label="Quay lại đầu trang"
-      title="Hướng lên"
-      >↑</a
-    >
+    <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script src="../../assets/kb-navigation.js?v=header-menus"></script>
+
+      <script src="../../assets/kb-navigation.js?v=header-menus"></script>
   </body>
 </html>

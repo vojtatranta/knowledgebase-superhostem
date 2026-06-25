@@ -1,63 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Hướng dẫn giải quyết thuế VAT đối với thu nhập từ Airbnb và Booking.com bao gồm cơ chế reverse charge và nghĩa vụ thuế."
-    />
-    <meta
-      property="og:title"
-      content="Cách giải quyết thuế VAT với Airbnb và Booking"
-    />
-    <meta
-      property="og:description"
-      content="Hướng dẫn giải quyết thuế VAT đối với thu nhập từ Airbnb và Booking.com."
-    />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cách giải quyết thuế VAT với Airbnb và Booking – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
+    <meta property="og:title" content="Cách giải quyết thuế VAT với Airbnb và Booking" />
+    <meta property="og:description" content="Cách giải quyết thuế VAT với Airbnb và Booking – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:url"
-      content="https://knowledgebase.superhostem.cz/knowledge-base/html/vn/jak-resit-dph-u-airbnb-a-booking.html"
-    />
-    <meta
-      property="og:site_name"
-      content="Superhostem.cz - Trung tâm trợ giúp"
-    />
+    <meta property="og:url" content="https://knowledgebase.superhostem.cz/knowledge-base/html/vn/jak-resit-dph-u-airbnb-a-booking.html" />
+    <meta property="og:site_name" content="Superhostem.cz - Trung tâm trợ giúp" />
     <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Cách giải quyết thuế VAT với Airbnb và Booking"
-    />
-    <meta
-      name="twitter:description"
-      content="Hướng dẫn giải quyết thuế VAT đối với thu nhập từ Airbnb và Booking.com."
-    />
+    <meta name="twitter:title" content="Cách giải quyết thuế VAT với Airbnb và Booking" />
+    <meta name="twitter:description" content="Cách giải quyết thuế VAT với Airbnb và Booking – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
     <title>Cách giải quyết thuế VAT với Airbnb và Booking</title>
     <script>
       (() => {
-        const preference =
-          localStorage.getItem("superhostem-kb-theme") || "system";
-        const systemDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        const isDark =
-          preference === "dark" || (preference === "system" && systemDark);
+        const preference = localStorage.getItem("superhostem-kb-theme") || "system";
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = preference === "dark" || (preference === "system" && systemDark);
         document.documentElement.classList.toggle("dark", isDark);
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
       })();
     </script>
-    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus" />
+    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus">
   </head>
   <body id="page-top" class="kb-article-page">
     <header class="kb-help-header">
       <div class="kb-help-header-inner">
-        <a
-          class="kb-help-brand"
-          href="./index.html"
-          aria-label="Trung tâm trợ giúp Superhostem.cz"
-        >
+        <a class="kb-help-brand" href="./index.html" aria-label="Trung tâm trợ giúp Superhostem.cz">
           <span class="kb-help-brand-mark" aria-hidden="true">S</span>
           <span>
             <strong>Superhostem.cz</strong>
@@ -72,51 +43,25 @@
         </nav>
 
         <div class="kb-help-actions">
-          <nav class="kb-language-switcher" aria-label="Ngôn ngữ">
-            <button
-              type="button"
-              class="kb-language-switcher-toggle"
-              aria-haspopup="menu"
-              aria-expanded="false"
-              aria-label="Ngôn ngữ"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path
-                  d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-                ></path>
-                <path d="M2 12h20"></path>
-              </svg>
-              <span>VN</span>
-            </button>
+<nav class="kb-language-switcher" aria-label="Ngôn ngữ">
+            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Ngôn ngữ">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>VN</span>
+      </button>
             <div class="kb-language-switcher-menu">
               <a href="../jak-resit-dph-u-airbnb-a-booking.html">CZ</a>
               <a href="../en/jak-resit-dph-u-airbnb-a-booking.html">EN</a>
-              <a
-                href="./jak-resit-dph-u-airbnb-a-booking.html"
-                class="is-active"
-                aria-current="page"
-                >VN</a
-              >
+              <a href="./jak-resit-dph-u-airbnb-a-booking.html" class="is-active" aria-current="page">VN</a>
             </div>
           </nav>
 
-          <div
-            class="kb-theme-toggle"
-            role="group"
-            aria-label="Chuyển chế độ màu"
-          >
-            <button
-              type="button"
-              class="kb-theme-toggle-trigger"
-              aria-haspopup="menu"
-              aria-expanded="false"
-            >
-              <svg
-                class="kb-theme-icon-sun"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+          <div class="kb-theme-toggle" role="group" aria-label="Chuyển chế độ màu">
+            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
+              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M12 2v2"></path>
                 <path d="M12 20v2"></path>
@@ -127,48 +72,18 @@
                 <path d="m6.34 17.66-1.41 1.41"></path>
                 <path d="m19.07 4.93-1.41 1.41"></path>
               </svg>
-              <svg
-                class="kb-theme-icon-moon"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
               <span class="sr-only">Theme</span>
             </button>
             <div class="kb-theme-toggle-menu">
-              <button
-                type="button"
-                data-theme-option="light"
-                aria-label="Chế độ sáng"
-                title="Chế độ sáng"
-              >
-                Chế độ sáng
-              </button>
-              <button
-                type="button"
-                data-theme-option="system"
-                aria-label="Theo hệ thống"
-                title="Theo hệ thống"
-              >
-                Theo hệ thống
-              </button>
-              <button
-                type="button"
-                data-theme-option="dark"
-                aria-label="Chế độ tối"
-                title="Chế độ tối"
-              >
-                Chế độ tối
-              </button>
+              <button type="button" data-theme-option="light" aria-label="Chế độ sáng" title="Chế độ sáng">Chế độ sáng</button>
+              <button type="button" data-theme-option="system" aria-label="Theo hệ thống" title="Theo hệ thống">Theo hệ thống</button>
+              <button type="button" data-theme-option="dark" aria-label="Chế độ tối" title="Chế độ tối">Chế độ tối</button>
             </div>
           </div>
-          <a class="kb-help-site-link" href="https://www.superhostem.cz/"
-            >Đến trang web chính
-            <svg aria-hidden="true" viewbox="0 0 24 24">
-              <path d="M7 7h10v10"></path>
-              <path d="M7 17 17 7"></path></svg
-          ></a>
+          <a class="kb-help-site-link" href="https://www.superhostem.cz/">Đến trang web chính <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
         </div>
       </div>
     </header>
@@ -177,341 +92,69 @@
       <div class="kb-article-container">
         <article class="kb-article-main">
           <p class="kb-article-kicker">Pháp luật tại Cộng hòa Séc</p>
-          <h1 class="kb-article-title">
-            Cách giải quyết thuế VAT với Airbnb và Booking
-          </h1>
-          <p class="kb-article-lead">
-            Nếu bạn chấp nhận đặt phòng qua Airbnb hoặc Booking.com, bạn không
-            chỉ phải giải quyết thuế thu nhập. Trong thực tế, nghĩa vụ nộp thuế
-            GTGT đối với hoa hồng hoặc các khoản phí mà nền tảng tính cho bạn
-            cũng rất thường xuyên phát sinh.
-          </p>
+          <h1 class="kb-article-title">Cách giải quyết thuế VAT với Airbnb và Booking</h1>
+          <p class="kb-article-lead">Nếu bạn chấp nhận đặt phòng qua Airbnb hoặc Booking.com, bạn không chỉ phải giải quyết thuế thu nhập. Trong thực tế, nghĩa vụ nộp thuế GTGT đối với hoa hồng hoặc các khoản phí mà nền tảng tính cho bạn cũng rất thường xuyên phát sinh.</p>
           <div class="kb-article-jump">
             <a href="./index.html">Trung tâm trợ giúp</a>
             <a href="./jak-funguje-poplatek-z-pobytu.html">Bài viết trước</a>
-            <a href="./co-delat-kdyz-se-kalendar-nenacita.html"
-              >Bài tiếp theo →</a
-            >
+            <a href="./co-delat-kdyz-se-kalendar-nenacita.html">Bài tiếp theo →</a>
           </div>
           <div class="kb-article-intro-note">
-            <strong>Điều gì đang chờ đợi bạn tiếp theo?</strong>
-            <p>
-              Trước tiên, bạn sẽ làm rõ liệu bạn là người không phải trả tiền
-              hay người nộp thuế VAT, sau đó bạn sẽ xác minh mối quan hệ với hoa
-              hồng từ Airbnb hoặc Booking và giải quyết việc đăng ký, khai báo
-              và khấu trừ có thể có cho phù hợp.
-            </p>
-          </div>
+  <strong>Trước hết hãy xác định chế độ VAT của bạn</strong>
+        <p>Với Airbnb và Booking, VAT thường liên quan đến hoa hồng hoặc phí của nền tảng nước ngoài, không phải chỉ giá lưu trú.</p>
+</div>
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
-            <h2>Tóm lại: điều quan trọng cần biết</h2>
-
-            <h3>Hoa hồng nền tảng là một dịch vụ</h3>
-            <p>
-              Các khoản phí do Airbnb hoặc Booking tính không chỉ là chi tiết kỹ
-              thuật. Theo quan điểm của VAT, đây là dịch vụ nhận được từ người
-              nước ngoài.
-            </p>
-            <h3>Người vi phạm thường kết thúc như một người được xác định</h3>
-            <p>
-              Nếu bạn không phải là người nộp thuế VAT và nhận được dịch vụ như
-              vậy, bạn sẽ thường phải đăng ký làm người được xác định.
-            </p>
-            <h3>Người nộp thuế VAT có thể giải quyết việc khấu trừ</h3>
-            <p>
-              Nếu bạn đã là người nộp thuế VAT, bạn cũng khai thuế VAT đối với
-              dịch vụ nhận được, nhưng bạn có thể yêu cầu khấu trừ nếu đáp ứng
-              các điều kiện pháp lý.
-            </p>
-
-            <h2>Những gì cần làm rõ ngay từ đầu</h2>
-            <ul>
-              <li>
-                nếu bạn cung cấp <strong>dịch vụ lưu trú</strong>, hoặc bạn đang
-                phải đối mặt với một chế độ thu nhập khác
-              </li>
-              <li>
-                nếu bạn là ngày hôm nay
-                <strong>Người không nộp thuế VAT</strong>,
-                <strong>người được xác định</strong>hoặc
-                <strong>Người nộp thuế VAT</strong>
-              </li>
-              <li>
-                bạn chấp nhận đặt chỗ thông qua nền tảng nào và bạn sẽ phải trả
-                khoản phí gì
-              </li>
-              <li>
-                nếu bạn đã nhận được chứng từ thuế hoặc thông tin tổng quan về
-                hoa hồng từ Airbnb hoặc Booking
-              </li>
-              <li>
-                nếu doanh thu của bạn không dẫn đến việc đăng ký đầy đủ với tư
-                cách là người nộp thuế VAT
-              </li>
-            </ul>
-            <aside class="kb-article-callout">
-              Trong bài viết này, chúng tôi đơn giản hóa tình huống tiếp đón phổ
-              biến nhất ở Cộng hòa Séc. Trong một trường hợp cụ thể, bạn nên
-              kiểm tra chi tiết với kế toán viên hoặc cố vấn thuế.
-            </aside>
-            <h2>Cách nó hoạt động thực tế</h2>
-
-            <h3>Hãy xem xét rằng bạn đang xử lý hai lớp thuế khác nhau</h3>
-            <p>
-              Bạn thường giải quyết chỗ ở ngắn hạn
-              <strong>thuế thu nhập</strong> và bên cạnh đó nữa
-              <strong>VAT</strong>. Đây là hai lĩnh vực khác nhau và sẽ không
-              tốt nếu kết hợp chúng lại với nhau.
-            </p>
-            <p>
-              Thuế thu nhập liên quan đến thu nhập từ chỗ ở. Mặt khác, VAT
-              thường liên quan đến hoa hồng hoặc phí do Airbnb hoặc Booking tính
-              trên nền tảng nước ngoài.
-            </p>
-
-            <h3>
-              Nếu bạn mặc định, bạn thường đối phó với một người được xác định
-            </h3>
-            <p>
-              Nếu bạn không phải là người nộp thuế VAT và nhận được dịch vụ có
-              địa điểm thực hiện trong nước từ một người không được thành lập ở
-              trong nước, các quy tắc VAT của Séc thường chuyển bạn đến
-              <strong>người được xác định</strong>.
-            </p>
-            <p>
-              Đây thường là nơi tính hoa hồng hoặc phí khác do nền tảng nước
-              ngoài lập hóa đơn.
-            </p>
-
-            <h3>Người được xác định không phải là người nộp thuế GTGT</h3>
-            <p>
-              Điều này rất quan trọng. <strong>Người được xác định</strong> thừa
-              nhận VAT đối với dịch vụ nhận được từ người nước ngoài, nhưng
-              <strong>không phải là người nộp thuế VAT thường xuyên</strong>.
-            </p>
-            <ul>
-              <li>
-                bạn không tính VAT theo mặc định cho tất cả các giao dịch trong
-                nước chỉ vì đăng ký này
-              </li>
-              <li>bạn gửi tờ khai VAT cho các dịch vụ được đề cập</li>
-              <li>bạn không được tự động được khấu trừ VAT đầu vào</li>
-            </ul>
-
-            <h3>Người nộp thuế GTGT có chế độ khác</h3>
-            <p>
-              Nếu bạn đã sẵn sàng <strong>Người nộp thuế VAT</strong>, bạn cũng
-              thừa nhận dịch vụ nhận được từ Airbnb hoặc Booking. Sự khác biệt
-              là bạn có thể giải quyết được vấn đề nếu đáp ứng được các điều
-              kiện pháp lý <strong>yêu cầu khấu trừ</strong>.
-            </p>
-            <p>
-              Đó là lý do tại sao điều quan trọng không chỉ là nói chung chung
-              “Tôi phải giải quyết thuế VAT” mà trước tiên phải xác định chính
-              xác bạn đang ở chế độ nào.
-            </p>
-
-            <h3>Không trì hoãn đăng ký cho đến sau lần kiểm tra đầu tiên</h3>
-            <p>
-              Giải thích chính thức của Cơ quan Quản lý Tài chính trực tiếp chỉ
-              ra rằng người chịu thuế không phải là người trả tiền sẽ trở thành
-              người được xác định khi nhận được dịch vụ đó và phải đăng ký.
-            </p>
-            <p>
-              Do đó, trên thực tế, việc chờ đợi "điều gì đó được nghe" không
-              phải là một ý kiến ​​hay. Tốt hơn là bạn nên giải quyết việc đăng
-              ký kịp thời, lý tưởng nhất là trước khi nền tảng bắt đầu tính phí
-              hoa hồng cho bạn nhiều lần.
-            </p>
-
-            <h3>Hồ sơ phí từ các nền tảng phải được cập nhật</h3>
-            <p>
-              Để xử lý VAT một cách chính xác, bạn cần có quyền kiểm soát các
-              khoản phí và hoa hồng mà nền tảng tính cho bạn. Nếu không có nó,
-              bạn sẽ không có cơ sở phù hợp để đưa ra giải pháp về thuế.
-            </p>
-            <p>
-              Đây cũng là lý do tại sao chúng tôi nên theo dõi iCal bằng tính
-              năng tự động hóa và làm việc với email cũng như đặt chỗ.
-            </p>
-
-            <h2>Tình huống chủ nhà phổ biến nhất</h2>
-            <div>
-              <h3>Người không nộp thuế VAT</h3>
-              <ul>
-                <li>
-                  với Airbnb hoặc Booking, nó nhận được dịch vụ từ nền tảng nước
-                  ngoài
-                </li>
-                <li>thường xử lý việc đăng ký như một người được xác định</li>
-                <li>thừa nhận VAT đối với dịch vụ nhận được</li>
-                <li>không được khấu trừ thuế GTGT đầu vào</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Người nộp thuế VAT</h3>
-              <ul>
-                <li>cũng thừa nhận VAT đối với dịch vụ nhận được</li>
-                <li>
-                  đồng thời có thể giải quyết được việc khấu trừ nếu đáp ứng đủ
-                  điều kiện
-                </li>
-                <li>
-                  phải phân biệt chính xác giữa hiệu suất chỗ ở của chính mình
-                  và phí nền tảng nhận được
-                </li>
-                <li>có nghĩa vụ liên tục rộng hơn người được xác định</li>
-              </ul>
-            </div>
-            <h2>Cần chú ý điều gì</h2>
-            <ul>
-              <li>
-                đừng bối rối <strong>người được xác định</strong> đã nộp đầy đủ
-                VAT
-              </li>
-              <li>
-                đừng chỉ giải quyết phí lưu trú và quên đi thuế VAT từ hoa hồng
-                nền tảng
-              </li>
-              <li>
-                đừng cho rằng nếu bạn "không phải là người trả tiền" thì VAT
-                hoàn toàn không áp dụng cho bạn
-              </li>
-              <li>
-                không tự động được tính vào khoản khấu trừ nếu bạn chỉ là người
-                được xác định
-              </li>
-              <li>
-                đừng quên rằng ngoài VAT, bạn vẫn phải xử lý thuế thu nhập
-              </li>
-            </ul>
-            <h2>Điều này có ý nghĩa gì với Chủ nhà siêu cấp</h2>
-            <p>
-              Chủ đề này thực tế tiếp theo từ việc thiết lập chỗ nghỉ, đăng ký
-              đặt chỗ và làm việc với dữ liệu từ các nền tảng. Nếu bạn muốn hiểu
-              rõ về giao thông, điều đáng làm là phải giải quyết nó cùng với các
-              nhiệm vụ liên quan khác của chủ nhà.
-            </p>
-            <p>
-              Bạn không muốn giải quyết tất cả những điều này sao?
-              <strong
-                >Chúng tôi ở đây vì bạn và chúng tôi sẽ giải quyết nó cho
-                bạn.</strong
-              >
-            </p>
-            <a
-              class="kb-article-next-cta"
-              href="https://www.superhostem.cz/#pricing"
-            >
-              <span class="kb-article-next-cta-icon" aria-hidden="true"
-                ><svg viewbox="0 0 24 24">
-                  <path d="M8 2v4"></path>
-                  <path d="M16 2v4"></path>
-                  <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-                  <path d="M3 10h18"></path>
-                  <path d="m9 16 2 2 4-4"></path></svg
-              ></span>
-              <span>
-                <strong
-                  >Bạn không muốn giải quyết nó? Chúng tôi sẽ sắp xếp nó ra cho
-                  bạn.</strong
-                >
-                <small
-                  >Chúng tôi sẽ trợ giúp cài đặt, thiết lập, tư vấn và tư vấn
-                  ban đầu như một phần của dịch vụ triển khai.</small
-                >
-              </span>
-              <svg
-                class="kb-article-next-cta-arrow"
-                aria-hidden="true"
-                viewbox="0 0 24 24"
-              >
-                <path d="M5 12h14"></path>
-                <path d="m13 6 6 6-6 6"></path>
-              </svg>
-            </a>
-            <ul class="kb-article-link-list">
-              <li>
-                <a href="./jak-funguje-poplatek-z-pobytu.html">Phí cư trú</a>
-              </li>
-              <li>
-                <a href="./jak-funguje-email-forwarding.html"
-                  >Chuyển tiếp email</a
-                >
-              </li>
-              <li>
-                <a href="./jak-pridat-novou-nemovitost.html"
-                  >Cài đặt thuộc tính</a
-                >
-              </li>
-            </ul>
-            <h2>Xác minh và nguồn</h2>
-            <p>
-              Bài viết này là một tổng quan định hướng thực tế. Đây không phải
-              là lời khuyên về thuế. Thuật ngữ và logic của bài viết được xác
-              minh dựa trên các nguồn chính thức của Cơ quan Quản lý Tài chính.
-            </p>
-            <ul>
-              <li>
-                <a
-                  href="https://financnisprava.gov.cz/assets/cs/prilohy/d-seznam-dani/Informace_GFR_k_danovemu_posouzeni_povinnosti_poskytovatelu_.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  >GFR: Thông tin đánh giá thuế nghĩa vụ của nhà cung cấp dịch
-                  vụ qua nền tảng</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://financnisprava.gov.cz/cs/mezinarodni-spoluprace/mezinarodni-spoluprace-a-dph/informace-pro-platce-dph-k-vybranym-ustanovenim-zakona"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Quản lý tài chính: Người được xác định và VAT xuyên biên
-                  giới</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://financnisprava.gov.cz/assets/cs/prilohy/d-seznam-dani/Informace_GFR_ke_zmenam_sazeb_DPH_od_1_1_2024.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  >GFR: Thuế suất VAT từ ngày 1 tháng 1 năm 2024</a
-                >
-              </li>
-            </ul>
-            <aside class="kb-article-callout kb-article-callout-muted">
-              <p>
-                <strong>Đã cập nhật:</strong> 29/03/2026. Trong thực tế, đây
-                thường là tình huống mà máy chủ nhận dịch vụ từ nền tảng nước
-                ngoài và phải xác định chính xác liệu dịch vụ đó đang giao dịch
-                với một người được xác định hay người nộp thuế VAT.
-              </p>
-            </aside>
+            <section class="kb-property-decision" aria-label="Chọn chế độ VAT"><ol class="kb-property-decision-flow"><li class="kb-property-decision-card is-primary"><span class="kb-property-decision-icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h5"></path></svg></span><div><span class="kb-property-decision-kicker">Phổ biến nhất</span><strong>Tôi chưa phải người nộp VAT</strong><p>Hoa hồng nền tảng có thể dẫn đến chế độ người được xác định.</p><a class="kb-property-decision-cta" href="#khong-nop-vat">Xem cần kiểm tra <span aria-hidden="true">→</span></a></div></li><li class="kb-property-decision-card"><span class="kb-property-decision-icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span><div><span class="kb-property-decision-kicker">Chế độ khác</span><strong>Tôi là người nộp VAT</strong><p>Bạn khai dịch vụ nhận từ nền tảng và hỏi kế toán về khấu trừ.</p><a class="kb-property-decision-cta is-secondary" href="#nop-vat">Đi đến phần này <span aria-hidden="true">→</span></a></div></li></ol></section>
+<h2>Điều quan trọng</h2><div class="kb-property-next-steps-grid"><div class="kb-property-next-card"><span>1</span><strong>Hoa hồng là dịch vụ</strong><small>Airbnb hoặc Booking thường tính phí dịch vụ từ nền tảng nước ngoài.</small></div><div class="kb-property-next-card"><span>2</span><strong>Không phải phí lưu trú</strong><small>Phí lưu trú trả cho đô thị và VAT từ hoa hồng nền tảng là hai việc khác nhau.</small></div><div class="kb-property-next-card"><span>3</span><strong>Cần chứng từ</strong><small>Không có dữ liệu hoa hồng và phí thì khó xử lý VAT đúng.</small></div></div>
+<h2>Vì sao phải xử lý VAT</h2><div class="kb-property-next-steps-grid"><div class="kb-property-next-card"><span>Dịch vụ từ nước ngoài</span><strong>Nền tảng xuất phí dịch vụ</strong><small>Thường là hoa hồng hoặc phí dịch vụ từ Airbnb hay Booking.com.</small></div><div class="kb-property-next-card"><span>Công ty</span><strong>Công ty xử lý VAT</strong><small>Nếu chỗ ở do s.r.o. vận hành, nghĩa vụ được xử lý trong kế toán của công ty đó.</small></div><div class="kb-property-next-card"><span>Hộ kinh doanh / cá nhân</span><strong>Kiểm tra chế độ theo luật VAT</strong><small>Với cá nhân hoặc hộ kinh doanh, cần kiểm tra người được xác định hoặc người nộp VAT.</small></div></div>
+<h2>Khuyến nghị thực tế</h2><div class="kb-property-next-steps-grid"><div class="kb-property-next-card"><span>Bắt đầu</span><strong>Thường không nên bắt đầu ngay như người nộp VAT đầy đủ</strong><small>Trước tiên hãy kiểm tra chế độ theo luật VAT, thường là người được xác định vì dịch vụ từ nước ngoài.</small></div><div class="kb-property-next-card"><span>Doanh thu cao hơn</span><strong>Trên 2 triệu CZK thì nên bàn về đăng ký VAT</strong><small>Khi doanh thu tiến gần hoặc vượt 2 triệu CZK, hãy trao đổi với kế toán về đăng ký người nộp VAT.</small></div></div><aside class="kb-article-callout kb-article-callout-muted"><strong>Bạn tự quyết định</strong><p>Đây là khuyến nghị thực tế, không phải mệnh lệnh. Mỗi chủ nhà tự quyết định và nên kiểm tra cách xử lý cuối cùng theo quy định hiện hành và tình huống riêng.</p></aside>
+<aside class="kb-article-callout"><strong>Cần câu trả lời chính xác?</strong><p>Liên hệ với chúng tôi. Chúng tôi sẽ xem tình huống của bạn và đề xuất cách xử lý phù hợp.</p></aside>
+<h2 id="khong-nop-vat">Khi bạn chưa phải người nộp VAT</h2><ol class="kb-article-flow" aria-label="Các bước cho người chưa nộp VAT"><li><span class="kb-article-flow-number">1</span>Tìm hoa hồng nền tảng</li><li><span class="kb-article-flow-number">2</span>Kiểm tra chế độ người được xác định</li><li><span class="kb-article-flow-number">3</span>Đăng ký đúng thời điểm</li><li><span class="kb-article-flow-number">4</span>Khai VAT từ dịch vụ nhận được</li></ol><div class="kb-property-next-steps-grid"><div class="kb-property-next-card"><span>Chưa nộp VAT</span><strong>Thường cần người được xác định</strong><small>Điều này không tự động có nghĩa là người nộp VAT đầy đủ.</small></div><div class="kb-property-next-card"><span>Khấu trừ</span><strong>Không mặc định được khấu trừ</strong><small>Người được xác định thường không có quyền khấu trừ VAT đầu vào như người nộp VAT đầy đủ.</small></div></div>
+<h2 id="nop-vat">Khi bạn đã là người nộp VAT</h2><div class="kb-property-next-steps-grid"><div class="kb-property-next-card"><span>Khai báo</span><strong>Vẫn xử lý dịch vụ nhận được</strong><small>Hoa hồng nền tảng vẫn thuộc quy trình VAT.</small></div><div class="kb-property-next-card"><span>Khấu trừ</span><strong>Chỉ khi đủ điều kiện</strong><small>Phần này nên để kế toán hoặc cố vấn thuế kiểm tra.</small></div><div class="kb-property-next-card"><span>Tách riêng</span><strong>Đừng trộn lưu trú và hoa hồng</strong><small>Dịch vụ lưu trú của bạn và phí nền tảng không phải một việc.</small></div></div>
+<h2>Kiểm tra nhanh</h2><div class="kb-property-next-steps-grid"><div class="kb-property-next-card"><span>Chứng từ</span><strong>Bạn có dữ liệu hoa hồng?</strong><small>Airbnb, Booking.com, hóa đơn, sao kê hoặc bảng phí.</small></div><div class="kb-property-next-card"><span>Chế độ</span><strong>Bạn biết mình thuộc chế độ nào?</strong><small>Chưa nộp VAT, người được xác định, hoặc người nộp VAT.</small></div><div class="kb-property-next-card"><span>Thuế</span><strong>VAT không phải thuế duy nhất</strong><small>Bạn vẫn cần xử lý cả thuế thu nhập.</small></div></div>
+<a class="kb-article-next-cta" href="https://www.superhostem.cz/#pricing">
+        <span class="kb-article-next-cta-icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="m9 16 2 2 4-4"></path></svg></span>
+        <span>
+          <strong>Bạn không muốn tự xử lý? Chúng tôi sẽ hỗ trợ.</strong>
+          <small>Chúng tôi sẽ trợ giúp cài đặt, thiết lập, tư vấn và tư vấn ban đầu như một phần của dịch vụ triển khai.</small>
+        </span>
+        <svg class="kb-article-next-cta-arrow" aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+      </a>
+<ul class="kb-article-link-list">
+<li><a href="./jak-funguje-poplatek-z-pobytu.html">Phí cư trú</a></li>
+<li><a href="./jak-pridat-novou-nemovitost.html">Cài đặt thuộc tính</a></li>
+</ul>
+<h2>Xác minh và nguồn</h2>
+<p>Đây là tổng quan thực tế, không phải tư vấn thuế. Hãy xác nhận chi tiết với kế toán hoặc cố vấn thuế.</p>
+<ul>
+        <li><a href="https://financnisprava.gov.cz/assets/cs/prilohy/d-seznam-dani/Informace_GFR_k_danovemu_posouzeni_povinnosti_poskytovatelu_.pdf" target="_blank" rel="noreferrer">GFR: Thông tin đánh giá thuế nghĩa vụ của nhà cung cấp dịch vụ qua nền tảng</a></li>
+        <li><a href="https://financnisprava.gov.cz/cs/mezinarodni-spoluprace/mezinarodni-spoluprace-a-dph/informace-pro-platce-dph-k-vybranym-ustanovenim-zakona" target="_blank" rel="noreferrer">Quản lý tài chính: Người được xác định và VAT xuyên biên giới</a></li>
+        <li><a href="https://financnisprava.gov.cz/assets/cs/prilohy/d-seznam-dani/Informace_GFR_ke_zmenam_sazeb_DPH_od_1_1_2024.pdf" target="_blank" rel="noreferrer">GFR: Thuế suất VAT từ ngày 1 tháng 1 năm 2024</a></li>
+      </ul>
+<aside class="kb-article-callout kb-article-callout-muted">
+        <p><strong>Đã cập nhật:</strong> 29/03/2026. Trong thực tế, đây thường là tình huống mà máy chủ nhận dịch vụ từ nền tảng nước ngoài và phải xác định chính xác liệu dịch vụ đó đang giao dịch với một người được xác định hay người nộp thuế VAT.</p>
+      </aside>
           </div>
           <section class="kb-article-related" id="kb-article-related">
             <h2>Liên kết liên quan</h2>
             <div class="kb-article-related-grid">
               <a class="kb-article-related-card" href="./index.html">
-                <span>Tổng quan</span>
-                <strong>Trung tâm trợ giúp</strong>
-              </a>
+  <span>Tổng quan</span>
+  <strong>Trung tâm trợ giúp</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./jak-funguje-poplatek-z-pobytu.html"
-              >
-                <span>trước đó</span>
-                <strong>Phí lưu trú hoạt động như thế nào</strong>
-              </a>
+<a class="kb-article-related-card" href="./jak-funguje-poplatek-z-pobytu.html">
+  <span>trước đó</span>
+  <strong>Phí lưu trú hoạt động như thế nào</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./co-delat-kdyz-se-kalendar-nenacita.html"
-              >
-                <span>Một cái khác</span>
-                <strong>Phải làm gì nếu lịch không tải</strong>
-              </a>
+<a class="kb-article-related-card" href="./co-delat-kdyz-se-kalendar-nenacita.html">
+  <span>Một cái khác</span>
+  <strong>Phải làm gì nếu lịch không tải</strong>
+</a>
+
             </div>
           </section>
         </article>
@@ -532,14 +175,9 @@
       </div>
     </footer>
 
-    <a
-      class="back-to-top"
-      href="#page-top"
-      aria-label="Quay lại đầu trang"
-      title="Hướng lên"
-      >↑</a
-    >
+    <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script src="../../assets/kb-navigation.js?v=header-menus"></script>
+
+      <script src="../../assets/kb-navigation.js?v=header-menus"></script>
   </body>
 </html>

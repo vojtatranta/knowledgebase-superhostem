@@ -1,63 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Hướng dẫn thiết lập chuyển tiếp email để đồng bộ đặt phòng từ Airbnb và Booking.com vào Superhostem."
-    />
-    <meta
-      property="og:title"
-      content="Chuyển tiếp email hoạt động như thế nào?"
-    />
-    <meta
-      property="og:description"
-      content="Hướng dẫn thiết lập chuyển tiếp email để đồng bộ đặt phòng."
-    />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chuyển tiếp email hoạt động như thế nào? – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
+    <meta property="og:title" content="Chuyển tiếp email hoạt động như thế nào?" />
+    <meta property="og:description" content="Chuyển tiếp email hoạt động như thế nào? – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:url"
-      content="https://knowledgebase.superhostem.cz/knowledge-base/html/vn/jak-funguje-email-forwarding.html"
-    />
-    <meta
-      property="og:site_name"
-      content="Superhostem.cz - Trung tâm trợ giúp"
-    />
+    <meta property="og:url" content="https://knowledgebase.superhostem.cz/knowledge-base/html/vn/jak-funguje-email-forwarding.html" />
+    <meta property="og:site_name" content="Superhostem.cz - Trung tâm trợ giúp" />
     <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Chuyển tiếp email hoạt động như thế nào?"
-    />
-    <meta
-      name="twitter:description"
-      content="Hướng dẫn thiết lập chuyển tiếp email để đồng bộ đặt phòng."
-    />
+    <meta name="twitter:title" content="Chuyển tiếp email hoạt động như thế nào?" />
+    <meta name="twitter:description" content="Chuyển tiếp email hoạt động như thế nào? – hướng dẫn cho chủ nhà cho thuê ngắn hạn trên Superhostem.cz." />
     <title>Chuyển tiếp email hoạt động như thế nào?</title>
     <script>
       (() => {
-        const preference =
-          localStorage.getItem("superhostem-kb-theme") || "system";
-        const systemDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        const isDark =
-          preference === "dark" || (preference === "system" && systemDark);
+        const preference = localStorage.getItem("superhostem-kb-theme") || "system";
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = preference === "dark" || (preference === "system" && systemDark);
         document.documentElement.classList.toggle("dark", isDark);
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
       })();
     </script>
-    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus" />
+    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus">
   </head>
   <body id="page-top" class="kb-article-page">
     <header class="kb-help-header">
       <div class="kb-help-header-inner">
-        <a
-          class="kb-help-brand"
-          href="./index.html"
-          aria-label="Trung tâm trợ giúp Superhostem.cz"
-        >
+        <a class="kb-help-brand" href="./index.html" aria-label="Trung tâm trợ giúp Superhostem.cz">
           <span class="kb-help-brand-mark" aria-hidden="true">S</span>
           <span>
             <strong>Superhostem.cz</strong>
@@ -72,51 +43,25 @@
         </nav>
 
         <div class="kb-help-actions">
-          <nav class="kb-language-switcher" aria-label="Ngôn ngữ">
-            <button
-              type="button"
-              class="kb-language-switcher-toggle"
-              aria-haspopup="menu"
-              aria-expanded="false"
-              aria-label="Ngôn ngữ"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path
-                  d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-                ></path>
-                <path d="M2 12h20"></path>
-              </svg>
-              <span>VN</span>
-            </button>
+<nav class="kb-language-switcher" aria-label="Ngôn ngữ">
+            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Ngôn ngữ">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>VN</span>
+      </button>
             <div class="kb-language-switcher-menu">
               <a href="../jak-funguje-email-forwarding.html">CZ</a>
               <a href="../en/jak-funguje-email-forwarding.html">EN</a>
-              <a
-                href="./jak-funguje-email-forwarding.html"
-                class="is-active"
-                aria-current="page"
-                >VN</a
-              >
+              <a href="./jak-funguje-email-forwarding.html" class="is-active" aria-current="page">VN</a>
             </div>
           </nav>
 
-          <div
-            class="kb-theme-toggle"
-            role="group"
-            aria-label="Chuyển chế độ màu"
-          >
-            <button
-              type="button"
-              class="kb-theme-toggle-trigger"
-              aria-haspopup="menu"
-              aria-expanded="false"
-            >
-              <svg
-                class="kb-theme-icon-sun"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+          <div class="kb-theme-toggle" role="group" aria-label="Chuyển chế độ màu">
+            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
+              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M12 2v2"></path>
                 <path d="M12 20v2"></path>
@@ -127,48 +72,18 @@
                 <path d="m6.34 17.66-1.41 1.41"></path>
                 <path d="m19.07 4.93-1.41 1.41"></path>
               </svg>
-              <svg
-                class="kb-theme-icon-moon"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
               <span class="sr-only">Theme</span>
             </button>
             <div class="kb-theme-toggle-menu">
-              <button
-                type="button"
-                data-theme-option="light"
-                aria-label="Chế độ sáng"
-                title="Chế độ sáng"
-              >
-                Chế độ sáng
-              </button>
-              <button
-                type="button"
-                data-theme-option="system"
-                aria-label="Theo hệ thống"
-                title="Theo hệ thống"
-              >
-                Theo hệ thống
-              </button>
-              <button
-                type="button"
-                data-theme-option="dark"
-                aria-label="Chế độ tối"
-                title="Chế độ tối"
-              >
-                Chế độ tối
-              </button>
+              <button type="button" data-theme-option="light" aria-label="Chế độ sáng" title="Chế độ sáng">Chế độ sáng</button>
+              <button type="button" data-theme-option="system" aria-label="Theo hệ thống" title="Theo hệ thống">Theo hệ thống</button>
+              <button type="button" data-theme-option="dark" aria-label="Chế độ tối" title="Chế độ tối">Chế độ tối</button>
             </div>
           </div>
-          <a class="kb-help-site-link" href="https://www.superhostem.cz/"
-            >Đến trang web chính
-            <svg aria-hidden="true" viewbox="0 0 24 24">
-              <path d="M7 7h10v10"></path>
-              <path d="M7 17 17 7"></path></svg
-          ></a>
+          <a class="kb-help-site-link" href="https://www.superhostem.cz/">Đến trang web chính <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
         </div>
       </div>
     </header>
@@ -177,107 +92,78 @@
       <div class="kb-article-container">
         <article class="kb-article-main">
           <p class="kb-article-kicker">Truyền thông và tự động hóa</p>
-          <h1 class="kb-article-title">
-            Chuyển tiếp email hoạt động như thế nào?
-          </h1>
-          <p class="kb-article-lead">
-            Việc chuyển tiếp email sẽ giúp bạn lấy dữ liệu từ email xác nhận đặt
-            phòng về Superhostem. Nhờ đó, việc đặt phòng, số tiền và thông tin
-            khác về kỳ nghỉ có thể được thêm chính xác.
-          </p>
+          <h1 class="kb-article-title">Chuyển tiếp email hoạt động như thế nào?</h1>
+          <p class="kb-article-lead">Việc chuyển tiếp email sẽ giúp bạn lấy dữ liệu từ email xác nhận đặt phòng về Superhostem. Nhờ đó, việc đặt phòng, số tiền và thông tin khác về kỳ nghỉ có thể được thêm chính xác.</p>
           <div class="kb-article-jump">
             <a href="./index.html">Trung tâm trợ giúp</a>
             <a href="./index.html#knihovna">Thư viện chủ đề</a>
-            <a href="./jak-funguji-automatizace-v-superhostem.html"
-              >Bài tiếp theo →</a
-            >
+            <a href="./jak-funguji-automatizace-v-superhostem.html">Bài tiếp theo →</a>
           </div>
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
             <h2>Nơi tìm chuyển tiếp</h2>
-            <p>
-              Đăng nhập vào Superhost và mở trang <strong>Tổng quan</strong>.
-              Trong phần mở đầu, bạn sẽ tìm thấy một khối
-              <strong>Tự động chuyển tiếp email</strong> với một địa chỉ duy
-              nhất cho tài khoản của bạn.
-            </p>
-            <h2>Làm thế nào để tiến hành</h2>
-            <ol>
-              <li>đăng nhập vào Superhost</li>
-              <li>mở ở menu bên trái <strong>Tổng quan</strong></li>
-              <li>tìm khối <strong>Tự động chuyển tiếp email</strong></li>
-              <li>sao chép địa chỉ chuyển tiếp được hiển thị</li>
-              <li>
-                đặt chuyển tiếp tự động đến địa chỉ này trong email nơi bạn nhận
-                được xác nhận đặt phòng từ Airbnb
-              </li>
-              <li>
-                gửi cho chính bạn một email xác nhận để kiểm tra và xác minh
-                rằng dữ liệu trong Superhost đã được điền chính xác
-              </li>
-            </ol>
-            <h2>Chuyển tiếp gì có thể giúp bạn với</h2>
-            <p>
-              Từ các email xác nhận được chuyển tiếp, Superhostem có thể thêm
-              thông tin bạn cần để xử lý vấn đề đặt chỗ và tài chính.
-            </p>
-            <ul>
-              <li>giá đặt chỗ</li>
-              <li>phí và các khoản khác</li>
-              <li>nhận dạng đặt chỗ</li>
-              <li>thông tin bổ sung về khách hoặc thời gian lưu trú</li>
-            </ul>
-            <h2>Hướng dẫn trực tiếp trong ứng dụng</h2>
-            <p>
-              Trong khối chuyển tiếp, bạn cũng sẽ tìm thấy hướng dẫn nhanh cho
-              các hộp thư điện tử phổ biến nhất.
-            </p>
-            <ul>
-              <li>Thiết lập chuyển tiếp tự động trong Gmail</li>
-              <li>Cài đặt chuyển tiếp tự động trong Seznam.cz</li>
-            </ul>
-            <h2>Điều gì là tốt để coi chừng</h2>
-            <ul>
-              <li>
-                Email xác nhận đặt phòng từ Airbnb thực sự được chuyển tiếp
-              </li>
-              <li>
-                bạn đang sử dụng địa chỉ chuyển tiếp chính xác mà bạn thấy trong
-                tài khoản của mình
-              </li>
-              <li>
-                bạn đã thực hiện ít nhất một bài kiểm tra sau khi thiết lập
-              </li>
-            </ul>
-            <h2>Nếu bạn có nhiều căn hộ trong một tài khoản Airbnb</h2>
-            <p>
-              Nếu bạn có nhiều căn hộ trong một tài khoản Airbnb, căn hộ mới có
-              thể được tự động thêm vào Superhost khi có yêu cầu đặt chỗ mới đến
-              và email xác nhận của nó được chuyển tiếp đến địa chỉ chuyển tiếp
-              của bạn.
-            </p>
+<p>
+        Đăng nhập vào Superhost và mở trang <strong>Tổng quan</strong>.
+        Trong phần mở đầu, bạn sẽ tìm thấy một khối <strong>Tự động chuyển tiếp email</strong> với một địa chỉ duy nhất cho tài khoản của bạn.
+      </p>
+<h2>Làm thế nào để tiến hành</h2>
+<ol>
+        <li>đăng nhập vào Superhost</li>
+        <li>mở ở menu bên trái <strong>Tổng quan</strong>
+</li>
+        <li>tìm khối <strong>Tự động chuyển tiếp email</strong>
+</li>
+        <li>sao chép địa chỉ chuyển tiếp được hiển thị</li>
+        <li>đặt chuyển tiếp tự động đến địa chỉ này trong email nơi bạn nhận được xác nhận đặt phòng từ Airbnb</li>
+        <li>gửi cho chính bạn một email xác nhận để kiểm tra và xác minh rằng dữ liệu trong Superhost đã được điền chính xác</li>
+      </ol>
+<h2>Chuyển tiếp gì có thể giúp bạn với</h2>
+<p>
+        Từ các email xác nhận được chuyển tiếp, Superhostem có thể thêm thông tin bạn cần để xử lý vấn đề đặt chỗ và tài chính.
+      </p>
+<ul>
+        <li>giá đặt chỗ</li>
+        <li>phí và các khoản khác</li>
+        <li>nhận dạng đặt chỗ</li>
+        <li>thông tin bổ sung về khách hoặc thời gian lưu trú</li>
+      </ul>
+<h2>Hướng dẫn trực tiếp trong ứng dụng</h2>
+<p>Trong khối chuyển tiếp, bạn cũng sẽ tìm thấy hướng dẫn nhanh cho các hộp thư điện tử phổ biến nhất.</p>
+<ul>
+        <li>Thiết lập chuyển tiếp tự động trong Gmail</li>
+        <li>Cài đặt chuyển tiếp tự động trong Seznam.cz</li>
+      </ul>
+<h2>Điều gì là tốt để coi chừng</h2>
+<ul>
+        <li>Email xác nhận đặt phòng từ Airbnb thực sự được chuyển tiếp</li>
+        <li>bạn đang sử dụng địa chỉ chuyển tiếp chính xác mà bạn thấy trong tài khoản của mình</li>
+        <li>bạn đã thực hiện ít nhất một bài kiểm tra sau khi thiết lập</li>
+      </ul>
+<h2>Nếu bạn có nhiều căn hộ trong một tài khoản Airbnb</h2>
+<p>
+        Nếu bạn có nhiều căn hộ trong một tài khoản Airbnb, căn hộ mới có thể được tự động thêm vào Superhost
+        khi có yêu cầu đặt chỗ mới đến và email xác nhận của nó được chuyển tiếp đến địa chỉ chuyển tiếp của bạn.
+      </p>
           </div>
           <section class="kb-article-related" id="kb-article-related">
             <h2>Liên kết liên quan</h2>
             <div class="kb-article-related-grid">
               <a class="kb-article-related-card" href="./index.html">
-                <span>Tổng quan</span>
-                <strong>Trung tâm trợ giúp</strong>
-              </a>
+  <span>Tổng quan</span>
+  <strong>Trung tâm trợ giúp</strong>
+</a>
 
-              <a class="kb-article-related-card" href="./index.html#knihovna">
-                <span>Thư viện</span>
-                <strong>Thư viện chủ đề</strong>
-              </a>
+<a class="kb-article-related-card" href="./index.html#knihovna">
+  <span>Thư viện</span>
+  <strong>Thư viện chủ đề</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./jak-funguji-automatizace-v-superhostem.html"
-              >
-                <span>Một cái khác</span>
-                <strong>Cách tự động liên lạc với khách</strong>
-              </a>
+<a class="kb-article-related-card" href="./jak-funguji-automatizace-v-superhostem.html">
+  <span>Một cái khác</span>
+  <strong>Cách tự động liên lạc với khách</strong>
+</a>
+
             </div>
           </section>
         </article>
@@ -298,14 +184,9 @@
       </div>
     </footer>
 
-    <a
-      class="back-to-top"
-      href="#page-top"
-      aria-label="Quay lại đầu trang"
-      title="Hướng lên"
-      >↑</a
-    >
+    <a class="back-to-top" href="#page-top" aria-label="Quay lại đầu trang" title="Hướng lên">↑</a>
 
-    <script src="../../assets/kb-navigation.js?v=header-menus"></script>
+
+      <script src="../../assets/kb-navigation.js?v=header-menus"></script>
   </body>
 </html>

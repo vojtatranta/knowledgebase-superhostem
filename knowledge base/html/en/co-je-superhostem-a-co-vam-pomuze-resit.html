@@ -1,60 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Introduction to the Superhostem platform for managing short-term rentals. Automation, guest records, reservation management."
-    />
-    <meta
-      property="og:title"
-      content="What is a Superhost and what can it help you solve?"
-    />
-    <meta
-      property="og:description"
-      content="Introduction to the Superhostem platform for managing short-term rentals."
-    />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What is a Superhost and what can it help you solve? – guide for short-term rental hosts on Superhostem.cz." />
+    <meta property="og:title" content="What is a Superhost and what can it help you solve?" />
+    <meta property="og:description" content="What is a Superhost and what can it help you solve? – guide for short-term rental hosts on Superhostem.cz." />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:url"
-      content="https://knowledgebase.superhostem.cz/knowledge-base/html/en/co-je-superhostem-a-co-vam-pomuze-resit.html"
-    />
+    <meta property="og:url" content="https://knowledgebase.superhostem.cz/knowledge-base/html/en/co-je-superhostem-a-co-vam-pomuze-resit.html" />
     <meta property="og:site_name" content="Superhostem.cz - Help Center" />
     <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="What is a Superhost and what can it help you solve?"
-    />
-    <meta
-      name="twitter:description"
-      content="Introduction to the Superhostem platform for managing short-term rentals."
-    />
+    <meta name="twitter:title" content="What is a Superhost and what can it help you solve?" />
+    <meta name="twitter:description" content="What is a Superhost and what can it help you solve? – guide for short-term rental hosts on Superhostem.cz." />
     <title>What is a Superhost and what can it help you solve?</title>
     <script>
       (() => {
-        const preference =
-          localStorage.getItem("superhostem-kb-theme") || "system";
-        const systemDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        const isDark =
-          preference === "dark" || (preference === "system" && systemDark);
+        const preference = localStorage.getItem("superhostem-kb-theme") || "system";
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = preference === "dark" || (preference === "system" && systemDark);
         document.documentElement.classList.toggle("dark", isDark);
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
       })();
     </script>
-    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus" />
+    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus">
   </head>
   <body id="page-top" class="kb-article-page">
     <header class="kb-help-header">
       <div class="kb-help-header-inner">
-        <a
-          class="kb-help-brand"
-          href="./index.html"
-          aria-label="Superhostem.cz Help Center"
-        >
+        <a class="kb-help-brand" href="./index.html" aria-label="Superhostem.cz Help Center">
           <span class="kb-help-brand-mark" aria-hidden="true">S</span>
           <span>
             <strong>Superhostem.cz</strong>
@@ -69,53 +43,25 @@
         </nav>
 
         <div class="kb-help-actions">
-          <nav class="kb-language-switcher" aria-label="Language">
-            <button
-              type="button"
-              class="kb-language-switcher-toggle"
-              aria-haspopup="menu"
-              aria-expanded="false"
-              aria-label="Language"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path
-                  d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-                ></path>
-                <path d="M2 12h20"></path>
-              </svg>
-              <span>EN</span>
-            </button>
+<nav class="kb-language-switcher" aria-label="Language">
+            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Language">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>EN</span>
+      </button>
             <div class="kb-language-switcher-menu">
               <a href="../co-je-superhostem-a-co-vam-pomuze-resit.html">CZ</a>
-              <a
-                href="./co-je-superhostem-a-co-vam-pomuze-resit.html"
-                class="is-active"
-                aria-current="page"
-                >EN</a
-              >
-              <a href="../vn/co-je-superhostem-a-co-vam-pomuze-resit.html"
-                >VN</a
-              >
+              <a href="./co-je-superhostem-a-co-vam-pomuze-resit.html" class="is-active" aria-current="page">EN</a>
+              <a href="../vn/co-je-superhostem-a-co-vam-pomuze-resit.html">VN</a>
             </div>
           </nav>
 
-          <div
-            class="kb-theme-toggle"
-            role="group"
-            aria-label="Switch color mode"
-          >
-            <button
-              type="button"
-              class="kb-theme-toggle-trigger"
-              aria-haspopup="menu"
-              aria-expanded="false"
-            >
-              <svg
-                class="kb-theme-icon-sun"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+          <div class="kb-theme-toggle" role="group" aria-label="Switch color mode">
+            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
+              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M12 2v2"></path>
                 <path d="M12 20v2"></path>
@@ -126,48 +72,18 @@
                 <path d="m6.34 17.66-1.41 1.41"></path>
                 <path d="m19.07 4.93-1.41 1.41"></path>
               </svg>
-              <svg
-                class="kb-theme-icon-moon"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
               <span class="sr-only">Theme</span>
             </button>
             <div class="kb-theme-toggle-menu">
-              <button
-                type="button"
-                data-theme-option="light"
-                aria-label="Light mode"
-                title="Light mode"
-              >
-                Light mode
-              </button>
-              <button
-                type="button"
-                data-theme-option="system"
-                aria-label="System mode"
-                title="System mode"
-              >
-                System mode
-              </button>
-              <button
-                type="button"
-                data-theme-option="dark"
-                aria-label="Dark mode"
-                title="Dark mode"
-              >
-                Dark mode
-              </button>
+              <button type="button" data-theme-option="light" aria-label="Light mode" title="Light mode">Light mode</button>
+              <button type="button" data-theme-option="system" aria-label="System mode" title="System mode">System mode</button>
+              <button type="button" data-theme-option="dark" aria-label="Dark mode" title="Dark mode">Dark mode</button>
             </div>
           </div>
-          <a class="kb-help-site-link" href="https://www.superhostem.cz/"
-            >To the main website
-            <svg aria-hidden="true" viewbox="0 0 24 24">
-              <path d="M7 7h10v10"></path>
-              <path d="M7 17 17 7"></path></svg
-          ></a>
+          <a class="kb-help-site-link" href="https://www.superhostem.cz/">To the main website <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
         </div>
       </div>
     </header>
@@ -176,79 +92,59 @@
       <div class="kb-article-container">
         <article class="kb-article-main">
           <p class="kb-article-kicker">Quick start</p>
-          <h1 class="kb-article-title">
-            What is a Superhost and what can it help you solve?
-          </h1>
-          <p class="kb-article-lead">
-            You will find out what Superhostem is for, who it is intended for
-            and what it will help you with in managing short-term rentals.
-          </p>
+          <h1 class="kb-article-title">What is a Superhost and what can it help you solve?</h1>
+          <p class="kb-article-lead">You will find out what Superhostem is for, who it is intended for and what it will help you with in managing short-term rentals.</p>
           <div class="kb-article-jump">
             <a href="./index.html">Help Center</a>
             <a href="./index.html#knihovna">Library</a>
-            <a href="./prvni-prihlaseni-a-orientace-v-uctu.html"
-              >Next article →</a
-            >
+            <a href="./prvni-prihlaseni-a-orientace-v-uctu.html">Next article →</a>
           </div>
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
             <h2>Who is the article intended for?</h2>
 
-            <ul>
-              <li>for new users after registration</li>
-              <li>for hosts considering switching from manual management</li>
-              <li>
-                for users who want to quickly understand what the system is
-                doing
-              </li>
-            </ul>
+<ul>
+<li>for new users after registration</li>
+<li>for hosts considering switching from manual management</li>
+<li>for users who want to quickly understand what the system is doing</li>
+</ul>
 
-            <h2>What is a Superhost?</h2>
+<h2>What is a Superhost?</h2>
 
-            <p>
-              Superhostem is a platform for short-term rental hosts in the Czech
-              Republic that helps combine operational data, reservations,
-              occupancy overview and financial information into one system.
-            </p>
+<p>Superhostem is a platform for short-term rental hosts in the Czech Republic that helps combine operational data, reservations, occupancy overview and financial information into one system.</p>
 
-            <h2>What problems does it help solve?</h2>
+<h2>What problems does it help solve?</h2>
 
-            <ul>
-              <li>overview of reservations in one place</li>
-              <li>better occupancy control</li>
-              <li>visibility of sales and financial data</li>
-              <li>simpler operation and less manual administration</li>
-            </ul>
+<ul>
+<li>overview of reservations in one place</li>
+<li>better occupancy control</li>
+<li>visibility of sales and financial data</li>
+<li>simpler operation and less manual administration</li>
+</ul>
 
-            <h2>How the system basically works</h2>
+<h2>How the system basically works</h2>
 
-            <p>
-              Superhost combines calendar data via iCal, financial and
-              additional data from booking emails and manually added information
-              from the user.
-            </p>
+<p>Superhost combines calendar data via iCal, financial and additional data from booking emails and manually added information from the user.</p>
           </div>
           <section class="kb-article-related" id="kb-article-related">
             <h2>Related links</h2>
             <div class="kb-article-related-grid">
               <a class="kb-article-related-card" href="./index.html">
-                <span>Overview</span>
-                <strong>Help Center</strong>
-              </a>
+  <span>Overview</span>
+  <strong>Help Center</strong>
+</a>
 
-              <a class="kb-article-related-card" href="./index.html#knihovna">
-                <span>Library</span>
-                <strong>Library</strong>
-              </a>
+<a class="kb-article-related-card" href="./index.html#knihovna">
+  <span>Library</span>
+  <strong>Library</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./prvni-prihlaseni-a-orientace-v-uctu.html"
-              >
-                <span>Another one</span>
-                <strong>First login and account orientation</strong>
-              </a>
+<a class="kb-article-related-card" href="./prvni-prihlaseni-a-orientace-v-uctu.html">
+  <span>Another one</span>
+  <strong>First login and account orientation</strong>
+</a>
+
             </div>
           </section>
         </article>
@@ -269,10 +165,9 @@
       </div>
     </footer>
 
-    <a class="back-to-top" href="#page-top" aria-label="Back to top" title="Up"
-      >↑</a
-    >
+    <a class="back-to-top" href="#page-top" aria-label="Back to top" title="Up">↑</a>
 
-    <script src="../../assets/kb-navigation.js?v=header-menus"></script>
+
+      <script src="../../assets/kb-navigation.js?v=header-menus"></script>
   </body>
 </html>

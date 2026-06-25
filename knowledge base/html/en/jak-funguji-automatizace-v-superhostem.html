@@ -1,60 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Guide to automating guest communications in Superhostem. Setting up automatic messages, templates, and notifications."
-    />
-    <meta
-      property="og:title"
-      content="How to automate communications with guests"
-    />
-    <meta
-      property="og:description"
-      content="Guide to automating guest communications in Superhostem."
-    />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How to automate guest messages – guide for short-term rental hosts on Superhostem.cz." />
+    <meta property="og:title" content="How to automate guest messages" />
+    <meta property="og:description" content="How to automate guest messages – guide for short-term rental hosts on Superhostem.cz." />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:url"
-      content="https://knowledgebase.superhostem.cz/knowledge-base/html/en/jak-funguji-automatizace-v-superhostem.html"
-    />
+    <meta property="og:url" content="https://knowledgebase.superhostem.cz/knowledge-base/html/en/jak-funguji-automatizace-v-superhostem.html" />
     <meta property="og:site_name" content="Superhostem.cz - Help Center" />
     <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="How to automate communications with guests"
-    />
-    <meta
-      name="twitter:description"
-      content="Guide to automating guest communications in Superhostem."
-    />
-    <title>How to automate communications with guests</title>
+    <meta name="twitter:title" content="How to automate guest messages" />
+    <meta name="twitter:description" content="How to automate guest messages – guide for short-term rental hosts on Superhostem.cz." />
+    <title>How to automate guest messages</title>
     <script>
       (() => {
-        const preference =
-          localStorage.getItem("superhostem-kb-theme") || "system";
-        const systemDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        const isDark =
-          preference === "dark" || (preference === "system" && systemDark);
+        const preference = localStorage.getItem("superhostem-kb-theme") || "system";
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = preference === "dark" || (preference === "system" && systemDark);
         document.documentElement.classList.toggle("dark", isDark);
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
       })();
     </script>
-    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus" />
+    <link rel="stylesheet" href="../../assets/superhostem.css?v=header-menus">
   </head>
   <body id="page-top" class="kb-article-page">
     <header class="kb-help-header">
       <div class="kb-help-header-inner">
-        <a
-          class="kb-help-brand"
-          href="./index.html"
-          aria-label="Superhostem.cz Help Center"
-        >
+        <a class="kb-help-brand" href="./index.html" aria-label="Superhostem.cz Help Center">
           <span class="kb-help-brand-mark" aria-hidden="true">S</span>
           <span>
             <strong>Superhostem.cz</strong>
@@ -69,51 +43,25 @@
         </nav>
 
         <div class="kb-help-actions">
-          <nav class="kb-language-switcher" aria-label="Language">
-            <button
-              type="button"
-              class="kb-language-switcher-toggle"
-              aria-haspopup="menu"
-              aria-expanded="false"
-              aria-label="Language"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path
-                  d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-                ></path>
-                <path d="M2 12h20"></path>
-              </svg>
-              <span>EN</span>
-            </button>
+<nav class="kb-language-switcher" aria-label="Language">
+            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Language">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>EN</span>
+      </button>
             <div class="kb-language-switcher-menu">
               <a href="../jak-funguji-automatizace-v-superhostem.html">CZ</a>
-              <a
-                href="./jak-funguji-automatizace-v-superhostem.html"
-                class="is-active"
-                aria-current="page"
-                >EN</a
-              >
+              <a href="./jak-funguji-automatizace-v-superhostem.html" class="is-active" aria-current="page">EN</a>
               <a href="../vn/jak-funguji-automatizace-v-superhostem.html">VN</a>
             </div>
           </nav>
 
-          <div
-            class="kb-theme-toggle"
-            role="group"
-            aria-label="Switch color mode"
-          >
-            <button
-              type="button"
-              class="kb-theme-toggle-trigger"
-              aria-haspopup="menu"
-              aria-expanded="false"
-            >
-              <svg
-                class="kb-theme-icon-sun"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+          <div class="kb-theme-toggle" role="group" aria-label="Switch color mode">
+            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
+              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M12 2v2"></path>
                 <path d="M12 20v2"></path>
@@ -124,48 +72,18 @@
                 <path d="m6.34 17.66-1.41 1.41"></path>
                 <path d="m19.07 4.93-1.41 1.41"></path>
               </svg>
-              <svg
-                class="kb-theme-icon-moon"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
               <span class="sr-only">Theme</span>
             </button>
             <div class="kb-theme-toggle-menu">
-              <button
-                type="button"
-                data-theme-option="light"
-                aria-label="Light mode"
-                title="Light mode"
-              >
-                Light mode
-              </button>
-              <button
-                type="button"
-                data-theme-option="system"
-                aria-label="System mode"
-                title="System mode"
-              >
-                System mode
-              </button>
-              <button
-                type="button"
-                data-theme-option="dark"
-                aria-label="Dark mode"
-                title="Dark mode"
-              >
-                Dark mode
-              </button>
+              <button type="button" data-theme-option="light" aria-label="Light mode" title="Light mode">Light mode</button>
+              <button type="button" data-theme-option="system" aria-label="System mode" title="System mode">System mode</button>
+              <button type="button" data-theme-option="dark" aria-label="Dark mode" title="Dark mode">Dark mode</button>
             </div>
           </div>
-          <a class="kb-help-site-link" href="https://www.superhostem.cz/"
-            >To the main website
-            <svg aria-hidden="true" viewbox="0 0 24 24">
-              <path d="M7 7h10v10"></path>
-              <path d="M7 17 17 7"></path></svg
-          ></a>
+          <a class="kb-help-site-link" href="https://www.superhostem.cz/">To the main website <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
         </div>
       </div>
     </header>
@@ -174,328 +92,76 @@
       <div class="kb-article-container">
         <article class="kb-article-main">
           <p class="kb-article-kicker">Automation and communication</p>
-          <h1 class="kb-article-title">
-            How to automate communications with guests
-          </h1>
-          <p class="kb-article-lead">
-            The purpose of automation is for the guest to receive the link to
-            the form or guestbook at the right time, and you did not have to
-            send it manually with each booking.
-          </p>
+          <h1 class="kb-article-title">How to automate guest messages</h1>
+          <p class="kb-article-lead">Set up one pre-arrival message. The guest gets the right link at the right time, and you do not send it manually for every booking.</p>
           <div class="kb-article-jump">
             <a href="./index.html">Help Center</a>
             <a href="./jak-pridat-novou-nemovitost.html">Previous article</a>
-            <a href="./zakladni-legislativni-povinnosti-hostitele-v-cr.html"
-              >Next article →</a
-            >
+            <a href="./zakladni-legislativni-povinnosti-hostitele-v-cr.html">Next article →</a>
           </div>
           <div class="kb-article-intro-note">
-            <strong>What awaits you next?</strong>
-            <p>
-              First, you copy the link for a specific property in Superhost,
-              then you paste it into an automatic message in Airbnb or
-              Booking.com, and finally you match the sending time with what you
-              have set in the application.
-            </p>
-          </div>
+  <strong>Final setup step</strong>
+        <p>In Superhostem, you decide when the guest link becomes available. Use the same timing for the automated message in Airbnb or Booking.com.</p>
+</div>
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
-            <h2>What to prepare in advance</h2>
-
-            <h3>Property in Superhostem</h3>
-            <p>
-              You only set up the automation when you have already established a
-              specific property in the system.
-            </p>
-            <h3>Guest link</h3>
-            <p>
-              You need a permalink or public link to send to guests in a
-              message.
-            </p>
-            <h3>Selected platform</h3>
-            <p>
-              Decide whether to set up the automatic message in Airbnb or
-              Booking.com.
-            </p>
-
-            <h2>Where to start in Superhost</h2>
-            <p>
-              In the details of a specific property, open the section
-              <strong>Automation</strong>. That's where you'll find the guest
-              link and setting how many days in advance reservations should be
-              available to guests via this link.
-            </p>
+            <h2>Start with one message before arrival</h2>
+            <p>Do not automate everything at the beginning. One useful message is enough: it sends the form or guestbook link before arrival.</p>
+            <ol class="kb-article-flow" aria-label="Automation setup flow">
+              <li><span class="kb-article-flow-number">1</span>Copy the link</li>
+              <li><span class="kb-article-flow-number">2</span>Set availability</li>
+              <li><span class="kb-article-flow-number">3</span>Add it to the message</li>
+              <li><span class="kb-article-flow-number">4</span>Check the result</li>
+            </ol>
+            <h2>Where to start in Superhostem</h2>
+            <p>Open the property detail and go to <strong>Automation</strong>.</p>
             <ul>
               <li>copy the guest link</li>
-              <li>
-                set the number of days in advance when the reservation should be
-                visible
-              </li>
-              <li>
-                save the settings before creating an automatic message in the
-                OTA platform
-              </li>
+              <li>set how many days before arrival the booking should be available through the link</li>
+              <li>save the setting</li>
             </ul>
-            <aside class="kb-article-callout">
-              This setting must coincide with when the automatic message is sent
-              on Airbnb or Booking.com. If you set a different number of days in
-              the app and a different number of days in the OTA, the guest may
-              not see the correct reservation after clicking.
-            </aside>
-            <h2>How it looks in Airbnb news</h2>
-            <div class="kb-article-media-grid">
-              <figure class="kb-article-figure">
-                <img
-                  src="../../assets/screens/messages1_cz.png"
-                  alt="Airbnb Messages with settings icon"
-                />
-                <figcaption>
-                  In Airbnb, you start in a section <strong>News</strong>. From
-                  there, open via the cogwheel
-                  <strong>Message settings</strong>.
-                </figcaption>
-              </figure>
-              <figure class="kb-article-figure">
-                <img
-                  src="../../assets/screens/messages2_cz.png"
-                  alt="Airbnb Message settings with quick reply management"
-                />
-                <figcaption>
-                  In the message settings, you enter the
-                  <strong>Quick reply messages</strong>, where you create or
-                  edit templates.
-                </figcaption>
-              </figure>
-              <figure class="kb-article-figure">
-                <img
-                  src="../../assets/screens/messages4_cz.png"
-                  alt="Airbnb panel Add details"
-                />
-                <figcaption>
-                  When editing a message, you can via
-                  <strong>Add details</strong> insert dynamic variables such as
-                  guest name or arrival date.
-                </figcaption>
-              </figure>
-              <figure class="kb-article-figure">
-                <img
-                  src="../../assets/screens/messages3_cz.png"
-                  alt="Airbnb Create button"
-                />
-                <figcaption>
-                  Once done, you will create the template and then set it to the
-                  correct timing for the arrival.
-                </figcaption>
-              </figure>
-            </div>
-            <h2>Settings in Airbnb</h2>
-
-            <h3>Open Quick Reply Management</h3>
-            <p>
-              In Airbnb, go to messages with guests, open the gear and go to the
-              section <strong>Manage quick responses</strong>.
-            </p>
-            <h3>Create a new template</h3>
-            <p>
-              Create a new quick reply or automated message. It is recommended
-              to have a separate template for each offer.
-            </p>
-            <h3>Paste the text and link from Superhost</h3>
-            <p>
-              Paste your communication pattern into the text of the message and
-              add the copied guest link from the section
-              <strong>Automation</strong> in Superhost.
-            </p>
-            <h3>Choose only one correct offer</h3>
-            <p>
-              In the template settings, check that it is assigned to only one
-              specific menu. If you manage multiple offers, each should have its
-              own template.
-            </p>
-            <h3>Set the correct send time</h3>
-            <p>
-              For example, the recommended setting is
-              <strong>3 days before arrival</strong>. It is important that the
-              same number of days is also set in the link settings in Superhost.
-            </p>
-            <h3>Check the final template</h3>
-            <p>
-              Before saving, check three things: correct link, correctly
-              selected offer and correct send time.
-            </p>
-
-            <h2>Settings in Booking.com</h2>
-
-            <h3>Open the message settings</h3>
-            <p>
-              On the homepage of the Booking.com Extranet, open the offer
-              <strong>Accommodation facilities</strong> and then
-              <strong>Message settings</strong>.
-            </p>
-            <h3>Create a new template</h3>
-            <p>
-              In part <strong>Report templates</strong> choose to create a new
-              template.
-            </p>
-            <h3>Paste the link from Superhost</h3>
-            <p>
-              Paste the copied guest link into the text of the new template. If
-              you have one property with multiple units on Booking.com, please
-              check that you are using the correct link for the specific unit.
-            </p>
-            <h3>Name the template and choose a theme</h3>
-            <p>
-              Give the template an understandable name and usually choose
-              arrival or pre-arrival communication as the message type.
-            </p>
-            <h3>Schedule a shipment</h3>
-            <p>
-              For the newly created template, choose
-              <strong>Schedule template submission</strong> and set the number
-              of days before arrival.
-            </p>
-            <h3>Match the time with the settings in Superhost</h3>
-            <p>
-              Set the same number of days before arrival in the section
-              <strong>Automation</strong> in Superhost. Otherwise, the guest may
-              not see the correct reservation after opening the link.
-            </p>
-
-            <h2>How do you know the automation is set up correctly?</h2>
+            <aside class="kb-article-callout">The number of days must match the message timing in Airbnb or Booking.com. If Superhostem is set to 3 days before arrival, the automated message should also go out 3 days before arrival.</aside>
+            <h2>Where to place the link</h2>
+            <section class="kb-property-decision" aria-label="Platforms for the automated message">
+              <ol class="kb-property-decision-flow">
+                <li class="kb-property-decision-card"><span class="kb-property-decision-icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h5"></path></svg></span><div><span class="kb-property-decision-kicker">Airbnb</span><strong>Messages → message settings</strong><p>Create a quick reply or automated message. Add the Superhostem link and assign the message to the correct listing.</p></div></li>
+                <li class="kb-property-decision-card"><span class="kb-property-decision-icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M6 4h12v16H6z"></path><path d="M9 8h6M9 12h6M9 16h4"></path></svg></span><div><span class="kb-property-decision-kicker">Booking.com</span><strong>Extranet → message settings</strong><p>Create a message template, paste the Superhostem link, and schedule it before arrival.</p></div></li>
+              </ol>
+            </section>
+            <h2>Check before saving</h2>
             <ul>
-              <li>
-                in the text of the message there is a correct link for a
-                specific property
-              </li>
-              <li>the template is bound to the correct menu or unit</li>
-              <li>
-                the sending time in OTA corresponds to the number of days set in
-                Superhost
-              </li>
-              <li>
-                the guest can see his reservation after clicking on the link
-              </li>
+              <li>the message contains the link for the correct property or unit</li>
+              <li>the template is assigned to the correct listing</li>
+              <li>the send time matches the number of days set in Superhostem</li>
+              <li>the text clearly tells the guest what to do after clicking</li>
             </ul>
-            <h2>Recommended basic workflow</h2>
-
-            <h3>Message after booking</h3>
-            <p>
-              A short booking confirmation gives the guest confidence that
-              everything is in order. But you don't have to send all the
-              administration at once at this stage.
-            </p>
-            <h3>Pre-arrival message with form</h3>
-            <p>
-              This is the main automation that this article addresses. This is
-              where you send the link to the form or guestbook and collect the
-              data needed for operation and legislation.
-            </p>
-            <h3>Instructions for stay</h3>
-            <p>
-              Depending on the type of operation, you can follow up with a
-              separate message with information about check-in, entering the
-              building or practical information about your stay.
-            </p>
-            <h3>Message after departure</h3>
-            <p>
-              At the end of the stay, you can end the automation with a thank
-              you, a call for evaluation or an internal checklist for cleaning
-              and other follow-up tasks.
-            </p>
-
-            <h2>How to get started simply</h2>
-            <p>
-              There is no need to automate everything in the beginning. First,
-              it makes the most sense to get one well-functioning message up and
-              running before arrival, which will send the guest the right link
-              at the right time. Only then does it make sense to expand the
-              workflow further.
-            </p>
+            <aside class="kb-article-callout kb-article-callout-muted">For short stays and last-minute bookings, test the timing first. The message must be sent when the booking is already available through the link.</aside>
+            <h2>Next step</h2>
+            <p>If the automation sends a form or guestbook, continue with guest and stay records. For monthly operations, continue with municipal fee processing.</p>
             <ul class="kb-article-link-list">
-              <li>
-                <a href="./jak-vest-evidenci-hostu-a-pobytu-v-superhostem.html"
-                  >How to keep records of guests and stays in Superhostem</a
-                >
-              </li>
-              <li>
-                <a
-                  href="./jak-mesicne-zpracovat-poplatky-obci-v-superhostem.html"
-                  >How to process monthly fees for the municipality in
-                  Superhost</a
-                >
-              </li>
-            </ul>
-            <h2>The most common mistakes</h2>
-            <ul>
-              <li>wrong link or old permalink is embedded in the message</li>
-              <li>one template is mistakenly assigned to multiple offers</li>
-              <li>
-                the number of days in OTA does not match the setting in
-                Superhost
-              </li>
-              <li>
-                at Booking.com, a link is used for a different unit than for a
-                specific reservation
-              </li>
-            </ul>
-            <aside class="kb-article-callout">
-              If you have short stays or last minute bookings, it is even more
-              important to check that the automated message goes out on time and
-              the guest has something to open after clicking.
-            </aside>
-            <h2>Verification and sources</h2>
-            <p>
-              We have prepared this article as a practical guide based on the
-              logic of setting up a property in Superhost.
-            </p>
-            <aside class="kb-article-callout kb-article-callout-muted">
-              <p>
-                <strong>Updated:</strong> 29/03/2026. The names of the sections
-                in Airbnb and Booking.com may change, but the logic of the
-                settings remains the same: the right link, the right offer and
-                the right send time.
-              </p>
-            </aside>
-            <h2>Do you want to make reservations on your phone?</h2>
-            <p>
-              If the automations are connected to bookings, it may be useful to
-              have the same one overview also in the mobile calendar.
-            </p>
-            <ul class="kb-article-link-list">
-              <li>
-                <a href="./kalendar-airbnb-v-telefonu.html"
-                  >Open the calendar guide on your phone</a
-                >
-              </li>
+              <li><a href="./jak-vest-evidenci-hostu-a-pobytu-v-superhostem.html">How to keep guest and stay records in Superhostem</a></li>
+              <li><a href="./jak-mesicne-zpracovat-poplatky-obci-v-superhostem.html">How to process monthly municipal fees in Superhostem</a></li>
             </ul>
           </div>
           <section class="kb-article-related" id="kb-article-related">
             <h2>Related links</h2>
             <div class="kb-article-related-grid">
               <a class="kb-article-related-card" href="./index.html">
-                <span>Overview</span>
-                <strong>Help Center</strong>
-              </a>
+  <span>Overview</span>
+  <strong>Help Center</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./jak-pridat-novou-nemovitost.html"
-              >
-                <span>Previous</span>
-                <strong>How to add your property</strong>
-              </a>
+<a class="kb-article-related-card" href="./jak-pridat-novou-nemovitost.html">
+  <span>Previous</span>
+  <strong>How to add your property</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./zakladni-legislativni-povinnosti-hostitele-v-cr.html"
-              >
-                <span>Another one</span>
-                <strong
-                  >Basic legislative obligations of the host in the Czech
-                  Republic</strong
-                >
-              </a>
+<a class="kb-article-related-card" href="./zakladni-legislativni-povinnosti-hostitele-v-cr.html">
+  <span>Next</span>
+  <strong>Basic legislative obligations of the host in the Czech Republic</strong>
+</a>
+
             </div>
           </section>
         </article>
@@ -516,10 +182,9 @@
       </div>
     </footer>
 
-    <a class="back-to-top" href="#page-top" aria-label="Back to top" title="Up"
-      >↑</a
-    >
+    <a class="back-to-top" href="#page-top" aria-label="Back to top" title="Up">↑</a>
 
-    <script src="../../assets/kb-navigation.js?v=header-menus"></script>
+
+      <script src="../../assets/kb-navigation.js?v=header-menus"></script>
   </body>
 </html>

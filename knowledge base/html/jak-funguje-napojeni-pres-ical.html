@@ -1,60 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="cs">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Podrobný návod na získání iCal odkazů z Airbnb a Booking.com a jejich napojení do Superhostem pro synchronizaci rezervací."
-    />
-    <meta
-      property="og:title"
-      content="Jak získat a napojit iCal z Airbnb a Bookingu"
-    />
-    <meta
-      property="og:description"
-      content="Podrobný návod na získání iCal odkazů z Airbnb a Booking.com a jejich napojení do Superhostem."
-    />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jak napojit iCal kalendář – návod pro hostitele krátkodobých pronájmů na Superhostem.cz." />
+    <meta property="og:title" content="Jak napojit iCal kalendář" />
+    <meta property="og:description" content="Jak napojit iCal kalendář – návod pro hostitele krátkodobých pronájmů na Superhostem.cz." />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:url"
-      content="https://knowledgebase.superhostem.cz/knowledge-base/html/jak-funguje-napojeni-pres-ical.html"
-    />
+    <meta property="og:url" content="https://knowledgebase.superhostem.cz/knowledge-base/html/jak-funguje-napojeni-pres-ical.html" />
     <meta property="og:site_name" content="Superhostem.cz - Centrum nápovědy" />
     <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Jak získat a napojit iCal z Airbnb a Bookingu"
-    />
-    <meta
-      name="twitter:description"
-      content="Podrobný návod na získání iCal odkazů z Airbnb a Booking.com a jejich napojení do Superhostem."
-    />
-    <title>Jak získat a napojit iCal z Airbnb a Bookingu</title>
+    <meta name="twitter:title" content="Jak napojit iCal kalendář" />
+    <meta name="twitter:description" content="Jak napojit iCal kalendář – návod pro hostitele krátkodobých pronájmů na Superhostem.cz." />
+    <title>Jak napojit iCal kalendář</title>
     <script>
       (() => {
-        const preference =
-          localStorage.getItem("superhostem-kb-theme") || "system";
-        const systemDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        const isDark =
-          preference === "dark" || (preference === "system" && systemDark);
+        const preference = localStorage.getItem("superhostem-kb-theme") || "system";
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = preference === "dark" || (preference === "system" && systemDark);
         document.documentElement.classList.toggle("dark", isDark);
         document.documentElement.style.colorScheme = isDark ? "dark" : "light";
       })();
     </script>
-    <link rel="stylesheet" href="../assets/superhostem.css?v=header-menus" />
+    <link rel="stylesheet" href="../assets/superhostem.css?v=header-menus">
   </head>
   <body id="page-top" class="kb-article-page">
     <header class="kb-help-header">
       <div class="kb-help-header-inner">
-        <a
-          class="kb-help-brand"
-          href="./index.html"
-          aria-label="Superhostem.cz Centrum nápovědy"
-        >
+        <a class="kb-help-brand" href="./index.html" aria-label="Superhostem.cz Centrum nápovědy">
           <span class="kb-help-brand-mark" aria-hidden="true">S</span>
           <span>
             <strong>Superhostem.cz</strong>
@@ -69,51 +43,25 @@
         </nav>
 
         <div class="kb-help-actions">
-          <nav class="kb-language-switcher" aria-label="Jazyk">
-            <button
-              type="button"
-              class="kb-language-switcher-toggle"
-              aria-haspopup="menu"
-              aria-expanded="false"
-              aria-label="Jazyk"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path
-                  d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-                ></path>
-                <path d="M2 12h20"></path>
-              </svg>
-              <span>CZ</span>
-            </button>
+<nav class="kb-language-switcher" aria-label="Jazyk">
+            <button type="button" class="kb-language-switcher-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Jazyk">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span>CZ</span>
+      </button>
             <div class="kb-language-switcher-menu">
-              <a
-                href="./jak-funguje-napojeni-pres-ical.html"
-                class="is-active"
-                aria-current="page"
-                >CZ</a
-              >
+              <a href="./jak-funguje-napojeni-pres-ical.html" class="is-active" aria-current="page">CZ</a>
               <a href="./en/jak-funguje-napojeni-pres-ical.html">EN</a>
               <a href="./vn/jak-funguje-napojeni-pres-ical.html">VN</a>
             </div>
           </nav>
 
-          <div
-            class="kb-theme-toggle"
-            role="group"
-            aria-label="Přepnout barevný režim"
-          >
-            <button
-              type="button"
-              class="kb-theme-toggle-trigger"
-              aria-haspopup="menu"
-              aria-expanded="false"
-            >
-              <svg
-                class="kb-theme-icon-sun"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+          <div class="kb-theme-toggle" role="group" aria-label="Přepnout barevný režim">
+            <button type="button" class="kb-theme-toggle-trigger" aria-haspopup="menu" aria-expanded="false">
+              <svg class="kb-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="4"></circle>
                 <path d="M12 2v2"></path>
                 <path d="M12 20v2"></path>
@@ -124,48 +72,18 @@
                 <path d="m6.34 17.66-1.41 1.41"></path>
                 <path d="m19.07 4.93-1.41 1.41"></path>
               </svg>
-              <svg
-                class="kb-theme-icon-moon"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
+              <svg class="kb-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
               </svg>
               <span class="sr-only">Theme</span>
             </button>
             <div class="kb-theme-toggle-menu">
-              <button
-                type="button"
-                data-theme-option="light"
-                aria-label="Světlý režim"
-                title="Světlý režim"
-              >
-                Světlý režim
-              </button>
-              <button
-                type="button"
-                data-theme-option="system"
-                aria-label="Podle systému"
-                title="Podle systému"
-              >
-                Podle systému
-              </button>
-              <button
-                type="button"
-                data-theme-option="dark"
-                aria-label="Tmavý režim"
-                title="Tmavý režim"
-              >
-                Tmavý režim
-              </button>
+              <button type="button" data-theme-option="light" aria-label="Světlý režim" title="Světlý režim">Světlý režim</button>
+              <button type="button" data-theme-option="system" aria-label="Podle systému" title="Podle systému">Podle systému</button>
+              <button type="button" data-theme-option="dark" aria-label="Tmavý režim" title="Tmavý režim">Tmavý režim</button>
             </div>
           </div>
-          <a class="kb-help-site-link" href="https://www.superhostem.cz/"
-            >Na hlavní web
-            <svg aria-hidden="true" viewbox="0 0 24 24">
-              <path d="M7 7h10v10"></path>
-              <path d="M7 17 17 7"></path></svg
-          ></a>
+          <a class="kb-help-site-link" href="https://www.superhostem.cz/">Na hlavní web <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
         </div>
       </div>
     </header>
@@ -174,377 +92,89 @@
       <div class="kb-article-container">
         <article class="kb-article-main">
           <p class="kb-article-kicker">Nemovitosti a kalendáře</p>
-          <h1 class="kb-article-title">
-            Jak získat a napojit iCal z Airbnb a Bookingu
-          </h1>
-          <p class="kb-article-lead">
-            iCal je nejrychlejší způsob, jak dostat do Superhostem první
-            rezervace a blokace termínů. Tento návod řeší dvě nejčastější
-            situace: jak najít iCal na Airbnb a jak ho získat z Booking.com.
-          </p>
+          <h1 class="kb-article-title">Jak napojit iCal kalendář</h1>
+          <p class="kb-article-lead">iCal přenese do Superhostem obsazené a blokované termíny. Stačí zkopírovat odkaz z rezervačního portálu, vložit ho k nemovitosti a zkontrolovat první import.</p>
           <div class="kb-article-jump">
             <a href="./index.html">Centrum pomoci</a>
             <a href="./jak-pridat-novou-nemovitost.html">Předchozí článek</a>
-            <a href="./kalendar-airbnb-v-telefonu.html">Další článek →</a>
+            <a href="./jak-funguji-automatizace-v-superhostem.html">Další krok →</a>
           </div>
           <div class="kb-article-intro-note">
-            <strong>Co vás čeká dál</strong>
-            <p>
-              Nejdřív si zkopírujete iCal odkaz z Airbnb nebo Bookingu, potom ho
-              vložíte do nastavení nemovitosti v Superhostem a nakonec
-              zkontrolujete, že se kalendář správně propsal.
-            </p>
-          </div>
+  <strong>Druhý krok nastavení</strong>
+          <p>Nejdřív vezmete iCal odkaz z Airbnb, Booking.com, e‑Chalup nebo jiného portálu. Potom ho vložíte k nemovitosti v Superhostem.</p>
+</div>
 
           <div class="kb-article-divider"></div>
           <div class="kb-article-prose" id="kb-article-content">
-            <section class="kb-article-topic-block">
-              <h2>Co iCal umí a co ne</h2>
-
-              <h3>Co iCal běžně přenáší</h3>
-              <ul>
-                <li>datum příjezdu a odjezdu</li>
-                <li>obsazené nebo blokované termíny</li>
-                <li>základní identifikaci události</li>
-              </ul>
-              <h3>Co iCal obvykle nepřenáší</h3>
-              <ul>
-                <li>cenu rezervace</li>
-                <li>výši provize a poplatků</li>
-                <li>kompletní údaje o hostovi</li>
-              </ul>
-
-              <h2>Kdy iCal použít</h2>
-              <p>
-                iCal dává největší smysl na začátku, když chcete rychle propojit
-                kalendář s nemovitostí. Pokud pak chcete pracovat i s
-                detailnějšími daty o rezervacích, navazuje na to email
-                forwarding a automatizace.
-              </p>
+            <h2>Co iCal přenese</h2>
+            <p>iCal řeší hlavně kalendář. Do Superhostem přinese termíny rezervací a blokace.</p>
+            <ul>
+              <li>datum příjezdu a odjezdu</li>
+              <li>obsazené nebo blokované termíny</li>
+              <li>základní identifikaci události</li>
+            </ul>
+            <aside class="kb-article-callout kb-article-callout-muted">iCal obvykle nepřenáší cenu, poplatky, provize ani kompletní údaje hosta.</aside>
+            <h2>Postup napojení</h2>
+            <ol class="kb-article-flow" aria-label="Postup napojení iCalu">
+              <li><span class="kb-article-flow-number">1</span>Najít iCal</li>
+              <li><span class="kb-article-flow-number">2</span>Zkopírovat URL</li>
+              <li><span class="kb-article-flow-number">3</span>Vložit do nemovitosti</li>
+              <li><span class="kb-article-flow-number">4</span>Zkontrolovat rezervace</li>
+            </ol>
+            <h2>Kde odkaz najít</h2>
+            <section class="kb-property-decision" aria-label="Kde najít iCal odkaz">
+              <ol class="kb-property-decision-flow">
+                <li class="kb-property-decision-card"><span class="kb-property-decision-icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M7 3v4M17 3v4M4 10h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"></path><path d="M8 14h8M8 17h5"></path></svg></span><div><span class="kb-property-decision-kicker">Airbnb</span><strong>Calendar → Availability</strong><p>Otevřete kalendář konkrétní nabídky, najděte <b>Connect calendars</b> a zvolte <b>Connect to another website</b>. Zkopírujte celý odkaz končící na <b>.ics</b>.</p></div></li>
+                <li class="kb-property-decision-card"><span class="kb-property-decision-icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M8 8h8M8 12h5M8 16h7"></path></svg></span><div><span class="kb-property-decision-kicker">Booking.com</span><strong>Calendar → Sync calendars</strong><p>V Extranetu otevřete kalendář správného objektu nebo jednotky, zvolte <b>Sync calendars</b> a použijte <b>Copy link</b>.</p></div></li>
+              </ol>
             </section>
-            <section class="kb-article-topic-block">
-              <h2>Jak to vypadá v Airbnb</h2>
+            <div class="kb-article-visual-note">
+              <strong>Ukázka v Airbnb</strong>
               <div class="kb-article-media-grid">
-                <figure class="kb-article-figure">
-                  <img
-                    src="../assets/screens/ical1_cz.png"
-                    alt="Airbnb kalendář v češtině se sekcí Kalendář"
-                  />
-                  <figcaption>
-                    V Airbnb začínáte v horní navigaci na kartě
-                    <strong>Kalendář</strong>. Právě odtud se dostanete do
-                    nastavení dostupnosti a k propojení kalendářů.
-                  </figcaption>
-                </figure>
-                <figure class="kb-article-figure">
-                  <img
-                    src="../assets/screens/ical3_eng.png"
-                    alt="Airbnb availability settings s položkou Connect calendars"
-                  />
-                  <figcaption>
-                    V části <strong>Availability settings</strong> sjeďte níž,
-                    dokud neuvidíte blok <strong>Connect calendars</strong> a
-                    volbu <strong>Connect to another website</strong>.
-                  </figcaption>
-                </figure>
+                <figure class="kb-article-figure"><img src="../assets/screens/ical1_cz.png" alt="Airbnb kalendář se sekcí Kalendář"><figcaption>Začněte v kalendáři konkrétní nabídky.</figcaption></figure>
+                <figure class="kb-article-figure"><img src="../assets/screens/ical3_eng.png" alt="Airbnb Availability settings s položkou Connect calendars"><figcaption>V nastavení dostupnosti hledejte část <strong>Connect calendars</strong>.</figcaption></figure>
               </div>
-              <h2>Jak získat iCal z Airbnb</h2>
-
-              <h3>Otevřete Kalendář na Airbnb</h3>
-              <p>
-                Podle aktuální oficiální nápovědy Airbnb začínáte v sekci
-                <strong>Calendar</strong> a vyberete konkrétní listing, který
-                chcete propojit.
-              </p>
-              <h3>Přejděte do Availability</h3>
-              <p>
-                V kalendáři daného listingu otevřete část
-                <strong>Availability</strong>. Právě tam Airbnb aktuálně
-                schovává propojení s dalšími kalendáři.
-              </p>
-              <h3>Zvolte Connect to another website</h3>
-              <p>
-                Pod <strong>Connect calendars</strong> klikněte na
-                <strong>Connect to another website</strong>. Airbnb vám zobrazí
-                kalendářový odkaz, který můžete exportovat.
-              </p>
-              <h3>Zkopírujte celý iCal odkaz</h3>
-              <p>
-                Zkopírujte celou adresu, ne jen její část. Airbnb výslovně
-                uvádí, že pro import na druhou stranu má jít o URL končící na
-                <strong>.ics</strong>.
-              </p>
-            </section>
-            <section class="kb-article-topic-block">
-              <h2>Jak získat iCal z Booking.com</h2>
-
-              <h3>Otevřete Extranet Booking.com</h3>
-              <p>
-                Přihlaste se do Extranetu Booking.com a otevřete konkrétní
-                objekt, který chcete propojit.
-              </p>
-              <h3>Přejděte do Calendar nebo Calendar &amp; Pricing</h3>
-              <p>
-                Podle aktuální verze Extranetu běžte buď přes
-                <strong>Rates &amp; Availability → Calendar</strong>, nebo přímo
-                do <strong>Calendar &amp; Pricing</strong>.
-              </p>
-              <h3>Otevřete Sync calendars</h3>
-              <p>
-                V kalendáři otevřete <strong>Sync calendars</strong> a zvolte
-                <strong>Add calendar connection</strong>. Booking tím otevře
-                průvodce propojením s jiným kalendářem.
-              </p>
-              <h3>Dokončete export kalendáře</h3>
-              <p>
-                V průvodci klikněte na <strong>Copy link</strong> a zkopírujte
-                svůj Booking.com iCal odkaz. Pod
-                <strong>Export options</strong> bývá možné zvolit, jestli chcete
-                exportovat jen rezervované termíny, nebo i uzavřené termíny.
-              </p>
-              <h3>Zkontrolujte správnou jednotku a stav propojení</h3>
-              <p>
-                Pokud máte více pokojů nebo jednotek, ověřte, že berete iCal
-                právě pro tu konkrétní nemovitost, kterou napojujete. Po
-                dokončení se v Extranetu obvykle zobrazí stav spojení, například
-                <strong>Activating</strong> nebo <strong>OK</strong>.
-              </p>
-            </section>
-            <section class="kb-article-topic-block">
-              <h2>Co si z toho odnést prakticky</h2>
-              <p>
-                U Airbnb už máme díky screenshotům potvrzené aktuální flow přes
-                <strong>Kalendář</strong> a
-                <strong>Nastavení dostupnosti</strong>. U Booking.com se držte
-                stejné logiky: otevřít kalendář, najít synchronizaci kalendářů a
-                zkopírovat exportní odkaz pro konkrétní jednotku.
-              </p>
-            </section>
-            <section class="kb-article-topic-block">
-              <h2>Jak vložit iCal do Superhostem</h2>
-
-              <h3>Otevřete detail nemovitosti</h3>
-              <p>
-                V Superhostem otevřete konkrétní nemovitost, kterou právě
-                nastavujete.
-              </p>
-              <h3>Najděte část pro kalendáře nebo iCal</h3>
-              <p>
-                V nastavení nemovitosti přejděte do části, kde se přidává zdroj
-                kalendáře.
-              </p>
-              <h3>Vložte iCal URL</h3>
-              <p>
-                Do pole pro iCal vložte zkopírovanou adresu z Airbnb nebo
-                Bookingu a zdroj si srozumitelně pojmenujte, například
-                <strong>Airbnb</strong> nebo <strong>Booking</strong>.
-              </p>
-              <h3>Uložte nastavení a zkontrolujte synchronizaci</h3>
-              <p>
-                Po uložení ověřte, že se rezervace nebo blokace propsaly do
-                kalendáře nemovitosti.
-              </p>
-            </section>
-            <section class="kb-article-topic-block">
-              <h2>Na co si dát pozor</h2>
-              <ul>
-                <li>zkopírujte vždy celý iCal odkaz, ne jen jeho část</li>
-                <li>
-                  u více jednotek si hlídejte, že párujete správný kalendář ke
-                  správné nemovitosti
-                </li>
-                <li>iCal nepřenáší ceny ani úplné finanční informace</li>
-                <li>
-                  pokud se nic nepropsalo, zkontrolujte, že odkaz není neplatný
-                  nebo starý
-                </li>
-                <li>
-                  u Airbnb dnes počítejte s tím, že oficiální cesta vede přes
-                  <strong>Calendar → Availability → Connect calendars</strong>
-                </li>
-                <li>
-                  u Booking.com se názvy sekcí liší podle verze Extranetu, ale
-                  aktuálně se nejčastěji pohybujete přes
-                  <strong>Calendar</strong>,
-                  <strong>Calendar &amp; Pricing</strong> a
-                  <strong>Sync calendars</strong>
-                </li>
-              </ul>
-              <aside class="kb-article-callout">
-                Pokud potřebujete nejen blokace termínů, ale i detailnější data
-                o rezervacích, navazuje na iCal typicky email forwarding a další
-                automatizace.
-              </aside>
-            </section>
-            <section
-              class="kb-article-topic-block kb-article-topic-block-muted"
-            >
-              <h2>Ověření a zdroje</h2>
-              <p>
-                Tento článek je praktický návod podle běžného postupu v Airbnb a
-                Booking.com. Rozhraní platforem se může měnit, proto je dobré
-                počítat s drobnými rozdíly v názvech sekcí.
-              </p>
-              <ul>
-                <li>
-                  <a
-                    href="https://www.airbnb.com/help/article/99"
-                    target="_blank"
-                    rel="noreferrer"
-                    >Airbnb Help: Sync your home host calendar to other
-                    websites</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://partner.booking.com/en-gb/help/rates-availability/extranet-calendar/syncing-your-bookingcom-calendar-third-party-calendars"
-                    target="_blank"
-                    rel="noreferrer"
-                    >Booking.com Partner Hub: Syncing your Booking.com calendar
-                    to third-party calendars</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://help.parkwith.us/settings--integrations/bjC7KLQXqS9fYYmxFeVAiv/how-to-sync-your-bookingcom-listing/5iuTesEA9XBAFTciVmaxW6"
-                    target="_blank"
-                    rel="noreferrer"
-                    >Partner walkthrough quoting current Booking.com sync
-                    flow</a
-                  >
-                </li>
-              </ul>
-              <aside class="kb-article-callout kb-article-callout-muted">
-                <p>
-                  <strong>Aktualizováno:</strong> 29. 3. 2026. Airbnb část jsme
-                  ověřili proti aktuální oficiální nápovědě. U Booking.com jsme
-                  ověřili aktuální flow proti Partner Hub URL a veřejně
-                  citovaným partner walkthroughs; oficiální partner help je mimo
-                  přihlášení částečně omezený, proto se přesné názvy položek
-                  mohou lišit podle verze Extranetu.
-                </p>
-              </aside>
-            </section>
-            <section class="kb-article-topic-block">
-              <h2>Chcete mít rezervace i v telefonu?</h2>
-              <p>
-                Pokud už iCal používáte nebo máte export připravený, můžete si
-                rezervace zobrazit i v Apple Calendar, Google Calendar nebo jiné
-                aplikaci podporující iCal.
-              </p>
-              <a
-                class="kb-article-next-cta"
-                href="./kalendar-airbnb-v-telefonu.html"
-              >
-                <span class="kb-article-next-cta-icon" aria-hidden="true"
-                  ><svg viewbox="0 0 24 24">
-                    <rect width="14" height="20" x="5" y="2" rx="2"></rect>
-                    <path d="M12 18h.01"></path></svg
-                ></span>
-                <span>
-                  <strong>Otevřít návod na kalendář v telefonu</strong>
-                  <small
-                    >Navazující postup pro Apple Calendar, Google Calendar a
-                    další aplikace.</small
-                  >
-                </span>
-                <svg
-                  class="kb-article-next-cta-arrow"
-                  aria-hidden="true"
-                  viewbox="0 0 24 24"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-            </section>
-            <section class="kb-article-topic-block">
-              <h2>Chcete další práci zautomatizovat?</h2>
-              <p>
-                iCal pomůže s kalendářem. Pokud ale nechcete údaje z rezervací
-                přepisovat ručně, navazuje na něj automatické zpracování e-mailů
-                a komunikace s hosty.
-              </p>
-              <a
-                class="kb-article-next-cta"
-                href="./jak-funguje-email-forwarding.html"
-              >
-                <span class="kb-article-next-cta-icon" aria-hidden="true"
-                  ><svg viewbox="0 0 24 24">
-                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                    <path
-                      d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
-                    ></path></svg
-                ></span>
-                <span>
-                  <strong>Zautomatizovat doplňování údajů z e-mailů</strong>
-                  <small
-                    >Email forwarding pomůže načítat data z rezervačních
-                    e-mailů, abyste je nemuseli vyplňovat ručně.</small
-                  >
-                </span>
-                <svg
-                  class="kb-article-next-cta-arrow"
-                  aria-hidden="true"
-                  viewbox="0 0 24 24"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a
-                class="kb-article-next-cta"
-                href="./jak-funguji-automatizace-v-superhostem.html"
-              >
-                <span class="kb-article-next-cta-icon" aria-hidden="true"
-                  ><svg viewbox="0 0 24 24">
-                    <path
-                      d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"
-                    ></path>
-                    <path d="M8 9h8"></path>
-                    <path d="M8 13h5"></path></svg
-                ></span>
-                <span>
-                  <strong>Zautomatizovat komunikaci s hosty</strong>
-                  <small
-                    >Nastavte automatizace pro zprávy a rutinní kroky kolem
-                    pobytů.</small
-                  >
-                </span>
-                <svg
-                  class="kb-article-next-cta-arrow"
-                  aria-hidden="true"
-                  viewbox="0 0 24 24"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-            </section>
+            </div>
+            <h2>Vložení do Superhostem</h2>
+            <ul>
+              <li>otevřete konkrétní nemovitost</li>
+              <li>najděte část pro kalendáře nebo iCal</li>
+              <li>vložte zkopírovanou iCal URL</li>
+              <li>zdroj pojmenujte, například Airbnb nebo Booking</li>
+              <li>uložte nastavení</li>
+            </ul>
+            <h2>Před pokračováním zkontrolujte</h2>
+            <ul>
+              <li>zkopírovali jste celý odkaz, ne jen jeho část</li>
+              <li>u více jednotek párujete správný kalendář ke správné nemovitosti</li>
+              <li>v Superhostem se zobrazily rezervace nebo blokace</li>
+              <li>termíny odpovídají zdrojové platformě</li>
+            </ul>
+            <aside class="kb-article-callout">Když se nic nepropsalo, nejdřív zkontrolujte, zda odkaz není starý, zkrácený nebo z jiné jednotky.</aside>
+            <a class="kb-article-next-cta" href="./jak-funguji-automatizace-v-superhostem.html">
+              <span class="kb-article-next-cta-icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M12 5v14"></path><path d="m5 12 7 7 7-7"></path></svg></span>
+              <span><strong>Kalendář a rutiny</strong><small>Pokračujte nastavením automatizací pro zprávy a běžný provoz.</small></span>
+              <svg class="kb-article-next-cta-arrow" aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+            </a>
           </div>
           <section class="kb-article-related" id="kb-article-related">
             <h2>Související odkazy</h2>
             <div class="kb-article-related-grid">
               <a class="kb-article-related-card" href="./index.html">
-                <span>Přehled</span>
-                <strong>Centrum pomoci</strong>
-              </a>
+  <span>Přehled</span>
+  <strong>Centrum pomoci</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./jak-pridat-novou-nemovitost.html"
-              >
-                <span>Předchozí</span>
-                <strong>Jak přidat svou nemovitost</strong>
-              </a>
+<a class="kb-article-related-card" href="./jak-pridat-novou-nemovitost.html">
+  <span>Předchozí</span>
+  <strong>Jak přidat svou nemovitost</strong>
+</a>
 
-              <a
-                class="kb-article-related-card"
-                href="./kalendar-airbnb-v-telefonu.html"
-              >
-                <span>Další</span>
-                <strong>Kalendář Airbnb v telefonu 📱</strong>
-              </a>
+<a class="kb-article-related-card" href="./jak-funguji-automatizace-v-superhostem.html">
+  <span>Další</span>
+  <strong>Kalendář a rutiny</strong>
+</a>
+
             </div>
           </section>
         </article>
@@ -565,14 +195,9 @@
       </div>
     </footer>
 
-    <a
-      class="back-to-top"
-      href="#page-top"
-      aria-label="Zpět nahoru"
-      title="Nahoru"
-      >↑</a
-    >
+    <a class="back-to-top" href="#page-top" aria-label="Zpět nahoru" title="Nahoru">↑</a>
 
-    <script src="../assets/kb-navigation.js?v=header-menus"></script>
+
+      <script src="../assets/kb-navigation.js?v=header-menus"></script>
   </body>
 </html>
