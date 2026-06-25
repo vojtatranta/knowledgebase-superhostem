@@ -109,6 +109,38 @@ jobs:
           </html>
           EOF
 
+          # Generate /html/<page> -> /knowledge-base/html/<page> redirect stubs
+          # so that old /html/ URLs don't 404 on GitHub Pages
+          mkdir -p _site/html/en _site/html/vn
+          make_redirect() {
+            local dest="$1"
+            local out="$2"
+            cat > "$out" <<HTMLEOF
+          <!DOCTYPE html>
+          <html lang="cs">
+          <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="refresh" content="0; url=${dest}">
+            <title>Přesměrování…</title>
+            <script>window.location.replace("${dest}");</script>
+          </head>
+          <body></body>
+          </html>
+          HTMLEOF
+          }
+          for f in "knowledge base/html/"*.html; do
+            name="$(basename "$f")"
+            make_redirect "/knowledge-base/html/${name}" "_site/html/${name}"
+          done
+          for f in "knowledge base/html/en/"*.html; do
+            name="$(basename "$f")"
+            make_redirect "/knowledge-base/html/en/${name}" "_site/html/en/${name}"
+          done
+          for f in "knowledge base/html/vn/"*.html; do
+            name="$(basename "$f")"
+            make_redirect "/knowledge-base/html/vn/${name}" "_site/html/vn/${name}"
+          done
+
           touch _site/.nojekyll
 
       - name: Upload Pages artifact
