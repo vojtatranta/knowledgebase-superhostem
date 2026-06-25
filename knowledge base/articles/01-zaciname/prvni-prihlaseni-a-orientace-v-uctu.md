@@ -1,64 +1,38 @@
 # První přihlášení a orientace v účtu
 
-## Co tento článek řeší
-
-Provádí uživatele prvním přihlášením do preview aplikace Superhostem a ukazuje, co po vstupu do účtu opravdu uvidí a jaký je nejrychlejší další krok.
-
-## Pro koho je článek určen
-
-- pro nově registrované uživatele
-- pro uživatele, kteří se do systému přihlásili poprvé
-
 ## Co uvidíte po přihlášení
 
-Po přihlášení se otevře sekce `Přehled`.
+Po přihlášení se otevře sekce `Přehled`. Pokud ještě nemáte žádnou nemovitost, uvidíte úvodní onboarding pro její nastavení.
 
-Pokud ještě nemáte založenou žádnou nemovitost, uvidíte onboarding blok s textem:
+V prvních minutách stačí pracovat se dvěma místy:
 
-- `Vítejte! Pojďme nastavit vaši první nemovitost`
-- `Vyberte si, jak chcete začít`
+- `Přehled`, kde zvolíte způsob začátku
+- `Nemovitosti`, kde svou první nemovitost dokončíte
 
-Na stejné stránce se zobrazují tři hlavní možnosti:
+Ostatní položky menu zatím nechte být. `Rezervace`, reporty, importy, iCal export a nastavení dávají smysl až poté, co máte nemovitost založenou.
 
-1. `Import z Airbnb kalendáře`
-2. `Automatické přeposílání emailů`
-3. `Vytvořit nemovitost ručně`
+## Než půjdete dál, ověřte právní náležitosti a registrace
 
-## Co doporučujeme udělat jako první
+Než založíte první nemovitost, zkontrolujte si, co se týká právě vašeho provozu. Ne každý hostitel řeší stejné registrace, platby nebo hlášení.
 
-Pokud začínáte od nuly, doporučený postup je tento:
+1. ověřte si základní právní připravenost pro svou nemovitost
+2. pokud se vás týká Ubyport, doplňte přístup a údaje `IDUB`
+3. pokud se vás týká místní poplatek, ověřte registraci a postup své obce
+4. až potom napojte iCal a případně automatické přeposílání emailů
 
-1. v levém menu si všimněte hlavních sekcí:
-   - `Přehled`
-   - `Nemovitosti`
-   - `Rezervace`
-   - `Reporty`
-   - `Poplatky obci`
-   - `Importy`
-   - `iCal export`
-   - `Nastavení`
-2. zůstaňte v sekci `Přehled`
-3. v onboarding bloku zvolte, jak chcete začít
-4. pokud máte Airbnb iCal URL, zvolte `Import z Airbnb kalendáře`
-5. pokud chcete systém plnit přes emaily z Airbnb, použijte `Automatické přeposílání emailů`
-6. pokud nechcete začínat importem, klikněte na `Vytvořit nemovitost ručně`
+Pravidla, výjimky, termíny, formuláře i způsob hlášení se liší podle situace a obce. Superhostem nenahrazuje ověření u příslušného úřadu ani odborníka.
 
-## Jak poznat, že jste na správné obrazovce
+Když nevíte, co se vás týká, začněte článkem `Základní legislativní povinnosti hostitele v ČR`. Chybí-li vám Ubyport nebo `IDUB`, pokračujte návodem `Jak se zaregistrovat do Ubyportu`. Pokud nemáte podklady k místnímu poplatku, otevřete `Jak se zaregistrovat k místnímu poplatku`.
 
-Jste na správném místě, pokud vidíte:
+## Založte první nemovitost
 
-- pozdrav `Vítejte`
-- onboarding blok pro první nemovitost
-- pole `Název nemovitosti`
-- pole `Airbnb iCal URL`
-- tlačítko `Vytvořit nemovitost a naimportovat rezervace`
+Teď se rozhodněte podle toho, zda už máte iCal URL z rezervačního portálu, například Airbnb, Booking.com nebo e‑Chalupy:
 
-## Nejčastější chyba na začátku
+1. Máte iCal URL: zvolte `Import z Airbnb kalendáře` a vložte URL z portálu, který používáte.
+2. iCal URL ještě nemáte: zvolte `Vytvořit nemovitost ručně`.
 
-Nejčastější chyba je, že uživatel po přihlášení přejde jinam a přeskočí onboarding blok na `Přehledu`.
+`Automatické přeposílání emailů` nastavte až později, když už nemovitost existuje. Je to navazující zdroj dat, ne nutný první krok.
 
-Právě ten je v aktuální verzi aplikace nejrychlejší cestou k první funkční nemovitosti.
+Další postup: založte nemovitost → napojte iCal → zkontrolujte rezervace.
 
-## Doporučený další krok
-
-Pokračujte článkem `Jak přidat první nemovitost`.
+Pokračujte článkem `Jak přidat novou nemovitost`, až máte právní náležitosti a registrace ověřené.

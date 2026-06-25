@@ -13,7 +13,7 @@ Kategorie `Legislativa v ČR` pomáhá hostitelům orientovat se v základních 
 ## Prioritní články
 
 - Základní legislativní povinnosti hostitele v ČR
-- Jak funguje poplatek z pobytu
+- Jak se zaregistrovat k místnímu poplatku
 - Proč vést evidenci hostů a pobytů
 - Jak se zaregistrovat do Ubyportu
 - Jak řešit DPH u Airbnb a Bookingu

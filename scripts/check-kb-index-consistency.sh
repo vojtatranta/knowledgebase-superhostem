@@ -20,7 +20,18 @@ kb_dir = Path(sys.argv[1])
 index_file = Path(sys.argv[2])
 
 html_files = sorted(p for p in kb_dir.glob("*.html"))
-index_text = index_file.read_text(encoding="utf-8")
+
+def content_only(text: str) -> str:
+    # Language links point to sibling EN/VN pages. They are intentionally not
+    # part of the Czech homepage index and must not be treated as article links.
+    return re.sub(
+        r'<nav class="kb-language-switcher".*?</nav>',
+        "",
+        text,
+        flags=re.DOTALL,
+    )
+
+index_text = content_only(index_file.read_text(encoding="utf-8"))
 
 index_links = set(re.findall(r'href="\./([^"]+\.html)"', index_text))
 index_links.add("index.html")
@@ -32,7 +43,7 @@ for file in html_files:
     if file.name != "index.html" and file.name not in index_links:
         missing_from_index.append(file.name)
 
-    text = file.read_text(encoding="utf-8")
+    text = content_only(file.read_text(encoding="utf-8"))
     local_links = re.findall(r'href="\./([^"]+\.html)"', text)
     for target in local_links:
         target_path = kb_dir / target

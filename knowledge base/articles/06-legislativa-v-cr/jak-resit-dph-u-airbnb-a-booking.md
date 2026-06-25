@@ -1,103 +1,68 @@
 # Jak řešit DPH u Airbnb a Bookingu
 
-## Co tento článek řeší
-
-Pomáhá hostiteli pochopit, proč se u rezervací přes `Airbnb` a `Booking.com` často řeší i `DPH z provizí nebo poplatků` účtovaných platformou.
-
-## Pro koho je článek určen
-
-- pro hostitele, kteří přijímají rezervace přes zahraniční platformy
-- pro uživatele, kteří řeší, zda jsou `neplátce`, `identifikovaná osoba`, nebo `plátce DPH`
-
-## Stručně: co je důležité vědět
+## Co je důležité
 
 1. provize platformy je z pohledu DPH přijatá služba
-2. neplátce často končí jako `identifikovaná osoba`
-3. plátce DPH může za splnění podmínek řešit i odpočet
+2. poplatek z pobytu a DPH z provizí jsou dvě různé věci
+3. bez dokladů k provizím a poplatkům nejde DPH řešit správně
 
-## Co si ujasnit hned na začátku
+## Proč se DPH vůbec řeší
+
+Airbnb nebo Booking.com vám typicky účtuje provizi nebo servisní poplatek. Z pohledu DPH nejde jen o technický poplatek platformě, ale o přijatou službu ze zahraničí.
+
+Režim se může lišit podle toho, kdo ubytování provozuje:
+
+- u `s.r.o.` se povinnosti řeší v účetnictví firmy
+- u živnosti nebo fyzické osoby se ověřuje režim podle ZDPH, typicky identifikovaná osoba nebo plátcovství
+
+Pokud potřebujete postup posoudit přesně, kontaktujte nás a poradíme vám podle konkrétní situace.
+
+## Doporučení v praxi
+
+Většinou dává smysl nezačínat rovnou jako plátce DPH. Nejdřív si ověřte režim podle ZDPH, často hlavně identifikovanou osobu kvůli službě ze zahraničí.
+
+Pokud se obrat dostává nad hranici 2 mil. Kč, začíná dávat smysl řešit registraci plátce DPH s účetní.
+
+Disclaimer: jde o praktické doporučení, ne pokyn. Každý hostitel jedná na vlastní rozhodnutí a finální postup si má ověřit podle aktuálních pravidel a své situace.
+
+## Nejdřív si určete režim
 
 Nejdřív si ověřte:
 
-- jestli poskytujete `ubytovací službu`
 - jestli jste dnes `neplátce DPH`, `identifikovaná osoba`, nebo `plátce DPH`
 - přes kterou platformu přijímáte rezervace
 - jaké poplatky nebo provize vám platforma účtuje
 - jestli už vám chodí daňové doklady nebo přehledy provizí
 
-## Jak to funguje prakticky
-
-### Krok 1: oddělte daň z příjmů a DPH
-
-U krátkodobého ubytování typicky řešíte dvě různé oblasti:
-
-- `daň z příjmů`
-- `DPH`
-
-Daň z příjmů řeší výdělek z ubytování.
-
-DPH naopak často řeší provizi nebo poplatek, který vám účtuje zahraniční platforma.
-
-### Krok 2: pokud jste neplátce, často řešíte identifikovanou osobu
+## Když nejste plátce DPH
 
 Pokud nejste plátce DPH a přijmete službu od osoby neusazené v tuzemsku, může vám vzniknout povinnost registrace jako `identifikovaná osoba`.
 
-Právě sem často spadají provize a poplatky od Airbnb nebo Booking.com.
+Postup:
 
-### Krok 3: identifikovaná osoba není totéž co plátce DPH
+1. najděte provize a poplatky platformy
+2. ověřte, zda řešíte identifikovanou osobu
+3. registraci řešte včas
+4. přiznávejte DPH z přijaté služby
 
-Tohle je důležité rozlišit:
+Identifikovaná osoba není totéž co plátce DPH a typicky nemá běžný nárok na odpočet DPH na vstupu.
 
-- identifikovaná osoba přiznává DPH z přijatých služeb od zahraniční osoby
-- není to běžný plátce DPH
-- nemá automaticky nárok na odpočet DPH na vstupu
+## Když už jste plátce DPH
 
-### Krok 4: plátce DPH má jiný režim
+Přijatou službu od platformy řešíte také. Za splnění podmínek může připadat v úvahu odpočet, ale to patří k ověření s účetní nebo daňovým poradcem.
 
-Pokud jste už `plátce DPH`, přijatou službu od platformy přiznáváte také.
+## Rychlá kontrola
 
-Rozdíl je v tom, že za splnění zákonných podmínek můžete řešit i `nárok na odpočet`.
-
-### Krok 5: registraci neodkládejte
-
-V praxi není dobré čekat, až se problém objeví při kontrole.
-
-Pokud vám vzniká registrační povinnost, je lepší ji řešit včas.
-
-### Krok 6: mějte evidenci poplatků z platforem
-
-Abyste DPH řešili správně, potřebujete mít přehled o tom, jaké poplatky a provize vám platforma účtuje.
-
-Bez toho nebudete mít správný základ pro daňové řešení.
-
-## Nejčastější situace hostitele
-
-### Neplátce DPH
-
-- u platformy přijímá službu od zahraniční osoby
-- často řeší registraci jako `identifikovaná osoba`
-- přiznává DPH z přijaté služby
-- nemá nárok na odpočet DPH na vstupu
-
-### Plátce DPH
-
-- přiznává DPH z přijaté služby také
-- může při splnění podmínek řešit odpočet
-- musí rozlišovat vlastní ubytovací plnění a platformní poplatky
+- máte doklady nebo přehledy provizí z Airbnb/Bookingu?
+- víte, jestli jste neplátce, identifikovaná osoba, nebo plátce DPH?
+- nezaměňujete poplatek z pobytu, daň z příjmů a DPH?
 
 ## Na co si dát pozor
 
-- neplést si `identifikovanou osobu` s plným plátcovstvím DPH
+- neplést si identifikovanou osobu s plným plátcovstvím DPH
 - neřešit jen `poplatek z pobytu` a zapomenout na DPH z provizí
 - nepředpokládat, že když nejste plátce, DPH se vás netýká vůbec
-- nepočítat automaticky s odpočtem, pokud jste jen identifikovaná osoba
 - nezapomenout, že vedle DPH pořád řešíte i daň z příjmů
-
-## Co z toho plyne pro Superhostem
-
-Tento článek dává smysl jako samostatný legislativní přehled, protože jde o jednu z nejčastějších nejasností hostitelů.
-
-Prakticky navazuje na nastavení nemovitosti, evidenci rezervací a práci s daty z platforem.
 
 ## Ověření a zdroje
 

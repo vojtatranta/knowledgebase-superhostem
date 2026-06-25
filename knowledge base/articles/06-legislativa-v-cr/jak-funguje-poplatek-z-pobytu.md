@@ -1,4 +1,4 @@
-# Jak funguje poplatek z pobytu
+# Jak se zaregistrovat k místnímu poplatku
 
 ## Co tento článek řeší
 

@@ -1,80 +1,55 @@
-# Jak získat a napojit iCal z Airbnb a Bookingu
+# Jak napojit iCal kalendář
 
-## Co tento článek řeší
+## Kdy tento postup použít
 
-Ukazuje, jak v aktuálním flow získat iCal z Airbnb nebo Booking.com, vložit ho do Superhostem a zkontrolovat, že se kalendář správně propsal.
+Použijte ho, když chcete do Superhostem rychle dostat obsazené a blokované termíny z Airbnb, Booking.com, e-Chalup nebo jiného rezervačního portálu.
 
-## Pro koho je článek určen
+## Co iCal přenese
 
-- pro uživatele připojující Airbnb nebo Booking.com
-- pro hostitele, kteří chtějí rozumět synchronizaci kalendářů
+iCal řeší hlavně kalendář:
 
-## Co iCal umí a co ne
+- datum příjezdu a odjezdu
+- obsazené nebo blokované termíny
+- základní identifikaci události
 
-iCal je formát kalendářových dat, přes který lze sdílet informace o rezervovaných a blokovaných termínech mezi různými systémy.
+iCal obvykle nepřenáší cenu, poplatky, provize ani kompletní údaje hosta.
 
-## Co iCal běžně přenáší
+## Postup napojení
 
-Přes iCal se typicky přenáší:
+1. Najděte iCal export ve zdrojovém portálu.
+2. Zkopírujte celý odkaz, ideálně URL končící na `.ics`.
+3. V Superhostem otevřete konkrétní nemovitost.
+4. Vložte iCal URL do části pro kalendáře nebo iCal.
+5. Zdroj pojmenujte, například `Airbnb` nebo `Booking`.
+6. Uložte nastavení.
+7. Zkontrolujte, že se propsaly rezervace nebo blokace.
 
-- datum začátku rezervace
-- datum konce rezervace
-- blokované termíny
-- základní identifikace události
+## Kde odkaz najít
 
-## Co iCal obvykle nepřenáší
+Airbnb:
 
-iCal obvykle neobsahuje detailní finanční informace, například:
+- otevřete `Calendar` u konkrétní nabídky
+- přejděte do `Availability`
+- najděte `Connect calendars`
+- zvolte `Connect to another website`
+- zkopírujte celý iCal odkaz
 
-- cenu rezervace
-- výši poplatků
-- detailní rozpad provizí
-- kompletní údaje o hostovi
+Booking.com:
 
-Proto Superhostem kombinuje kalendářová data s dalšími zdroji, například s email forwardingem.
+- v Extranetu otevřete kalendář správného objektu nebo jednotky
+- najděte `Sync calendars`
+- použijte `Copy link`
+- u více jednotek zkontrolujte, že berete odkaz ke správné jednotce
 
-## Kdy iCal použít
+## Před pokračováním zkontrolujte
 
-iCal dává největší smysl na začátku, když chcete rychle propojit kalendář s nemovitostí a dostat do systému první rezervace nebo blokace termínů.
+- odkaz není zkrácený ani starý
+- u více jednotek párujete správný kalendář ke správné nemovitosti
+- v Superhostem se zobrazily rezervace nebo blokace
+- termíny odpovídají zdrojové platformě
 
-Pokud pak chcete pracovat i s detailnějšími údaji o rezervacích, navazuje na něj email forwarding a automatizace.
+Když se nic nepropsalo, nejdřív zkontrolujte platnost odkazu a správnou jednotku.
 
-## Jak získat iCal z Airbnb
+## Další krok
 
-1. otevřete `Kalendář` na Airbnb
-2. přejděte do části `Availability`
-3. v bloku `Connect calendars` zvolte `Connect to another website`
-4. zkopírujte celý iCal odkaz končící na `.ics`
-
-## Jak získat iCal z Booking.com
-
-1. přihlaste se do Extranetu Booking.com
-2. otevřete `Calendar` nebo `Calendar & Pricing`
-3. přejděte do `Sync calendars`
-4. zvolte `Add calendar connection`
-5. použijte `Copy link` a zkopírujte exportní odkaz pro správnou jednotku
-
-## Jak vložit iCal do Superhostem
-
-1. otevřete detail konkrétní nemovitosti
-2. najděte část pro kalendáře nebo `iCal`
-3. vložte zkopírovanou iCal URL
-4. zdroj si srozumitelně pojmenujte, například `Airbnb` nebo `Booking`
-5. uložte nastavení
-
-## Jak poznat, že napojení funguje
-
-- se zobrazují rezervované nebo blokované termíny
-- data odpovídají zdrojové platformě
-- změny se po čase propisují i do systému
-
-## Na co si dát pozor
-
-- zkopírujte vždy celý iCal odkaz, ne jen jeho část
-- u více jednotek si hlídejte správnou vazbu mezi kalendářem a nemovitostí
-- iCal nepřenáší ceny ani úplné finanční informace
-- pokud se nic nepropsalo, zkontrolujte platnost odkazu a správnou jednotku
-
-## Doporučený další krok
-
-Pokud potřebujete vedle kalendářových dat i detailnější údaje o rezervacích, pokračujte článkem `Jak funguje email forwarding`.
+Po napojení kalendáře pokračujte článkem `Jak automatizovat komunikaci s hosty`.

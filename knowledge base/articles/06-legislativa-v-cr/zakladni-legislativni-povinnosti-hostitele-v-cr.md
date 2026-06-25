@@ -1,45 +1,38 @@
 # Základní legislativní povinnosti hostitele v ČR
 
-## Co tento článek řeší
+## Kdy tento článek použít
 
-Dává začínajícímu hostiteli základní přehled o tom, jaké oblasti je potřeba v České republice řešit při poskytování krátkodobého ubytování.
+Použijte ho jako rychlý rozcestník před založením nebo nastavováním nemovitosti v Superhostem.
 
-## Pro koho je článek určen
+Nejde o právní ani daňové poradenství. Konkrétní pravidla si vždy ověřte podle své obce a situace.
 
-- pro začínající hostitele
-- pro uživatele, kteří chtějí rychlý přehled legislativního minima
+## Vyberte svou situaci
 
-## Důležitá poznámka
+### Ještě nemám registrace
 
-Tento článek slouží jako praktický orientační přehled.
+Začněte těmito kroky:
 
-Nejde o právní ani daňové poradenství. U konkrétní situace je vhodné pracovat i s oficiálními zdroji nebo odborníkem.
+1. registrace k místnímu poplatku z pobytu
+2. Ubyport a IDUB
+3. evidence hostů a pobytů
+4. daňové povinnosti u Airbnb a Booking.com
 
-## Jaké oblasti hostitel typicky řeší
+Navazující návody:
 
-V praxi se nejčastěji objevují tyto okruhy:
+- `Jak funguje poplatek z pobytu`
+- `Jak se zaregistrovat do Ubyportu`
+- `Proč vést evidenci hostů a pobytů`
+- `Jak řešit DPH u Airbnb a Bookingu`
 
-- evidence hostů
-- poplatek z pobytu
-- hlášení cizinců
-- daňové a registrační povinnosti
-- případné otázky kolem provozovny nebo podnikání
+### Registrace už mám
 
-## Proč je dobré mít přehled od začátku
+Zkontrolujte, že máte po ruce:
 
-Pokud hostitel řeší povinnosti až ve chvíli, kdy nastane problém, bývá to zbytečně stresující.
+- variabilní symbol, platební údaje a termíny pro poplatek z pobytu
+- IDUB a případně údaje pro webové služby Ubyportu
+- postup pro sběr údajů hostů a pobytů
+- ověřené daňové povinnosti u provizí platforem
 
-Základní přehled pomůže nastavit provoz správně už od začátku.
+## Další krok
 
-## Jak k tomu přistoupit prakticky
-
-Doporučený postup je:
-
-1. ujasnit si, jaký typ provozu vlastně provozujete
-2. zjistit základní lokální a státní povinnosti
-3. nastavit si evidenci hostů a rezervací
-4. průběžně kontrolovat, zda se pravidla nezměnila
-
-## Doporučený další krok
-
-Pokračujte článkem `Jak funguje poplatek z pobytu`.
+Až máte právní náležitosti a registrace ověřené, pokračujte článkem `Jak přidat novou nemovitost`.

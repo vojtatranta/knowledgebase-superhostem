@@ -1,21 +1,6 @@
 # Jak se zaregistrovat do Ubyportu
 
-## Co tento článek řeší
-
-Pomáhá vyřešit registraci do Ubyportu a získání údajů, které jsou potřeba pro návaznost na hlášení hostů v Superhostem.
-
-## Pro koho je článek určen
-
-- pro hostitele, kteří ještě nemají `IDUB`
-- pro uživatele, kteří mají běžný přístup do Ubyportu, ale chybí jim údaje pro webové služby
-
-## Kdy tenhle návod použít
-
-Tento článek dává smysl ve chvíli, kdy nastavujete první nemovitost a v části `Ubyport` vám chybí přihlašovací údaje.
-
-Bez nich sice můžete mít nemovitost založenou, ale nebude kompletně připravená pro návaznost na hlášení hostů.
-
-## Nejdřív si ujasněte, v jaké jste situaci
+## Vyberte svou situaci
 
 Může nastat jedna ze dvou nejčastějších variant:
 
@@ -24,60 +9,37 @@ Může nastat jedna ze dvou nejčastějších variant:
 
 ## Když ještě nemáte registraci
 
-### Krok 1: otevřete oficiální portál Ubyport
+Postup držte krátce:
 
-Na portálu cizinecké policie otevřete Ubyport a zvolte žádost o registraci nového ubytovacího zařízení.
+1. vyplňte žádost na portálu Ubyport
+2. zkontrolujte adresu, email a údaje provozovatele
+3. požádejte i o účet pro webové služby
+4. vygenerujte PDF a odešlete ho oficiální cestou
+5. po přidělení uložte přístupy do Superhostem
 
-## Krok 2: vyplňte registrační formulář
+Důležité: běžný účet do Ubyportu nestačí. Pro Superhostem potřebujete také účet pro robotické zasílání dat.
 
-Vyplňte povinné údaje o sobě a o ubytovacím zařízení.
-
-Důležité je zkontrolovat hlavně:
-
-- správnou adresu nemovitosti
-- kontaktní email
-- údaje o provozovateli
-
-## Krok 3: požádejte i o údaje pro webové služby
-
-Pro propojení se Superhostem nestačí běžná registrace.
-
-Potřebujete také údaje pro `webové služby`, tedy účet určený pro automatizované vkládání dat.
-
-## Krok 4: vygenerujte PDF a odešlete žádost oficiální cestou
-
-Po vyplnění formuláře si stáhněte PDF a odešlete ho na Ředitelství služby cizinecké policie některou z oficiálních cest:
-
-- datovou schránkou na `ybndqw9`
-- elektronicky podepsaným e-mailem na `reguby@pcr.cz`
-- doporučeně poštou na adresu Ředitelství služby cizinecké policie, Praha 3, Olšanská 2, PSČ 130 51
-- osobně na ŘSCP, Praha 3, Olšanská 2, vchod A
-
-Pokud provozujete více adres, registrace se řeší po jednotlivých adresách.
-
-## Krok 5: vyčkejte na přidělení údajů
-
-Po zpracování vám cizinecká policie zašle protokol s přihlašovacími údaji.
-
-Podle oficiálního návodu může vyřízení trvat až `30 dní`.
-
-## Krok 6: uložte údaje do Superhostem
-
-Jakmile údaje dostanete, doplňte je do nastavení konkrétní nemovitosti.
-
-Pro automatizované napojení jsou důležité především údaje pro webové služby.
+Nejjednodušší cesta odeslání je datová schránka na `ybndqw9`. Vyřízení může trvat až `30 dní`.
 
 ## Když už registraci máte
 
-Pokud už je ubytovací zařízení registrované, zkontrolujte nejdřív, jestli máte opravdu údaje pro `webové služby`.
+Běžné přihlášení do Ubyportu pro propojení se Superhostem nestačí. Pokud nemáte údaje pro webové služby, požádejte cizineckou policii o jejich vytvoření a uveďte své `IDUB`.
 
-Běžné přihlášení do Ubyportu pro propojení se Superhostem nestačí.
+### Vzor textu do datové zprávy
 
-Pokud je nemáte, obvykle je potřeba požádat cizineckou policii o jejich vytvoření a uvést své `IDUB`.
+```text
+Dobrý den,
+mám registrované ubytovací zařízení s IDUB: [vaše IDUB].
+
+Prosím o vytvoření účtu pro robotické zasílání dat pro program superhostem.cz (Superhostem s.r.o.).
+
+Děkuji.
+```
+
+Postup: máte registraci a IDUB -> pošlete žádost datovou schránkou -> dostanete údaje pro webové služby -> uložíte je do nastavení nemovitosti.
 
 ## Na co si dát pozor
 
-- běžné přihlášení do Ubyportu nestačí, pokud chcete systém napojit automatizovaně
 - registrace se řeší podle adresy konkrétního ubytovacího zařízení
 - pokud máte více adres, musíte počítat s více registracemi
 - kontaktní email musí být správně, protože na něj dorazí přístupové údaje

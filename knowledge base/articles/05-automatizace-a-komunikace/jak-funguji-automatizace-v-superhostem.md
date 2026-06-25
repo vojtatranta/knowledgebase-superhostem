@@ -1,84 +1,50 @@
-# Jak automatizovat komunikace s hosty
+# Jak automatizovat komunikaci s hosty
 
-## Co tento článek řeší
+## Kdy tento postup použít
 
-Ukazuje, jak v aktuálním Superhostem připravit odkaz pro hosty a napojit ho na automatické zprávy v Airbnb nebo Booking.com tak, aby host dostal správný formulář ve správný čas.
+Použijte ho, když chcete hostům před příjezdem automaticky posílat odkaz na formulář nebo guestbook. Cíl je jednoduchý: host dostane správný odkaz ve správný čas a vy ho neposíláte ručně u každé rezervace.
 
-## Pro koho je článek určen
+## Nastavte jen jednu věc
 
-- pro hostitele, kteří chtějí omezit ruční posílání formulářů a zpráv
-- pro uživatele nastavující první automatizaci pro konkrétní nemovitost
+Na začátek neautomatizujte všechno. Stačí jedna zpráva před příjezdem.
 
-## Co si připravit předem
+Postup:
 
-Než začnete, připravte si:
+1. v Superhostem otevřete konkrétní nemovitost
+2. přejděte do části `Automatizace`
+3. zkopírujte odkaz pro hosty
+4. nastavte, kolik dní před příjezdem má být rezervace přes odkaz dostupná
+5. stejný počet dní nastavte v automatické zprávě v Airbnb nebo Booking.com
 
-- konkrétní nemovitost založenou v Superhostem
-- odkaz pro hosty nebo permalink, který se má ve zprávě posílat
-- jasno, jestli budete šablonu nastavovat v `Airbnb`, nebo v `Booking.com`
+## Kam odkaz vložit
 
-## Kde v Superhostem začít
+Airbnb:
 
-V detailu konkrétní nemovitosti otevřete část `Automatizace`.
+- otevřete `Zprávy`
+- přejděte do nastavení zpráv nebo rychlých odpovědí
+- vytvořte automatickou zprávu
+- vložte odkaz ze Superhostem
+- přiřaďte zprávu ke správné nabídce
 
-Právě tam najdete:
+Booking.com:
 
-- odkaz pro hosty
-- nastavení, kolik dní dopředu má být rezervace přes tento odkaz hostům dostupná
+- v Extranetu otevřete `Nastavení zpráv`
+- vytvořte šablonu zprávy
+- vložte odkaz ze Superhostem
+- naplánujte odeslání před příjezdem
+- pokud máte více jednotek, zkontrolujte správnou jednotku
 
-Je důležité to uložit ještě předtím, než budete vytvářet automatickou zprávu v OTA platformě.
+## Před uložením zkontrolujte
 
-## Co je potřeba hlídat
+- odkaz patří ke správné nemovitosti nebo jednotce
+- šablona je přiřazená ke správné nabídce
+- čas odeslání odpovídá počtu dní nastavenému v Superhostem
+- text hostovi jasně říká, co má po kliknutí udělat
 
-Čas odeslání v OTA musí sedět s tím, kolik dní dopředu máte nastaveno v Superhostem.
+U krátkých pobytů a last minute rezervací testujte hlavně načasování. Zpráva musí odejít ve chvíli, kdy už je rezervace přes odkaz dostupná.
 
-Pokud nastavíte jiný počet dní v aplikaci a jiný počet dní v OTA, host po kliknutí nemusí vidět správnou rezervaci.
+## Další krok
 
-## Nastavení v Airbnb
+Pokud automatizace posílá formulář nebo guestbook, navazuje na ni článek `Jak vést evidenci hostů a pobytů v Superhostem`.
 
-1. v Airbnb otevřete `Zprávy`
-2. přes ozubené kolečko přejděte do `Nastavení zpráv`
-3. otevřete `Správa rychlých odpovědí`
-4. vytvořte novou šablonu nebo automatickou zprávu
-5. vložte text zprávy a odkaz z části `Automatizace` v Superhostem
-6. zkontrolujte, že šablona je přiřazená jen k jedné správné nabídce
-7. nastavte správný čas odeslání, například `3 dny před příjezdem`
-
-## Nastavení v Booking.com
-
-1. v Extranetu otevřete `Ubytovací zařízení`
-2. přejděte do `Nastavení zpráv`
-3. v části `Šablony zpráv` vytvořte novou šablonu
-4. vložte odkaz z Superhostem
-5. pojmenujte šablonu a zvolte vhodné téma zprávy
-6. naplánujte odeslání šablony
-7. slaďte počet dní před příjezdem s nastavením v části `Automatizace` v Superhostem
-
-## Jak poznáte, že je automatizace nastavená správně
-
-- ve zprávě je správný odkaz pro konkrétní nemovitost
-- šablona je navázaná na správnou nabídku nebo jednotku
-- čas odeslání v OTA odpovídá počtu dní nastavených v Superhostem
-- host po kliknutí na odkaz vidí svou rezervaci
-
-## Doporučené základní workflow
-
-Na začátku dává smysl držet jednoduchou posloupnost:
-
-1. zpráva po rezervaci
-2. zpráva před příjezdem s formulářem nebo guestbookem
-3. instrukce k pobytu
-4. zpráva po odjezdu
-
-## Nejčastější chyby
-
-- do zprávy je vložený špatný nebo starý odkaz
-- jedna šablona je omylem přiřazená k více nabídkám
-- počet dní v OTA nesedí s nastavením v Superhostem
-- u Booking.com je použitý odkaz pro jinou jednotku než pro konkrétní rezervaci
-
-## Doporučený další krok
-
-Pokud chcete držet celý postup na jednom místě, berte tento článek jako hlavní návod pro automatizaci i základní komunikační workflow.
-
-Na měsíční provoz v aplikaci pak navazuje článek `Jak měsíčně zpracovat poplatky obci v Superhostem`.
+Pro měsíční provoz pokračujte článkem `Jak měsíčně zpracovat poplatky obci v Superhostem`.
