@@ -113,11 +113,7 @@ jobs:
           EOF
 
           # robots.txt
-          cat > _site/knowledge-base/robots.txt <<'EOF'
-          User-agent: *
-          Allow: /
-          Sitemap: https://knowledgebase.superhostem.cz/knowledge-base/sitemap.xml
-          EOF
+          printf 'User-agent: *\nAllow: /\nSitemap: https://knowledgebase.superhostem.cz/sitemap.xml\n' > _site/robots.txt
 
           # sitemap.xml — generated from all HTML pages
           SITE="https://knowledgebase.superhostem.cz"
@@ -151,7 +147,7 @@ jobs:
               echo "  </url>"
             done
             echo '</urlset>'
-          } > _site/knowledge-base/sitemap.xml
+          } > _site/sitemap.xml
 
           # 404.html: catch-all redirect for any URL missing /knowledge-base prefix
           cat > _site/404.html <<'EOF'
@@ -168,6 +164,9 @@ jobs:
                 if (path.indexOf('/knowledge-base/') === -1 && path.indexOf('/html/') !== -1) {
                   var fixed = path.replace('/html/', '/knowledge-base/html/');
                   window.location.replace(fixed + window.location.search + window.location.hash);
+                } else if (path === '/sitemap.xml' || path === '/robots.txt') {
+                  // These are real files — do not redirect, just stop
+                  document.title = '404 - Not Found';
                 } else {
                   // Not a fixable URL — redirect to homepage
                   window.location.replace('/knowledge-base/html/index.html');
