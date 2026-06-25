@@ -46,6 +46,10 @@ for file in html_files:
     text = content_only(file.read_text(encoding="utf-8"))
     local_links = re.findall(r'href="\./([^"]+\.html)"', text)
     for target in local_links:
+        if "/" in target:
+            # Skip subfolder links (e.g. en/, vn/) — language switcher links
+            # are not expected to be listed in the root index.html
+            continue
         target_path = kb_dir / target
         if not target_path.exists():
             broken_targets.append((file.name, target, "missing file"))
