@@ -109,37 +109,31 @@ jobs:
           </html>
           EOF
 
-          # Generate /html/<page> -> /knowledge-base/html/<page> redirect stubs
-          # so that old /html/ URLs don't 404 on GitHub Pages
-          mkdir -p _site/html/en _site/html/vn
-          make_redirect() {
-            local dest="$1"
-            local out="$2"
-            cat > "$out" <<HTMLEOF
+          # 404.html: catch-all redirect for any URL missing /knowledge-base prefix
+          cat > _site/404.html <<'EOF'
           <!DOCTYPE html>
           <html lang="cs">
           <head>
             <meta charset="UTF-8">
-            <meta http-equiv="refresh" content="0; url=${dest}">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Přesměrování…</title>
-            <script>window.location.replace("${dest}");</script>
+            <script>
+              (function () {
+                var path = window.location.pathname;
+                // If the URL contains /html/ but not /knowledge-base/html/, fix it
+                if (path.indexOf('/knowledge-base/') === -1 && path.indexOf('/html/') !== -1) {
+                  var fixed = path.replace('/html/', '/knowledge-base/html/');
+                  window.location.replace(fixed + window.location.search + window.location.hash);
+                } else {
+                  // Not a fixable URL — redirect to homepage
+                  window.location.replace('/knowledge-base/html/index.html');
+                }
+              })();
+            </script>
           </head>
           <body></body>
           </html>
-          HTMLEOF
-          }
-          for f in "knowledge base/html/"*.html; do
-            name="$(basename "$f")"
-            make_redirect "/knowledge-base/html/${name}" "_site/html/${name}"
-          done
-          for f in "knowledge base/html/en/"*.html; do
-            name="$(basename "$f")"
-            make_redirect "/knowledge-base/html/en/${name}" "_site/html/en/${name}"
-          done
-          for f in "knowledge base/html/vn/"*.html; do
-            name="$(basename "$f")"
-            make_redirect "/knowledge-base/html/vn/${name}" "_site/html/vn/${name}"
-          done
+          EOF
 
           touch _site/.nojekyll
 
