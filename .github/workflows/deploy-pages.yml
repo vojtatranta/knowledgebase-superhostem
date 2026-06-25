@@ -160,17 +160,15 @@ jobs:
             <script>
               (function () {
                 var path = window.location.pathname;
-                // If the URL contains /html/ but not /knowledge-base/html/, fix it
+                // Only attempt redirect for .html pages missing /knowledge-base/
                 if (path.indexOf('/knowledge-base/') === -1 && path.indexOf('/html/') !== -1) {
                   var fixed = path.replace('/html/', '/knowledge-base/html/');
                   window.location.replace(fixed + window.location.search + window.location.hash);
-                } else if (path === '/sitemap.xml' || path === '/robots.txt') {
-                  // These are real files — do not redirect, just stop
-                  document.title = '404 - Not Found';
-                } else {
-                  // Not a fixable URL — redirect to homepage
+                } else if (path.match(/\.html$/)) {
+                  // Looks like an HTML page but unknown path — go to homepage
                   window.location.replace('/knowledge-base/html/index.html');
                 }
+                // Anything else (sitemap.xml, robots.txt, assets, etc.) — do nothing, show 404
               })();
             </script>
           </head>
