@@ -115,7 +115,8 @@ jobs:
           # robots.txt
           printf 'User-agent: *\nAllow: /\nSitemap: https://knowledgebase.superhostem.cz/sitemap.xml\n' > _site/robots.txt
 
-          # sitemap.xml — copy static sitemap from repo root
+          # sitemap.xml — regenerate from repo and copy to _site
+          python3 scripts/generate-sitemap.py
           cp sitemap.xml _site/sitemap.xml
 
           # 404.html: catch-all redirect for any URL missing /knowledge-base prefix
