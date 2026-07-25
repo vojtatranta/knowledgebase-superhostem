@@ -2,14 +2,17 @@
 
 ## Project
 
-This repo is `superhostem-KB`, a static knowledge base for Superhostem.
+This repo is `vojtatranta/knowledgebase-superhostem`, the canonical static knowledge base for Superhostem.
 
 - Main content lives in `knowledge base/`.
 - Public-compatible alias `knowledge-base` points to `knowledge base`.
 - HTML output lives in `knowledge base/html/`.
 - Shared CSS: `knowledge base/assets/superhostem.css`.
 - Shared JS: `knowledge base/assets/kb-navigation.js`.
-- Remote: `https://github.com/yun0de/superhostem-KB`.
+- Canonical remote: `https://github.com/vojtatranta/knowledgebase-superhostem`.
+- Production: `https://knowledgebase.superhostem.cz`.
+
+The former `yun0de/superhostem-KB` repository is legacy. Never use it as the publishing target.
 
 ## Local Preview
 
@@ -56,6 +59,12 @@ Known issue:
 - `scripts/check-kb-index-consistency.sh` may still fail because EN/VN articles are not all linked from public indexes.
 
 ## Git Notes
+
+Before publishing, verify the canonical remote:
+
+```sh
+git remote get-url origin
+```
 
 Git remote push can succeed while local `origin/main` ref update fails with:
 
