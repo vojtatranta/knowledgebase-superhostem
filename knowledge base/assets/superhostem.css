@@ -4178,17 +4178,17 @@ section {
   font-weight: 950;
 }
 
-.kb-ubyport-flow-step strong,
-.kb-ubyport-flow-step span {
+.kb-ubyport-flow-step > div > strong,
+.kb-ubyport-flow-step > div > span {
   display: block;
 }
 
-.kb-ubyport-flow-step strong {
+.kb-ubyport-flow-step > div > strong {
   color: hsl(var(--foreground));
   font-size: 0.95rem;
 }
 
-.kb-ubyport-flow-step span {
+.kb-ubyport-flow-step > div > span {
   margin-top: 3px;
   color: hsl(var(--muted-foreground));
   font-size: 0.88rem;
