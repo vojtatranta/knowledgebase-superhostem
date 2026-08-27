@@ -88,13 +88,13 @@ def main() -> None:
         lines.append(f"    <lastmod>{lastmod}</lastmod>")
         lines.append("    <changefreq>weekly</changefreq>")
 
-        for lang in ["cs", "en", "vn"]:
+        for lang, hreflang in [("cs", "cs"), ("en", "en"), ("vn", "vi")]:
             if lang not in lang_files:
                 continue
             lang_rel = lang_files[lang].relative_to(KB_DIR).as_posix()
             href = f"{SITE}{url_path_from_file(lang_rel)}"
             lines.append(
-                f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{href}" />'
+                f'    <xhtml:link rel="alternate" hreflang="{hreflang}" href="{href}" />'
             )
 
         lines.append("  </url>")
