@@ -19,7 +19,7 @@ def collect_html_files():
     return sorted(KB_DIR.glob("html/*.html")) + sorted(KB_DIR.glob("html/en/*.html")) + sorted(KB_DIR.glob("html/vn/*.html"))
 
 
-def get_lastmod(file_path: Path) -> str:
+def get_lastmod(file_path: Path):
     """Return the date of the last committed change to this source file.
 
     Filesystem mtimes are not reliable in CI: a fresh checkout would make every
@@ -35,9 +35,10 @@ def get_lastmod(file_path: Path) -> str:
         check=False,
     )
     date = result.stdout.strip()
-    if not date:
-        raise RuntimeError(f"Could not determine last modification date for {file_path}")
-    return date
+    # A shallow CI checkout may not contain the commit that last changed an
+    # untouched file. Omitting lastmod is more truthful than using the checkout
+    # time; Google accepts sitemap entries without this optional field.
+    return date or None
 
 
 def lang_from_rel_path(rel_path: str) -> str:
@@ -77,7 +78,9 @@ def main() -> None:
             rel_path = lang_file.relative_to(KB_DIR).as_posix()
             lines.append("  <url>")
             lines.append(f"    <loc>{SITE}{url_path_from_file(rel_path)}</loc>")
-            lines.append(f"    <lastmod>{get_lastmod(lang_file)}</lastmod>")
+            lastmod = get_lastmod(lang_file)
+            if lastmod:
+                lines.append(f"    <lastmod>{lastmod}</lastmod>")
             lines.append("    <changefreq>weekly</changefreq>")
             for hreflang, href in alternates:
                 lines.append(f'    <xhtml:link rel="alternate" hreflang="{hreflang}" href="{href}" />')
