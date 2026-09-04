@@ -7,6 +7,7 @@ Uses only the Python standard library so it can run locally and in CI:
 
 import argparse
 import sys
+import time
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from html.parser import HTMLParser
@@ -66,14 +67,19 @@ class PageParser(HTMLParser):
 
 
 def fetch(url, timeout):
-    request = Request(url, headers={"User-Agent": USER_AGENT})
-    try:
-        response = build_opener(NoRedirect).open(request, timeout=timeout)
-        return response.status, dict(response.headers.items()), response.read().decode("utf-8", "replace")
-    except HTTPError as error:
-        return error.code, dict(error.headers.items()), error.read().decode("utf-8", "replace")
-    except URLError as error:
-        return 0, {}, str(error.reason)
+    last_error = None
+    for attempt in range(3):
+        request = Request(url, headers={"User-Agent": USER_AGENT})
+        try:
+            response = build_opener(NoRedirect).open(request, timeout=timeout)
+            return response.status, dict(response.headers.items()), response.read().decode("utf-8", "replace")
+        except HTTPError as error:
+            return error.code, dict(error.headers.items()), error.read().decode("utf-8", "replace")
+        except (URLError, OSError) as error:
+            last_error = error
+            if attempt < 2:
+                time.sleep(0.5)
+    return 0, {}, str(last_error)
 
 
 def normalized(url):
