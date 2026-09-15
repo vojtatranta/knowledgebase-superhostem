@@ -30,9 +30,11 @@ Typicky jde například o:
 2. v levém menu otevřete `Přehled`
 3. najděte blok `Automatické přeposílání emailů`
 4. zkopírujte zobrazenou přeposílací adresu
-5. otevřete svůj email, kde dostáváte Airbnb potvrzení rezervací
-6. nastavte automatické přeposílání emailů z Airbnb na tuto adresu
-7. pošlete si jeden potvrzovací email jako test a ověřte, že se data v Superhostem doplnila správně
+5. vyberte platformu `Airbnb` nebo `Booking.com`
+6. otevřete svůj email, kam vám chodí potvrzení rezervací z vybrané platformy
+7. nastavte automatické přeposílání na adresu ze Superhostem
+8. v Gmailu pro Booking.com vytvořte filtr s podmínkou `Od: @booking.com`; pro Airbnb filtrujte potvrzovací emaily Airbnb
+9. pošlete si jeden potvrzovací email jako test a ověřte, že se data v Superhostem doplnila správně
 
 ## Návody přímo v aplikaci
 
@@ -43,7 +45,8 @@ V bloku pro forwarding najdete i rychlé návody pro nejběžnější emailové 
 
 ## Co je dobré si pohlídat
 
-- aby se přeposílaly opravdu potvrzovací emaily k rezervacím z Airbnb
+- aby se přeposílaly opravdu potvrzovací emaily k rezervacím z Airbnb nebo Booking.com
+- aby Booking.com filtr v Gmailu obsahoval v poli `Od` přesně `@booking.com`
 - aby byla použitá přesně ta přeposílací adresa, kterou vidíte ve svém účtu
 - abyste po nastavení provedli alespoň jeden test
 
